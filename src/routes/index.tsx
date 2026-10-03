@@ -263,12 +263,12 @@ function Index() {
             En Instagram
           </h2>
           <a
-            href="https://www.instagram.com/noralma.psico"
+            href="https://www.instagram.com/noralma.psicologia"
             target="_blank"
             rel="noreferrer"
             className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
           >
-            @noralma.psico →
+            @noralma.psicologia →
           </a>
         </div>
         <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
@@ -278,7 +278,7 @@ function Index() {
           {instagramPosts.map((post) => (
             <a
               key={post.caption}
-              href="https://www.instagram.com/noralma.psico"
+              href="https://www.instagram.com/noralma.psicologia"
               target="_blank"
               rel="noreferrer"
               className="group block"
