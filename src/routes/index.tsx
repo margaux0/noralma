@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 const heroNora = heroNoraAsset.url;
 import guiaCuaderno from "@/assets/guia-cuaderno.jpg";
 import guiaAnsiedad from "@/assets/guia-ansiedad.jpg";
