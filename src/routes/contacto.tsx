@@ -87,12 +87,12 @@ function ContactoPage() {
             Escribir por WhatsApp
           </a>
           <a
-            href="https://www.instagram.com/noralma.psico"
+            href="https://www.instagram.com/noralma.psicologia"
             target="_blank"
             rel="noreferrer"
             className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
           >
-            @noralma.psico
+            @noralma.psicologia
           </a>
         </div>
       </div>

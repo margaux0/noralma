@@ -14,7 +14,7 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-foreground/70">
           <a
-            href="https://www.instagram.com/noralma.psico"
+            href="https://www.instagram.com/noralma.psicologia"
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-primary"
