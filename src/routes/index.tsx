@@ -122,6 +122,7 @@ function Index() {
             alt="Nora, psicóloga, en su consulta"
             width={912}
             height={1104}
+            style={{ objectPosition: "center 72%" }}
             className="aspect-[4/5] w-full rounded-3xl object-cover ring-1 ring-foreground/5"
           />
         </div>
