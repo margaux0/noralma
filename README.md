@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Noralma: Tu Espacio Psicológico
+
+I am a psychologist and I want to create my first website. My name is Nora and my psychology brancd name is Noralma. I want the website in Spanish. here is a link tree for my contents inlcuding my instagram: https://linktr.ee/noralma.psico. The site should include an introduction page (probably home), a blog where I can post things, a section with my 3 latest instagram posts (connected automatically), a contact me form, a services page (I will define my services later)
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://noralma.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ddaa17a6-5ade-476b-adf2-37fc3e60518e).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
