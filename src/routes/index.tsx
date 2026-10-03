@@ -196,7 +196,7 @@ function Index() {
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-foreground/65">{g.text}</p>
                 <a
-                  href="https://linktr.ee/noralma.psico"
+                  href={g.href}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-3 inline-block rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
