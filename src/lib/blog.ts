@@ -21,8 +21,8 @@ const coverMap: Record<string, string> = {
 };
 
 export function coverFor(post: Pick<BlogPost, "cover_image">): string {
-  if (post.cover_image && coverMap[post.cover_image]) return coverMap[post.cover_image];
-  return blogDescansar;
+  const cover = post.cover_image ? coverMap[post.cover_image] : undefined;
+  return cover ?? blogDescansar;
 }
 
 export async function fetchPosts(): Promise<BlogPost[]> {
