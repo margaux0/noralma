@@ -54,16 +54,19 @@ const guias = [
     img: guiaCuaderno,
     title: "Cuaderno de Estimulación Cognitiva",
     text: "Ejercicios suaves para cuidar tu mente.",
+    href: "https://drive.google.com/file/d/1Gy1gyvY84VNbBcx-tCfK0QnoDoQUk4GP/view?usp=drivesdk",
   },
   {
     img: guiaAnsiedad,
     title: "Cómo gestionar la Ansiedad",
     text: "Pasos concretos para bajar el ruido mental.",
+    href: "https://drive.google.com/file/d/1GFjKAurQ_GZ1Nqb4JXUtRAzi7r5cxBmL/view?usp=drivesdk",
   },
   {
     img: guiaAutocuidado,
     title: "Guía de Autocuidado",
     text: "Pequeñas rutinas para cuidarte sin agobiarte.",
+    href: "https://drive.google.com/file/d/1NcGFcwPTquQt3K88Ga_R6JlISr7VEMfo/view?usp=drivesdk",
   },
 ];
 
@@ -193,7 +196,7 @@ function Index() {
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-foreground/65">{g.text}</p>
                 <a
-                  href="https://linktr.ee/noralma.psico"
+                  href={g.href}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-3 inline-block rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
