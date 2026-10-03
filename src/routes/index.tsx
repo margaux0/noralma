@@ -54,16 +54,19 @@ const guias = [
     img: guiaCuaderno,
     title: "Cuaderno de Estimulación Cognitiva",
     text: "Ejercicios suaves para cuidar tu mente.",
+    href: "https://drive.google.com/file/d/1Gy1gyvY84VNbBcx-tCfK0QnoDoQUk4GP/view?usp=drivesdk",
   },
   {
     img: guiaAnsiedad,
     title: "Cómo gestionar la Ansiedad",
     text: "Pasos concretos para bajar el ruido mental.",
+    href: "https://drive.google.com/file/d/1GFjKAurQ_GZ1Nqb4JXUtRAzi7r5cxBmL/view?usp=drivesdk",
   },
   {
     img: guiaAutocuidado,
     title: "Guía de Autocuidado",
     text: "Pequeñas rutinas para cuidarte sin agobiarte.",
+    href: "https://drive.google.com/file/d/1NcGFcwPTquQt3K88Ga_R6JlISr7VEMfo/view?usp=drivesdk",
   },
 ];
 
