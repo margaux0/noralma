@@ -10,14 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as EscribirRouteImport } from './routes/escribir'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -28,6 +35,11 @@ const BlogRoute = BlogRouteImport.update({
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscribirRoute = EscribirRouteImport.update({
+  id: '/escribir',
+  path: '/escribir',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiciosRoute = ServiciosRouteImport.update({
@@ -43,38 +55,68 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/contacto' | '/servicios' | '/blog/$slug'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/blog'
+    | '/contacto'
+    | '/escribir'
+    | '/servicios'
+    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/contacto' | '/servicios' | '/blog/$slug'
-  id: '__root__' | '/' | '/blog' | '/contacto' | '/servicios' | '/blog/$slug'
+  to:
+    | '/'
+    | '/auth'
+    | '/blog'
+    | '/contacto'
+    | '/escribir'
+    | '/servicios'
+    | '/blog/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/blog'
+    | '/contacto'
+    | '/escribir'
+    | '/servicios'
+    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactoRoute: typeof ContactoRoute
+  EscribirRoute: typeof EscribirRoute
   ServiciosRoute: typeof ServiciosRoute
 }
 
@@ -85,6 +127,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -99,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/contacto'
       fullPath: '/contacto'
       preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escribir': {
+      id: '/escribir'
+      path: '/escribir'
+      fullPath: '/escribir'
+      preLoaderRoute: typeof EscribirRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servicios': {
@@ -130,8 +186,10 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactoRoute: ContactoRoute,
+  EscribirRoute: EscribirRoute,
   ServiciosRoute: ServiciosRoute,
 }
 export const routeTree = rootRouteImport
