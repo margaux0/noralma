@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Un espacio cálido para acercarte un poco más a ti, a tu ritmo, sin prisa y sin juicios.",
+          "A construir una relación contigo misma desde la que puedas entenderte, aceptarte y vivir de una forma que tenga sentido para ti.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
