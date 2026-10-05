@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Noralma es el espacio de Nora, psicóloga. ¿Cuánto de ti hay en la vida que estás viviendo?",
+          "Noralma es el espacio de Nora, psicóloga. Mi propósito es acompañarte a sentirte bien contigo.",
       },
       { property: "og:title", content: "Noralma · Nora, psicóloga" },
       {

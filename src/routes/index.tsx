@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "¿Cuánto de ti hay en la vida que estás viviendo? Noralma es el espacio de Nora, psicóloga: sesiones, guías gratuitas y un blog para acercarte a ti.",
+          "Mi propósito es acompañarte a sentirte bien contigo. Noralma es el espacio de Nora, psicóloga: sesiones, guías gratuitas y un blog para acompañarte en tu camino.",
       },
       { property: "og:title", content: "Noralma · Nora, psicóloga" },
       {
@@ -98,14 +98,11 @@ function Index() {
             Nora · Psicóloga
           </p>
           <h1 className="mt-5 font-display text-4xl font-medium leading-tight text-balance md:text-6xl">
-            ¿Cuánto de ti hay en la vida que estás viviendo?
-            <span className="mt-2 block">
-              Quizás esta pregunta te incomoda un poco.
-            </span>
+            Mi propósito es acompañarte a sentirte bien contigo.
           </h1>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-foreground/70 text-pretty">
-            Gracias por estar aquí. Noralma es un espacio cálido para acercarte un poco
-            más a ti, a tu ritmo, sin prisa y sin juicios.
+            A construir una relación contigo misma desde la que puedas entenderte, aceptarte
+            y vivir de una forma que tenga sentido para ti.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -131,6 +128,40 @@ function Index() {
             style={{ objectPosition: "center 72%" }}
             className="aspect-[4/5] w-full rounded-3xl object-cover ring-1 ring-foreground/5"
           />
+        </div>
+      </section>
+
+      {/* Propósito */}
+      <section className="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
+        <div className="max-w-2xl">
+          <p className="font-display text-2xl font-medium leading-snug text-foreground text-pretty md:text-3xl">
+            Para mí, gran parte de este proceso tiene que ver con una pregunta que parece
+            sencilla, pero que puede acompañarnos durante toda la vida:{" "}
+            <span className="text-primary">¿Quién soy yo?</span>
+          </p>
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
+            <p>
+              No creo que exista una respuesta definitiva. Nuestra identidad no es algo que
+              encontramos y dejamos quieto: cambia con lo que vivimos, con las personas que
+              conocemos, con nuestras decisiones, nuestras pérdidas y nuestros vínculos.
+            </p>
+            <p>
+              No llegamos a una versión final de quienes somos. Estamos en constante
+              movimiento. Y creo que ahí está una de las partes más bonitas de la vida:
+              poder seguir descubriéndonos, cuestionarnos, cambiar de dirección y
+              permitirnos ser diferentes a quienes fuimos.
+            </p>
+            <p>
+              En terapia, iremos dando espacio a todo ello para preguntarnos:{" "}
+              <span className="font-semibold text-foreground">
+                ¿Esto me acerca a mí o me aleja de mí?
+              </span>
+            </p>
+          </div>
+          <p className="mt-10 font-display text-xl font-medium leading-snug text-primary text-pretty md:text-2xl">
+            “Estoy aquí. Me estoy escuchando. Y esta vida se parece cada vez un poco más
+            a mí.”
+          </p>
         </div>
       </section>
 
