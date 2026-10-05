@@ -9,7 +9,8 @@ export function SiteFooter() {
             Noralma<span className="text-primary">.</span>
           </Link>
           <p className="mt-1 max-w-[42ch] text-sm leading-relaxed text-foreground/60 text-pretty">
-            A veces no necesitas hacer más. Necesitas entender mejor lo que te pasa.
+            ¿Cuánto de ti hay en la vida que estás viviendo? Quizás esta pregunta te
+            incomoda un poco.
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-foreground/70">

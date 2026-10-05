@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A veces no necesitas hacer más. Necesitas entender mejor lo que te pasa. Noralma es el espacio de Nora, psicóloga: sesiones, guías gratuitas y un blog para acercarte a ti.",
+          "¿Cuánto de ti hay en la vida que estás viviendo? Noralma es el espacio de Nora, psicóloga: sesiones, guías gratuitas y un blog para acercarte a ti.",
       },
       { property: "og:title", content: "Noralma · Nora, psicóloga" },
       {
@@ -98,7 +98,8 @@ function Index() {
             Nora · Psicóloga
           </p>
           <h1 className="mt-5 font-display text-4xl font-medium leading-tight text-balance md:text-6xl">
-            A veces no necesitas hacer más. Necesitas entender mejor lo que te pasa.
+            ¿Cuánto de ti hay en la vida que estás viviendo? Quizás esta pregunta te
+            incomoda un poco.
           </h1>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-foreground/70 text-pretty">
             Gracias por estar aquí. Noralma es un espacio cálido para acercarte un poco
