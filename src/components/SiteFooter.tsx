@@ -9,8 +9,7 @@ export function SiteFooter() {
             Noralma<span className="text-primary">.</span>
           </Link>
           <p className="mt-1 max-w-[42ch] text-sm leading-relaxed text-foreground/60 text-pretty">
-            ¿Cuánto de ti hay en la vida que estás viviendo? Quizás esta pregunta te
-            incomoda un poco.
+            Psicología con alma para acompañarte en tu camino.
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-foreground/70">
