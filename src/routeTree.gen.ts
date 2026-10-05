@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AcercaDeMiRouteImport } from './routes/acerca-de-mi'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactoRouteImport } from './routes/contacto'
@@ -20,6 +21,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcercaDeMiRoute = AcercaDeMiRouteImport.update({
+  id: '/acerca-de-mi',
+  path: '/acerca-de-mi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -55,6 +61,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/acerca-de-mi': typeof AcercaDeMiRoute
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/acerca-de-mi': typeof AcercaDeMiRoute
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/acerca-de-mi': typeof AcercaDeMiRoute
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/acerca-de-mi'
     | '/auth'
     | '/blog'
     | '/contacto'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/acerca-de-mi'
     | '/auth'
     | '/blog'
     | '/contacto'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/acerca-de-mi'
     | '/auth'
     | '/blog'
     | '/contacto'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcercaDeMiRoute: typeof AcercaDeMiRoute
   AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactoRoute: typeof ContactoRoute
@@ -127,6 +140,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acerca-de-mi': {
+      id: '/acerca-de-mi'
+      path: '/acerca-de-mi'
+      fullPath: '/acerca-de-mi'
+      preLoaderRoute: typeof AcercaDeMiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -186,6 +206,7 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcercaDeMiRoute: AcercaDeMiRoute,
   AuthRoute: AuthRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactoRoute: ContactoRoute,
