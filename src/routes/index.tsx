@@ -98,8 +98,10 @@ function Index() {
             Nora · Psicóloga
           </p>
           <h1 className="mt-5 font-display text-4xl font-medium leading-tight text-balance md:text-6xl">
-            ¿Cuánto de ti hay en la vida que estás viviendo? Quizás esta pregunta te
-            incomoda un poco.
+            ¿Cuánto de ti hay en la vida que estás viviendo?
+            <span className="mt-2 block">
+              Quizás esta pregunta te incomoda un poco.
+            </span>
           </h1>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-foreground/70 text-pretty">
             Gracias por estar aquí. Noralma es un espacio cálido para acercarte un poco
