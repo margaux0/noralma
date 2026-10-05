@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 const navItems = [
+  { to: "/acerca-de-mi", label: "Acerca de mí" },
   { to: "/servicios", label: "Servicios" },
   { to: "/blog", label: "Blog" },
   { to: "/#instagram", label: "Instagram", hash: true },
