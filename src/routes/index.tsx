@@ -352,7 +352,7 @@ function Index() {
                 Escribir un mensaje
               </Link>
               <a
-                href="https://linktr.ee/noralma.psico"
+                href="https://wa.me/34611525410"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
