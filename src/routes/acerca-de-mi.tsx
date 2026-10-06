@@ -43,67 +43,124 @@ function AcercaDeMiPage() {
               <span className="font-semibold text-foreground">
                 Nora Gallardo, Psicóloga General Sanitaria
               </span>
-              , y detrás de Noralma estoy yo: una persona que, además de acompañar
-              procesos terapéuticos, cree profundamente en la importancia de poder
-              sentirnos en casa dentro de nosotros mismos.
+              .
             </p>
             <p>
-              Elegí la psicología porque siempre me ha interesado lo que hay detrás de
-              lo que hacemos, pensamos y sentimos. Esa parte de nosotros que muchas
-              veces no sabemos explicar, pero que está ahí y necesita ser escuchada.
+              Nací en Barcelona, en una familia con raíces andaluzas, y quizá por eso
+              siempre he sentido que una parte importante de quienes somos tiene que ver
+              con las historias que nos preceden, con aquello que heredamos y también con
+              lo que, con el tiempo, elegimos hacer nuestro.
             </p>
             <p>
-              A lo largo de mi formación y experiencia profesional he acompañado a
-              niños, adolescentes, adultos y familias en momentos muy diferentes de
-              sus vidas: ansiedad, cambios, duelos, dificultades en las relaciones,
-              autoestima, procesos de adaptación y momentos en los que simplemente
-              sentimos que algo dentro de nosotros ya no funciona como antes.
+              Soy psicóloga, pero antes que eso soy persona. Y creo que ambas cosas se
+              encuentran inevitablemente en mi manera de acompañar.
+            </p>
+            <p>
+              Siempre me ha interesado lo que ocurre dentro de nosotros: cómo construimos
+              nuestra forma de ver el mundo, cómo nos contamos nuestra propia historia y
+              cómo esa voz interna puede influir en la manera en la que nos relacionamos,
+              tomamos decisiones y nos vemos a nosotros mismos.
             </p>
           </div>
 
           <p className="mt-8 max-w-[52ch] font-display text-2xl font-medium leading-snug text-foreground text-pretty">
-            No siempre necesitamos cambiar quiénes somos. Muchas veces necesitamos
-            volver a escucharnos.
+            Con los años, mi forma de entender la psicología también ha ido cambiando
+            conmigo.
           </p>
 
           <div className="mt-8 max-w-[62ch] space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
             <p>
-              Por eso, mi manera de entender la terapia parte de una mirada cercana,
-              humana y respetuosa. Me interesa conocer tu historia, pero también
-              entender quién eres hoy, qué necesitas y hacia dónde quieres ir.
-            </p>
-            <p>
-              Trabajo desde la{" "}
+              Mi formación y mi experiencia profesional me han llevado a integrar la{" "}
               <span className="font-semibold text-foreground">
                 Terapia de Aceptación y Compromiso (ACT)
               </span>
-              , una forma de terapia que pone el foco en aprender a relacionarnos de
-              otra manera con nuestros pensamientos y emociones y, al mismo tiempo,
-              acercarnos a una vida que esté en coherencia con nuestros valores.
+              , el trabajo con la{" "}
+              <span className="font-semibold text-foreground">narrativa interna</span> y
+              una mirada inspirada en algunos principios del{" "}
+              <span className="font-semibold text-foreground">budismo</span>,
+              especialmente la presencia, la aceptación y la comprensión de que todo está
+              en constante cambio.
             </p>
-            <p>No creo en recetas universales ni en decirte cómo deberías vivir.</p>
-            <p>Creo en acompañarte a descubrirlo.</p>
             <p>
-              En que puedas tener un espacio donde no tengas que aparentar que estás
-              bien, donde puedas hablar sin miedo a ser juzgada y donde podamos mirar
-              juntas aquello que quizá llevas mucho tiempo intentando sostener sola.
+              Y también mi propia vida me ha enseñado cosas que ningún libro puede
+              explicar del todo.
             </p>
           </div>
 
           <div className="mt-8 max-w-[62ch] space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
-            <p className="font-semibold text-foreground">
-              Noralma nace de esa forma de entender la psicología.
-            </p>
-            <p>De la idea de que volver a ti también puede ser un proceso.</p>
             <p>
-              Y de que, a veces, sanar empieza simplemente por volver a escuchar esa
-              voz que siempre estuvo ahí.
+              Actualmente estoy atravesando, junto a mi familia, la enfermedad de mi
+              padre, que tiene Alzheimer.
             </p>
+            <p>
+              Acompañar de cerca un proceso así me ha puesto frente a algo que forma parte
+              de la vida, aunque muchas veces intentemos mantenerlo lejos: el cambio, la
+              pérdida, la incertidumbre y la necesidad de aprender a estar presentes
+              incluso cuando no podemos controlar lo que ocurre.
+            </p>
+            <p>
+              No comparto esto porque crea que mi experiencia sea igual a la de otras
+              personas. Cada historia es única.
+            </p>
+            <p>
+              Lo comparto porque también forma parte de{" "}
+              <span className="font-semibold text-foreground">
+                quién soy y de la mirada desde la que acompaño
+              </span>
+              .
+            </p>
+          </div>
+
+          <div className="mt-8 max-w-[62ch] space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
+            <p>
+              Me ha reafirmado en algo que ya estaba muy presente en mi forma de entender
+              la psicología:
+            </p>
+            <p className="font-display text-xl font-medium text-foreground">
+              no somos algo terminado.
+            </p>
+            <p>
+              Nuestra identidad cambia. Nos transformamos con lo que vivimos, con las
+              personas que encontramos, con lo que perdemos, con lo que aprendemos y con
+              las decisiones que tomamos.
+            </p>
+            <p>
+              No creo que exista un momento en el que lleguemos a descubrir definitivamente
+              quiénes somos y podamos quedarnos ahí.
+            </p>
+            <p>
+              Creo que estamos constantemente convirtiéndonos en quienes somos.
+            </p>
+            <p>Y quizá ahí está una de las cosas más bonitas de estar vivos.</p>
+          </div>
+
+          <div className="mt-8 max-w-[62ch] space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
+            <p>
+              Por eso, cuando acompaño a alguien en terapia, no quiero decirle quién tiene
+              que ser.
+            </p>
+            <p>Quiero ofrecerle un espacio para preguntárselo.</p>
+            <p className="font-semibold text-foreground">
+              ¿Quién soy hoy?
+              <br />
+              ¿Qué necesito?
+              <br />
+              ¿Qué me importa?
+              <br />
+              ¿Qué parte de mí quiero cuidar?
+              <br />
+              ¿Qué me acerca a mí y qué me aleja de mí?
+            </p>
+            <p>Sin buscar una versión perfecta.</p>
+            <p>Sin tener que llegar a ningún sitio.</p>
+            <p>Simplemente, aprendiendo a escucharnos mientras seguimos caminando.</p>
           </div>
 
           <p className="mt-8 font-display text-2xl font-medium leading-snug text-foreground">
             Soy Nora.
-            <span className="block">Y estaré aquí para acompañarte en ese camino. 🌿</span>
+            <span className="block">
+              Y este es el lugar que he creado para acompañarte en ese camino. 🌿
+            </span>
           </p>
 
           <div className="mt-10">
