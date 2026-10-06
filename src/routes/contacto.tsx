@@ -79,7 +79,7 @@ function ContactoPage() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="https://linktr.ee/noralma.psico"
+            href="https://wa.me/34611525410"
             target="_blank"
             rel="noreferrer"
             className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"

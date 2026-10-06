@@ -30,7 +30,7 @@ export function SiteFooter() {
             TikTok
           </a>
           <a
-            href="https://linktr.ee/noralma.psico"
+            href="https://wa.me/34611525410"
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-primary"
