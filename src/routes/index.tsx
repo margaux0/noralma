@@ -131,86 +131,36 @@ function Index() {
         </div>
       </section>
 
-      {/* Propósito — ¿Quién soy yo? */}
+      {/* Propósito */}
       <section className="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">
-            ¿Quién soy yo?
-          </p>
-          <p className="mt-5 font-display text-2xl font-medium leading-snug text-foreground text-pretty md:text-3xl">
-            Soy Nora Gallardo, Psicóloga General Sanitaria.
+          <p className="font-display text-2xl font-medium leading-snug text-foreground text-pretty md:text-3xl">
+            Para mí, gran parte de este proceso tiene que ver con una pregunta que parece
+            sencilla, pero que puede acompañarnos durante toda la vida:{" "}
+            <span className="text-primary">¿Quién soy yo?</span>
           </p>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
             <p>
-              Nací en Barcelona, en una familia con raíces andaluzas, y quizá por eso
-              siempre he sentido que una parte importante de quienes somos tiene que ver
-              con las historias que nos preceden, con aquello que heredamos y también con
-              lo que, con el tiempo, elegimos hacer nuestro.
-            </p>
-            <p className="font-display text-lg font-medium leading-snug text-foreground/85 text-pretty md:text-xl">
-              Soy psicóloga, pero antes que eso soy persona. Y creo que ambas cosas se
-              encuentran inevitablemente en mi manera de acompañar.
+              No creo que exista una respuesta definitiva. Nuestra identidad no es algo que
+              encontramos y dejamos quieto: cambia con lo que vivimos, con las personas que
+              conocemos, con nuestras decisiones, nuestras pérdidas y nuestros vínculos.
             </p>
             <p>
-              Siempre me ha interesado lo que ocurre dentro de nosotros: cómo construimos
-              nuestra forma de ver el mundo, cómo nos contamos nuestra propia historia y
-              cómo esa voz interna puede influir en la manera en la que nos relacionamos,
-              tomamos decisiones y nos vemos a nosotros mismos.
+              No llegamos a una versión final de quienes somos. Estamos en constante
+              movimiento. Y creo que ahí está una de las partes más bonitas de la vida:
+              poder seguir descubriéndonos, cuestionarnos, cambiar de dirección y
+              permitirnos ser diferentes a quienes fuimos.
             </p>
             <p>
-              Con los años, mi forma de entender la psicología también ha ido cambiando
-              conmigo. Mi formación y mi experiencia profesional me han llevado a integrar
-              la Terapia de Aceptación y Compromiso (ACT), el trabajo con la narrativa
-              interna y una mirada inspirada en algunos principios del budismo,
-              especialmente la presencia, la aceptación y la comprensión de que todo está
-              en constante cambio.
-            </p>
-            <p>
-              Y también mi propia vida me ha enseñado cosas que ningún libro puede
-              explicar del todo.
-            </p>
-            <p>
-              Actualmente estoy atravesando, junto a mi familia, la enfermedad de mi
-              padre, que tiene Alzheimer. Acompañar de cerca un proceso así me ha puesto
-              frente a algo que forma parte de la vida, aunque muchas veces intentemos
-              mantenerlo lejos: el cambio, la pérdida, la incertidumbre y la necesidad de
-              aprender a estar presentes incluso cuando no podemos controlar lo que
-              ocurre.
-            </p>
-            <p>
-              No comparto esto porque crea que mi experiencia sea igual a la de otras
-              personas. Cada historia es única. Lo comparto porque también forma parte de
-              quién soy y de la mirada desde la que acompaño.
-            </p>
-            <p className="font-display text-2xl font-medium leading-snug text-primary text-pretty md:text-3xl">
-              No somos algo terminado.
-            </p>
-            <p>
-              Nuestra identidad cambia. Nos transformamos con lo que vivimos, con las
-              personas que encontramos, con lo que perdemos, con lo que aprendemos y con
-              las decisiones que tomamos.
-            </p>
-            <p>
-              No creo que exista un momento en el que lleguemos a descubrir definitivamente
-              quiénes somos y podamos quedarnos ahí. Creo que estamos constantemente
-              convirtiéndonos en quienes somos. Y quizá ahí está una de las cosas más
-              bonitas de estar vivos.
-            </p>
-            <p>
-              Por eso, cuando acompaño a alguien en terapia, no quiero decirle quién tiene
-              que ser. Quiero ofrecerle un espacio para preguntárselo.
-            </p>
-            <p className="font-display text-lg font-medium leading-snug text-foreground/85 text-pretty md:text-xl">
-              ¿Quién soy hoy? ¿Qué necesito? ¿Qué me importa? ¿Qué parte de mí quiero
-              cuidar? ¿Qué me acerca a mí y qué me aleja de mí?
-            </p>
-            <p>
-              Sin buscar una versión perfecta. Sin tener que llegar a ningún sitio.
-              Simplemente, aprendiendo a escucharnos mientras seguimos caminando.
+              En terapia, iremos dando espacio a todo ello para preguntarnos:{" "}
+              <span className="font-semibold text-foreground">
+                ¿Esto me acerca a mí o me aleja de mí?
+              </span>
             </p>
           </div>
           <p className="mt-10 font-display text-xl font-medium leading-snug text-primary text-pretty md:text-2xl">
-            “Soy Nora. Y este es el lugar que he creado para acompañarte en ese camino.”
+            “Estoy aquí. Me estoy escuchando. Y esta vida se parece cada vez un poco más
+            a mí.”
           </p>
         </div>
       </section>
