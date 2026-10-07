@@ -22,7 +22,7 @@ export function SiteFooter() {
             Instagram
           </a>
           <a
-            href="https://linktr.ee/noralma.psico"
+            href="https://www.tiktok.com/@noralma.psico"
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-primary"
