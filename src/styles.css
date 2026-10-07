@@ -6,8 +6,8 @@
 
 /*
  * Noralma design system — "Warm editorial bold"
- * Cream paper background, ink text, clay accents, sage & honey support.
- * Fonts: Fraunces (display), Instrument Sans (body) — loaded via <link> in __root.
+ * Beige cálido de fondo, tinta, verde salvia como primario, arena, marrón tierra y miel.
+ * Fonts: Fraunces (display), DM Sans (body) — loaded via <link> in __root.
  */
 
 @theme inline {
@@ -43,34 +43,35 @@
   --color-honey: var(--honey);
   --color-sage: var(--sage);
   --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.972 0.012 90);      /* cream #faf6ef */
+  --background: oklch(0.964 0.010 90);      /* beige cálido #F7F3EC */
   --foreground: oklch(0.25 0.02 55);        /* ink #241c15 */
-  --card: oklch(0.972 0.012 90);
+  --card: oklch(0.988 0.004 95);            /* blanco cálido #FFFDF9 */
   --card-foreground: oklch(0.25 0.02 55);
-  --popover: oklch(0.972 0.012 90);
+  --popover: oklch(0.988 0.004 95);
   --popover-foreground: oklch(0.25 0.02 55);
-  --primary: oklch(0.52 0.13 38);           /* clay #c0502f */
-  --primary-foreground: oklch(0.972 0.012 90);
-  --secondary: oklch(0.94 0.03 90);         /* paper #f2ead9 */
+  --primary: oklch(0.478 0.036 138);        /* verde salvia #5B6650 */
+  --primary-foreground: oklch(0.988 0.004 95);
+  --secondary: oklch(0.72 0.03 135);        /* verde salvia claro #A8B09B */
   --secondary-foreground: oklch(0.25 0.02 55);
-  --muted: oklch(0.94 0.03 90);
-  --muted-foreground: oklch(0.45 0.03 55);
-  --accent: oklch(0.94 0.03 90);
+  --muted: oklch(0.875 0.03 80);            /* arena #E6D8C8 */
+  --muted-foreground: oklch(0.44 0.04 55);  /* marrón tierra #6B5547 */
+  --accent: oklch(0.875 0.03 80);
   --accent-foreground: oklch(0.25 0.02 55);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.972 0.012 90);
-  --border: oklch(0.25 0.02 55 / 8%);
-  --input: oklch(0.25 0.02 55 / 8%);
-  --ring: oklch(0.52 0.13 38 / 40%);
-  --paper: oklch(0.94 0.03 90);             /* #f2ead9 */
-  --sand: oklch(0.87 0.055 90);             /* #e7d7b8 */
-  --honey: oklch(0.75 0.12 75);             /* #e0a34a */
-  --sage: oklch(0.52 0.05 130);             /* #5f7355 */
+  --destructive-foreground: oklch(0.988 0.004 95);
+  --border: oklch(0.25 0.02 55 / 10%);
+  --input: oklch(0.25 0.02 55 / 12%);
+  --ring: oklch(0.478 0.036 138 / 40%);
+  --paper: oklch(0.875 0.03 80);            /* arena #E6D8C8 */
+  --sand: oklch(0.875 0.03 80);             /* arena #E6D8C8 */
+  --honey: oklch(0.72 0.09 75);             /* dorado miel #C9A66B */
+  --sage: oklch(0.478 0.036 138);           /* verde salvia #5B6650 */
+  --sage-light: oklch(0.72 0.03 135);       /* #A8B09B */
 }
 
 @layer base {
