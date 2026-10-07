@@ -41,6 +41,53 @@ const servicios = [
   },
 ];
 
+const especialidades = [
+  {
+    kicker: "Demencia y Alzheimer",
+    title: "Especializada en demencia y Alzheimer",
+    intro:
+      "Ofrezco acompañamiento psicológico tanto a personas que viven con un diagnóstico de demencia o Alzheimer como a sus familiares y cuidadores.",
+    items: [
+      "Adaptación emocional al diagnóstico.",
+      "Aceptación y comprensión de los cambios que aparecen durante el proceso.",
+      "Gestión de emociones como tristeza, miedo, frustración, culpa o incertidumbre.",
+      "Acompañamiento a familiares y cuidadores ante la sobrecarga emocional.",
+      "Aprender a afrontar los cambios en la relación y en los roles familiares.",
+      "Orientación y apoyo emocional durante las diferentes etapas del proceso.",
+      "Estrategias para cuidar sin olvidarse de uno mismo.",
+      "Duelo y adaptación a las pérdidas asociadas a la enfermedad.",
+    ],
+    extra: (
+      <blockquote className="mt-8 border-l-2 border-honey pl-5 font-display text-lg italic leading-relaxed text-foreground/75">
+        “Mi padre tiene Alzheimer y vivir este proceso de cerca también me ha enseñado que detrás de cada
+        diagnóstico hay una persona, una historia y una familia. Desde ahí, también puedo acompañarte.”
+      </blockquote>
+    ),
+  },
+  {
+    kicker: "Diabetes y bienestar emocional",
+    title: "Especializada en diabetes",
+    intro:
+      "Acompaño a personas que viven con diabetes, trabajando el impacto emocional que puede tener convivir con una enfermedad crónica.",
+    items: [
+      "Adaptación emocional al diagnóstico.",
+      "Miedo e incertidumbre relacionados con la enfermedad.",
+      "Cansancio y agotamiento de estar constantemente pendiente del autocuidado.",
+      "Relación con la alimentación, el cuerpo y el autocuidado.",
+      "Frustración ante los cambios y las dificultades del día a día.",
+      "Gestión del miedo a las hipoglucemias y otras preocupaciones asociadas a la diabetes.",
+      "Autoexigencia y sentimiento de culpa cuando las cosas no salen como esperamos.",
+      "Impacto de la diabetes en la autoestima, las relaciones y la vida cotidiana.",
+      "Aprender a cuidar de uno mismo sin sentir que la enfermedad ocupa todo el espacio.",
+    ],
+    extra: (
+      <p className="mt-8 rounded-xl bg-secondary px-5 py-4 text-sm font-semibold text-foreground/75">
+        En colaboración con la Associació de Diabetis de Catalunya (ADC)
+      </p>
+    ),
+  },
+];
+
 function ServiciosPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -70,6 +117,48 @@ function ServiciosPage() {
           </div>
         ))}
       </div>
+
+      <section className="mt-20 rounded-3xl bg-card p-8 ring-1 ring-foreground/5 md:p-14">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">Sesiones individuales</p>
+        <h2 className="mt-4 font-display text-3xl font-medium text-balance md:text-4xl">
+          Un espacio para parar y escucharte
+        </h2>
+        <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-foreground/70 text-pretty">
+          Un espacio individual y confidencial para parar, escucharte y comprender qué necesitas en este
+          momento de tu vida. Un acompañamiento cercano y personalizado para ayudarte a sentirte más en
+          coherencia contigo.
+        </p>
+        <p className="mt-6 inline-block rounded-full bg-primary/10 px-5 py-2 font-display text-lg text-primary">
+          60 € · 60 minutos
+        </p>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          {especialidades.map((e) => (
+            <article key={e.title} className="flex flex-col rounded-2xl bg-background p-8 ring-1 ring-foreground/5 md:p-10">
+              <div className="h-px w-12 bg-honey" />
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-sage">{e.kicker}</p>
+              <h3 className="mt-2 font-display text-2xl font-medium">{e.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-foreground/70 text-pretty">{e.intro}</p>
+              <p className="mt-6 text-sm font-semibold text-foreground/80">El acompañamiento puede centrarse en:</p>
+              <ul className="mt-3 space-y-2.5">
+                {e.items.map((i) => (
+                  <li key={i} className="flex gap-3 text-base leading-relaxed text-foreground/70">
+                    <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-honey" />
+                    {i}
+                  </li>
+                ))}
+              </ul>
+              {e.extra}
+            </article>
+          ))}
+        </div>
+
+        <p className="mx-auto mt-12 max-w-[62ch] text-center text-sm leading-relaxed text-foreground/60 text-pretty">
+          Mi papel es el de <strong className="font-semibold text-foreground/75">acompañamiento psicológico y emocional</strong>,
+          complementario al seguimiento médico correspondiente.
+        </p>
+      </section>
+
       <div className="mt-14 rounded-2xl bg-secondary p-8 ring-1 ring-foreground/5 md:p-12">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
