@@ -14,6 +14,7 @@ import { Route as AcercaDeMiRouteImport } from './routes/acerca-de-mi'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as DemenciaYAlzheimerRouteImport } from './routes/demencia-y-alzheimer'
 import { Route as DiabetesRouteImport } from './routes/diabetes'
 import { Route as EscribirRouteImport } from './routes/escribir'
 import { Route as ServiciosRouteImport } from './routes/servicios'
@@ -44,6 +45,11 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemenciaYAlzheimerRoute = DemenciaYAlzheimerRouteImport.update({
+  id: '/demencia-y-alzheimer',
+  path: '/demencia-y-alzheimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DiabetesRoute = DiabetesRouteImport.update({
   id: '/diabetes',
   path: '/diabetes',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/demencia-y-alzheimer': typeof DemenciaYAlzheimerRoute
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/demencia-y-alzheimer': typeof DemenciaYAlzheimerRoute
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/demencia-y-alzheimer': typeof DemenciaYAlzheimerRoute
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contacto'
+    | '/demencia-y-alzheimer'
     | '/diabetes'
     | '/escribir'
     | '/servicios'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contacto'
+    | '/demencia-y-alzheimer'
     | '/diabetes'
     | '/escribir'
     | '/servicios'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contacto'
+    | '/demencia-y-alzheimer'
     | '/diabetes'
     | '/escribir'
     | '/servicios'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactoRoute: typeof ContactoRoute
+  DemenciaYAlzheimerRoute: typeof DemenciaYAlzheimerRoute
   DiabetesRoute: typeof DiabetesRoute
   EscribirRoute: typeof EscribirRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/contacto'
       fullPath: '/contacto'
       preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demencia-y-alzheimer': {
+      id: '/demencia-y-alzheimer'
+      path: '/demencia-y-alzheimer'
+      fullPath: '/demencia-y-alzheimer'
+      preLoaderRoute: typeof DemenciaYAlzheimerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diabetes': {
@@ -230,6 +250,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactoRoute: ContactoRoute,
+  DemenciaYAlzheimerRoute: DemenciaYAlzheimerRoute,
   DiabetesRoute: DiabetesRoute,
   EscribirRoute: EscribirRoute,
   ServiciosRoute: ServiciosRoute,
