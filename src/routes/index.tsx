@@ -6,6 +6,7 @@ import guiaCuaderno from "@/assets/guia-cuaderno.jpg";
 import guiaAnsiedad from "@/assets/guia-ansiedad.jpg";
 import guiaAutocuidado from "@/assets/guia-autocuidado.jpg";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
+import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,23 +32,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const servicios = [
-  {
-    num: "01",
-    title: "Sesiones individuales",
-    text: "Un espacio de confianza para entender lo que te pasa, a tu ritmo.",
-  },
-  {
-    num: "02",
-    title: "Acompañamiento guiado",
-    text: "Un camino de seguimiento para sostener tus avances día a día.",
-  },
-  {
-    num: "03",
-    title: "Recursos gratuitos",
-    text: "Material para empezar cuando todavía no es momento de una sesión.",
-  },
-];
 
 const guias = [
   {
@@ -168,30 +152,8 @@ function Index() {
       {/* Servicios */}
       <section className="bg-secondary ring-1 ring-foreground/5">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
-            Servicios
-          </h2>
-          <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
-            Acompañamiento psicológico a tu ritmo. Estoy definiendo cada formato; pronto
-            podrás ver los detalles.
-          </p>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {servicios.map((s) => (
-              <div
-                key={s.num}
-                className="rounded-2xl bg-background p-7 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
-              >
-                <div className="grid size-11 place-items-center rounded-full bg-honey/25 text-xl text-primary">
-                  {s.num}
-                </div>
-                <h3 className="mt-5 font-display text-xl font-medium">{s.title}</h3>
-                <p className="mt-2 text-base leading-relaxed text-foreground/65 text-pretty">
-                  {s.text}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8">
+          <ServiciosDestacados />
+          <div className="mt-10">
             <Link
               to="/servicios"
               className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
