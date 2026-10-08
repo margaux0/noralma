@@ -164,7 +164,7 @@ function ServiciosPage() {
                   {e.intro}
                 </p>
                 {e.extra}
-                <p className="mt-auto pt-6 text-sm font-semibold text-primary">
+                <p className="mt-6 text-sm font-semibold text-primary">
                   Ver en qué puede centrarse el acompañamiento →
                 </p>
               </Link>
