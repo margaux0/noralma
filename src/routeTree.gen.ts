@@ -14,6 +14,7 @@ import { Route as AcercaDeMiRouteImport } from './routes/acerca-de-mi'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as DiabetesRouteImport } from './routes/diabetes'
 import { Route as EscribirRouteImport } from './routes/escribir'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -43,6 +44,11 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiabetesRoute = DiabetesRouteImport.update({
+  id: '/diabetes',
+  path: '/diabetes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EscribirRoute = EscribirRouteImport.update({
   id: '/escribir',
   path: '/escribir',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contacto'
+    | '/diabetes'
     | '/escribir'
     | '/servicios'
     | '/blog/$slug'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contacto'
+    | '/diabetes'
     | '/escribir'
     | '/servicios'
     | '/blog/$slug'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contacto'
+    | '/diabetes'
     | '/escribir'
     | '/servicios'
     | '/blog/$slug'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactoRoute: typeof ContactoRoute
+  DiabetesRoute: typeof DiabetesRoute
   EscribirRoute: typeof EscribirRoute
   ServiciosRoute: typeof ServiciosRoute
 }
@@ -168,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: '/contacto'
       fullPath: '/contacto'
       preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diabetes': {
+      id: '/diabetes'
+      path: '/diabetes'
+      fullPath: '/diabetes'
+      preLoaderRoute: typeof DiabetesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/escribir': {
@@ -210,6 +230,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactoRoute: ContactoRoute,
+  DiabetesRoute: DiabetesRoute,
   EscribirRoute: EscribirRoute,
   ServiciosRoute: ServiciosRoute,
 }

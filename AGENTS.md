@@ -8,3 +8,9 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+<!--
+Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a
+dedicated detail route; the full "what the accompaniment can focus on" list belongs on
+the detail page so the cards stay scannable. Why: one source of truth per specialty.
+-->

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/servicios")({
@@ -41,7 +42,16 @@ const servicios = [
   },
 ];
 
-const especialidades = [
+type Especialidad = {
+  to?: string;
+  kicker: string;
+  title: string;
+  intro: string;
+  items: string[];
+  extra: ReactNode;
+};
+
+const especialidades: Especialidad[] = [
   {
     kicker: "Demencia y Alzheimer",
     title: "Especializada en demencia y Alzheimer",
@@ -65,6 +75,7 @@ const especialidades = [
     ),
   },
   {
+    to: "/diabetes",
     kicker: "Diabetes y bienestar emocional",
     title: "Especializada en diabetes",
     intro:
@@ -133,24 +144,60 @@ function ServiciosPage() {
         </p>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          {especialidades.map((e) => (
-            <article key={e.title} className="flex flex-col rounded-2xl bg-background p-8 ring-1 ring-foreground/5 md:p-10">
-              <div className="h-px w-12 bg-honey" />
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-sage">{e.kicker}</p>
-              <h3 className="mt-2 font-display text-2xl font-medium">{e.title}</h3>
-              <p className="mt-4 text-base leading-relaxed text-foreground/70 text-pretty">{e.intro}</p>
-              <p className="mt-6 text-sm font-semibold text-foreground/80">El acompañamiento puede centrarse en:</p>
-              <ul className="mt-3 space-y-2.5">
-                {e.items.map((i) => (
-                  <li key={i} className="flex gap-3 text-base leading-relaxed text-foreground/70">
-                    <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-honey" />
-                    {i}
-                  </li>
-                ))}
-              </ul>
-              {e.extra}
-            </article>
-          ))}
+          {especialidades.map((e) => {
+            const cls =
+              "flex flex-col rounded-2xl bg-background p-8 ring-1 ring-foreground/5 md:p-10";
+            return e.to === "/diabetes" ? (
+              <Link
+                key={e.title}
+                to="/diabetes"
+                className={`${cls} transition-all hover:-translate-y-1 hover:ring-primary/25`}
+              >
+                <div className="h-px w-12 bg-honey" />
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-sage">
+                  {e.kicker}
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-medium">
+                  {e.title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-foreground/70 text-pretty">
+                  {e.intro}
+                </p>
+                {e.extra}
+                <p className="mt-6 text-sm font-semibold text-primary">
+                  Ver en qué puede centrarse el acompañamiento →
+                </p>
+              </Link>
+            ) : (
+              <article key={e.title} className={cls}>
+                <div className="h-px w-12 bg-honey" />
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-sage">
+                  {e.kicker}
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-medium">
+                  {e.title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-foreground/70 text-pretty">
+                  {e.intro}
+                </p>
+                <p className="mt-6 text-sm font-semibold text-foreground/80">
+                  El acompañamiento puede centrarse en:
+                </p>
+                <ul className="mt-3 space-y-2.5">
+                  {e.items.map((i) => (
+                    <li
+                      key={i}
+                      className="flex gap-3 text-base leading-relaxed text-foreground/70"
+                    >
+                      <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-honey" />
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+                {e.extra}
+              </article>
+            );
+          })}
         </div>
 
         <p className="mx-auto mt-12 max-w-[62ch] text-center text-sm leading-relaxed text-foreground/60 text-pretty">
