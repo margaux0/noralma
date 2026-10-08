@@ -161,8 +161,8 @@ function ServiciosPage() {
                 <p className="mt-4 text-base leading-relaxed text-foreground/70 text-pretty">
                   {e.intro}
                 </p>
-                {e.extra}
-                <p className="mt-auto pt-6 text-sm font-semibold text-primary">
+                <div className="mt-auto">{e.extra}</div>
+                <p className="pt-6 text-sm font-semibold text-primary">
                   Ver en qué puede centrarse el acompañamiento →
                 </p>
               </>
