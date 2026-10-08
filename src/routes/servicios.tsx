@@ -65,6 +65,7 @@ const especialidades = [
     ),
   },
   {
+    to: "/diabetes",
     kicker: "Diabetes y bienestar emocional",
     title: "Especializada en diabetes",
     intro:
