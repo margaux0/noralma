@@ -10,6 +10,7 @@ import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
 import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -95,12 +96,14 @@ function Index() {
             y vivir de una forma que tenga sentido para ti.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/contacto"
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
             >
               Reservar sesión
-            </Link>
+            </a>
             <a
               href="#guias"
               className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
@@ -313,12 +316,14 @@ function Index() {
               privacidad.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contacto"
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
               >
                 Escribir un mensaje
-              </Link>
+              </a>
               <a
                 href="https://wa.me/34611525410"
                 target="_blank"

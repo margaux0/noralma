@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const navItems = [
   { to: "/acerca-de-mi", label: "Acerca de mí" },
@@ -37,12 +38,14 @@ export function SiteHeader() {
             ),
           )}
         </nav>
-        <Link
-          to="/contacto"
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
           className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
         >
           Reservar sesión
-        </Link>
+        </a>
       </div>
     </header>
   );
