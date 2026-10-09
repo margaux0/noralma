@@ -50,7 +50,7 @@ const guias = [
   },
   {
     img: amorPropioPortadaAsset.url,
-    title: "Guía de Autocuidado",
+    title: "Guía práctica de Amor Propio",
     text: "Pequeñas rutinas para cuidarte sin agobiarte.",
     href: "https://drive.google.com/file/d/1NcGFcwPTquQt3K88Ga_R6JlISr7VEMfo/view?usp=drivesdk",
   },
