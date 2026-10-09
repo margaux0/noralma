@@ -3,10 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 const heroNora = heroNoraAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
-import guiaAnsiedad from "@/assets/guia-ansiedad.jpg";
 import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
-import guiaAutocuidado from "@/assets/guia-autocuidado.jpg";
 import amorPropioPortadaAsset from "@/assets/amor-propio-portada.webp.asset.json";
+import reelAlzheimerAsset from "@/assets/reel-capturapng.png.asset.json";
+import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
+import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 
@@ -58,16 +59,19 @@ const guias = [
 
 const instagramPosts = [
   {
-    img: guiaAnsiedad,
-    caption: "3 señales de que tu ansiedad necesita pausa, no más productividad.",
+    img: reelAlzheimerAsset.url,
+    caption: "Entrevista con mi papi, que tiene Alzheimer.",
+    href: "https://www.instagram.com/reel/DanIsj9satp/",
   },
   {
-    img: guiaAutocuidado,
-    caption: "Ritual de autocuidado para noches de cabeza acelerada.",
+    img: reelRetoAsset.url,
+    caption: "Día 2 del Reto Noralma: un paso más hacia tu mejor versión.",
+    href: "https://www.instagram.com/reel/DeHwXR7MlyO/",
   },
   {
-    img: guiaCuadernoAsset.url,
-    caption: "Un cuaderno para cuidar tu mente, poco a poco.",
+    img: reelPresentacionAsset.url,
+    caption: "Me llamo Nora · ¿En qué puedo ayudarte?",
+    href: "https://www.instagram.com/reel/DduCtiqsSyG/",
   },
 ];
 
@@ -275,8 +279,8 @@ function Index() {
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
           {instagramPosts.map((post) => (
             <a
-              key={post.caption}
-              href="https://www.instagram.com/noralma.psicologia"
+              key={post.href}
+              href={post.href}
               target="_blank"
               rel="noreferrer"
               className="group block"
