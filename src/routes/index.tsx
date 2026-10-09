@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 const heroNora = heroNoraAsset.url;
-import guiaCuaderno from "@/assets/guia-cuaderno.jpg";
+import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
 import guiaAnsiedad from "@/assets/guia-ansiedad.jpg";
 import guiaAutocuidado from "@/assets/guia-autocuidado.jpg";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
@@ -11,13 +11,13 @@ import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Noralma · Nora, psicóloga" },
+      { title: "Noralma · Nora, Psicóloga Sanitaria" },
       {
         name: "description",
         content:
-          "Mi propósito es acompañarte a sentirte bien contigo. Noralma es el espacio de Nora, psicóloga: sesiones, guías gratuitas y un blog para acompañarte en tu camino.",
+          "Mi propósito es acompañarte a sentirte bien contigo. Noralma es el espacio de Nora, Psicóloga Sanitaria: sesiones, guías gratuitas y un blog para acompañarte en tu camino.",
       },
-      { property: "og:title", content: "Noralma · Nora, psicóloga" },
+      { property: "og:title", content: "Noralma · Nora, Psicóloga Sanitaria" },
       {
         property: "og:description",
         content:
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
 
 const guias = [
   {
-    img: guiaCuaderno,
+    img: guiaCuadernoAsset.url,
     title: "Cuaderno de Estimulación Cognitiva",
     text: "Ejercicios suaves para cuidar tu mente.",
     href: "https://drive.google.com/file/d/1Gy1gyvY84VNbBcx-tCfK0QnoDoQUk4GP/view?usp=drivesdk",
@@ -64,7 +64,7 @@ const instagramPosts = [
     caption: "Ritual de autocuidado para noches de cabeza acelerada.",
   },
   {
-    img: guiaCuaderno,
+    img: guiaCuadernoAsset.url,
     caption: "Un cuaderno para cuidar tu mente, poco a poco.",
   },
 ];
@@ -79,7 +79,7 @@ function Index() {
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div className="rise">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">
-            Nora · Psicóloga
+            Nora · Psicóloga Sanitaria
           </p>
           <h1 className="mt-5 font-display text-4xl font-medium leading-tight text-balance md:text-6xl">
             Mi propósito es acompañarte a sentirte bien contigo.
@@ -106,7 +106,7 @@ function Index() {
         <div className="rise" style={{ animationDelay: ".15s" }}>
           <img
             src={heroNora}
-            alt="Nora, psicóloga, en su consulta"
+            alt="Nora, Psicóloga Sanitaria, en su consulta"
             width={912}
             height={1104}
             style={{ objectPosition: "center 72%" }}

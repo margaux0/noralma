@@ -175,7 +175,7 @@ function AcercaDeMiPage() {
 
         <img
           src={heroAsset.url}
-          alt="Nora, psicóloga"
+          alt="Nora, Psicóloga Sanitaria"
           className="w-full rounded-2xl object-cover object-[center_72%] ring-1 ring-foreground/5 aspect-[4/5] md:sticky md:top-28"
         />
       </div>
