@@ -4,6 +4,7 @@ import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 const heroNora = heroNoraAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
 import guiaAnsiedad from "@/assets/guia-ansiedad.jpg";
+import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
 import guiaAutocuidado from "@/assets/guia-autocuidado.jpg";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
@@ -41,7 +42,7 @@ const guias = [
     href: "https://drive.google.com/file/d/1Gy1gyvY84VNbBcx-tCfK0QnoDoQUk4GP/view?usp=drivesdk",
   },
   {
-    img: guiaAnsiedad,
+    img: ansiedadPortadaAsset.url,
     title: "Cómo gestionar la Ansiedad",
     text: "Pasos concretos para bajar el ruido mental.",
     href: "https://drive.google.com/file/d/1GFjKAurQ_GZ1Nqb4JXUtRAzi7r5cxBmL/view?usp=drivesdk",
