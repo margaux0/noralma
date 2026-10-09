@@ -40,7 +40,7 @@ const guias = [
   {
     img: guiaCuadernoAsset.url,
     title: "Cuaderno de Estimulación Cognitiva",
-    text: "Ejercicios suaves para cuidar tu mente.",
+    text: "Dossier de ejercicios para personas con deterioro cognitivo",
     href: "https://drive.google.com/file/d/1Gy1gyvY84VNbBcx-tCfK0QnoDoQUk4GP/view?usp=drivesdk",
   },
   {
