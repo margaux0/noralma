@@ -6,6 +6,7 @@ import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asse
 import guiaAnsiedad from "@/assets/guia-ansiedad.jpg";
 import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
 import guiaAutocuidado from "@/assets/guia-autocuidado.jpg";
+import amorPropioPortadaAsset from "@/assets/amor-propio-portada.webp.asset.json";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 
@@ -48,7 +49,7 @@ const guias = [
     href: "https://drive.google.com/file/d/1GFjKAurQ_GZ1Nqb4JXUtRAzi7r5cxBmL/view?usp=drivesdk",
   },
   {
-    img: guiaAutocuidado,
+    img: amorPropioPortadaAsset.url,
     title: "Guía de Autocuidado",
     text: "Pequeñas rutinas para cuidarte sin agobiarte.",
     href: "https://drive.google.com/file/d/1NcGFcwPTquQt3K88Ga_R6JlISr7VEMfo/view?usp=drivesdk",
