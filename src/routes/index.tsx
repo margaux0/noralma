@@ -288,10 +288,10 @@ function Index() {
               <img
                 src={post.img}
                 alt={post.caption}
-                width={736}
-                height={912}
+                width={750}
+                height={1000}
                 loading="lazy"
-                className="aspect-square w-full rounded-xl object-cover ring-1 ring-foreground/5 transition-transform group-hover:-translate-y-1"
+                className="aspect-[3/4] w-full rounded-xl object-cover ring-1 ring-foreground/5 transition-transform group-hover:-translate-y-1"
               />
               <p className="mt-3 text-sm leading-relaxed text-foreground/70">
                 {post.caption}
