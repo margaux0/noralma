@@ -43,7 +43,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-6 pb-8 text-xs text-foreground/50">
-        © {new Date().getFullYear()} Noralma · Nora, psicóloga. Todos los derechos reservados.
+        © {new Date().getFullYear()} Noralma · Nora, Psicóloga Sanitaria. Todos los derechos reservados.
       </div>
     </footer>
   );

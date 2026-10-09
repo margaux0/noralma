@@ -80,13 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Noralma · Nora, psicóloga" },
+      { title: "Noralma · Nora, Psicóloga Sanitaria" },
       {
         name: "description",
         content:
-          "Noralma es el espacio de Nora, psicóloga. Mi propósito es acompañarte a sentirte bien contigo.",
+          "Noralma es el espacio de Nora, Psicóloga Sanitaria. Mi propósito es acompañarte a sentirte bien contigo.",
       },
-      { property: "og:title", content: "Noralma · Nora, psicóloga" },
+      { property: "og:title", content: "Noralma · Nora, Psicóloga Sanitaria" },
       {
         property: "og:description",
         content:
