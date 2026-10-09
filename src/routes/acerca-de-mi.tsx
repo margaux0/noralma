@@ -1,5 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import heroAsset from "@/assets/hero-nora.png.asset.json";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/acerca-de-mi")({
   head: () => ({
@@ -164,12 +165,14 @@ function AcercaDeMiPage() {
           </p>
 
           <div className="mt-10">
-            <Link
-              to="/contacto"
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
             >
               Reservar sesión
-            </Link>
+            </a>
           </div>
         </div>
 

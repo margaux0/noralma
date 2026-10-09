@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { coverFor, fetchPost, formatDate } from "@/lib/blog";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
@@ -65,12 +66,14 @@ function BlogPostPage() {
         <p className="mt-2 text-base leading-relaxed text-foreground/65">
           Si quieres trabajarlo en sesión, escríbeme. Te respondo personalmente.
         </p>
-        <Link
-          to="/contacto"
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
           className="mt-5 inline-block rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
         >
           Contactar con Nora
-        </Link>
+        </a>
       </div>
     </article>
   );

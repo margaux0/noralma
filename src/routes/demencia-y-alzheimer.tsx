@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/demencia-y-alzheimer")({
   head: () => ({
@@ -105,12 +106,14 @@ function DemenciaAlzheimerPage() {
               acompañarte a ti y a los tuyos.
             </p>
           </div>
-          <Link
-            to="/contacto"
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
             className="shrink-0 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
           >
             Reservar sesión
-          </Link>
+          </a>
         </div>
       </div>
     </div>
