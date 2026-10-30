@@ -221,7 +221,7 @@ function Index() {
       </section>
 
       {/* Guías */}
-      <section id="guias" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <section id="guias" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 md:py-24">
         <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
           Guías para empezar
         </h2>
