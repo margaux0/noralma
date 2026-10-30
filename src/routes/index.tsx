@@ -58,6 +58,47 @@ const guias = [
   },
 ];
 
+const DOCTORALIA_REVIEWS_URL =
+  "https://www.doctoralia.es/perfil/nora-gallardo-cano#profile-reviews";
+
+const resenas = [
+  {
+    name: "Mabe",
+    date: "22 de octubre de 2026",
+    text: "Profesional con una calidad humana y cercanía inigualable, me siento súper afortunada de tenerla como psicóloga y tengo claro que cualquier paciente que trate con ella se va a sentir igual.",
+  },
+  {
+    name: "N.P.M",
+    date: "8 de octubre de 2026",
+    text: "Cercanía, capacidad de escucha, comprensión, acompañamiento, ayuda, disponibilidad, eficacia, presencia, paz, son algunas de las palabras con las que describiría a esta gran profesional, Nora. Gracias por tanto. Suerte la mía.",
+  },
+  {
+    name: "N.J.S",
+    date: "3 de agosto de 2026",
+    text: "Tiene una sensibilidad y una empatía increíbles. Sabe acompañarte con mucho respeto, incluso en los momentos más difíciles, y tiene una capacidad especial para ayudarte a identificar y desbloquear emociones que a veces ni siquiera sabes que llevas dentro.",
+  },
+  {
+    name: "Cristina G",
+    date: "24 de julio de 2026",
+    text: "Cercana, humana y muy profesional. Me hace sentir escuchada y comprendida en todo momento, siento que acudir a ella fue todo un acierto.",
+  },
+  {
+    name: "Aina C",
+    date: "24 de julio de 2026",
+    text: "Una psicóloga excepcional: muy atenta, empática, cercana y profesional. Desde el primer momento me hizo sentir escuchada y comprendida, creando un espacio de confianza donde es fácil expresarse. Su calidez y dedicación marcan la diferencia. La recomiendo totalmente.",
+  },
+  {
+    name: "Gisela",
+    date: "24 de julio de 2026",
+    text: "Es una persona maravillosa, siempre cariñosa, atenta y cercana. Sobre todo, ha conseguido algo que parecía imposible: que nuestro hijo se abra y exprese cómo se siente. Estamos enormemente agradecidos por todo lo que hace.",
+  },
+  {
+    name: "Josue",
+    date: "24 de julio de 2026",
+    text: "Excelente profesional. Desde el primer día me hizo sentir cómodo y escuchado. Gracias a su ayuda he aprendido a entenderme mejor y a afrontar las cosas de otra manera. Muy recomendable.",
+  },
+];
+
 const instagramPosts = [
   {
     img: reelAlzheimerAsset.url,
@@ -258,6 +299,51 @@ function Index() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Reseñas Doctoralia */}
+      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
+            Lo que dicen las personas que acompaño
+          </h2>
+          <a
+            href={DOCTORALIA_REVIEWS_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+          >
+            Ver en Doctoralia →
+          </a>
+        </div>
+        <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
+          Reseñas reales publicadas en mi perfil de Doctoralia. Gracias de corazón a cada
+          persona que se ha tomado el tiempo de escribirlas.
+        </p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {resenas.map((r) => (
+            <a
+              key={r.name}
+              href={DOCTORALIA_REVIEWS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="flex flex-col rounded-2xl bg-background p-6 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
+            >
+              <p className="font-display text-lg leading-snug text-primary" aria-hidden="true">
+                ★★★★★
+              </p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75 text-pretty line-clamp-6">
+                “{r.text}”
+              </p>
+              <div className="mt-5 border-t border-foreground/10 pt-4">
+                <p className="text-sm font-semibold text-foreground">{r.name}</p>
+                <p className="mt-1 text-xs text-foreground/55">
+                  {r.date} · Opinión verificada en Doctoralia
+                </p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
