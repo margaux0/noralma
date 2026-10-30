@@ -151,6 +151,12 @@ function Index() {
             >
               Guías gratuitas
             </a>
+            <a
+              href="#resenas"
+              className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
+            >
+              Reseñas
+            </a>
           </div>
         </div>
         <div className="rise" style={{ animationDelay: ".15s" }}>
@@ -303,7 +309,7 @@ function Index() {
       </section>
 
       {/* Reseñas Doctoralia */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <section id="resenas" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 md:py-24">
         <div className="flex items-end justify-between gap-4">
           <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
             Lo que dicen las personas que acompaño
