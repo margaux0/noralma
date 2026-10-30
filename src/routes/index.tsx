@@ -58,6 +58,47 @@ const guias = [
   },
 ];
 
+const DOCTORALIA_REVIEWS_URL =
+  "https://www.doctoralia.es/perfil/nora-gallardo-cano#profile-reviews";
+
+const resenas = [
+  {
+    name: "Mabe",
+    date: "22 de octubre de 2026",
+    text: "Profesional con una calidad humana y cercanía inigualable, me siento súper afortunada de tenerla como psicóloga y tengo claro que cualquier paciente que trate con ella se va a sentir igual.",
+  },
+  {
+    name: "N.P.M",
+    date: "8 de octubre de 2026",
+    text: "Cercanía, capacidad de escucha, comprensión, acompañamiento, ayuda, disponibilidad, eficacia, presencia, paz, son algunas de las palabras con las que describiría a esta gran profesional, Nora. Gracias por tanto. Suerte la mía.",
+  },
+  {
+    name: "N.J.S",
+    date: "3 de agosto de 2026",
+    text: "Tiene una sensibilidad y una empatía increíbles. Sabe acompañarte con mucho respeto, incluso en los momentos más difíciles, y tiene una capacidad especial para ayudarte a identificar y desbloquear emociones que a veces ni siquiera sabes que llevas dentro.",
+  },
+  {
+    name: "Cristina G",
+    date: "24 de julio de 2026",
+    text: "Cercana, humana y muy profesional. Me hace sentir escuchada y comprendida en todo momento, siento que acudir a ella fue todo un acierto.",
+  },
+  {
+    name: "Aina C",
+    date: "24 de julio de 2026",
+    text: "Una psicóloga excepcional: muy atenta, empática, cercana y profesional. Desde el primer momento me hizo sentir escuchada y comprendida, creando un espacio de confianza donde es fácil expresarse. Su calidez y dedicación marcan la diferencia. La recomiendo totalmente.",
+  },
+  {
+    name: "Gisela",
+    date: "24 de julio de 2026",
+    text: "Es una persona maravillosa, siempre cariñosa, atenta y cercana. Sobre todo, ha conseguido algo que parecía imposible: que nuestro hijo se abra y exprese cómo se siente. Estamos enormemente agradecidos por todo lo que hace.",
+  },
+  {
+    name: "Josue",
+    date: "24 de julio de 2026",
+    text: "Excelente profesional. Desde el primer día me hizo sentir cómodo y escuchado. Gracias a su ayuda he aprendido a entenderme mejor y a afrontar las cosas de otra manera. Muy recomendable.",
+  },
+];
+
 const instagramPosts = [
   {
     img: reelAlzheimerAsset.url,
