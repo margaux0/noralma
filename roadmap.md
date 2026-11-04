@@ -1,2 +1,3 @@
 - [x] Añadir «Aprendiendo a quererme» con su portada y enlace a Google Drive.
 - [x] Hacer que las reseñas destacadas pasen automáticamente y quitar la línea inferior.
+- [ ] Añadir un contorno visible a Reservar sesión, Guías gratuitas y Reseñas en inicio.
