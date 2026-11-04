@@ -13,6 +13,7 @@ import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -146,26 +147,29 @@ function Index() {
             y vivir de una forma que tenga sentido para ti.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold shadow-none">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
             >
               Reservar sesión
             </a>
+            </Button>
+            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
             <a
               href="#guias"
-              className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
             >
               Guías gratuitas
             </a>
+            </Button>
+            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
             <a
               href="#resenas"
-              className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
             >
               Reseñas
             </a>
+            </Button>
           </div>
         </div>
         <div className="rise" style={{ animationDelay: ".15s" }}>
