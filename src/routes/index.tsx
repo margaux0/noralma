@@ -11,6 +11,7 @@ import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,7 +60,7 @@ const guias = [
 ];
 
 const DOCTORALIA_REVIEWS_URL =
-  "https://www.doctoralia.es/perfil/nora-gallardo-cano#profile-reviews";
+  "https://www.doctoralia.es/nora-gallardo-cano/psicologo/vilanova-i-la-geltru#profile-reviews";
 
 const resenas = [
   {
@@ -123,6 +124,7 @@ function Index() {
 
   return (
     <div>
+      <DoctoraliaDestacada opiniones={resenas} profileUrl={DOCTORALIA_REVIEWS_URL} />
       {/* Hero */}
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div className="rise">

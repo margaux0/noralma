@@ -9,6 +9,8 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
+- The homepage's prominent Doctoralia section reuses the existing review list and profile URL; keep one source of truth for both review presentations.
+
 <!--
 Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a
 dedicated detail route; the full "what the accompaniment can focus on" list belongs on
