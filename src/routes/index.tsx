@@ -5,6 +5,7 @@ const heroNora = heroNoraAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
 import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
 import amorPropioPortadaAsset from "@/assets/amor-propio-portada.webp.asset.json";
+import aprendiendoQuerermeAsset from "@/assets/aprendiendo-a-quererme.png.asset.json";
 import reelAlzheimerAsset from "@/assets/reel-capturapng.png.asset.json";
 import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
 import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
@@ -12,6 +13,7 @@ import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,6 +58,12 @@ const guias = [
     title: "Guía práctica de Amor Propio",
     text: "Pequeñas rutinas para cuidarte sin agobiarte.",
     href: "https://drive.google.com/file/d/1NcGFcwPTquQt3K88Ga_R6JlISr7VEMfo/view?usp=drivesdk",
+  },
+  {
+    img: aprendiendoQuerermeAsset.url,
+    title: "Aprendiendo a quererme",
+    text: "Desde el amor, coherencia, compasión.",
+    href: "https://drive.google.com/file/d/1Enzcr8EV6TTNhce13e8UkfnpKiinOylZ/view?usp=sharing",
   },
 ];
 
@@ -139,26 +147,29 @@ function Index() {
             y vivir de una forma que tenga sentido para ti.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold shadow-none">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
             >
               Reservar sesión
             </a>
+            </Button>
+            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
             <a
               href="#guias"
-              className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
             >
               Guías gratuitas
             </a>
+            </Button>
+            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
             <a
               href="#resenas"
-              className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
             >
               Reseñas
             </a>
+            </Button>
           </div>
         </div>
         <div className="rise" style={{ animationDelay: ".15s" }}>
@@ -230,7 +241,7 @@ function Index() {
         <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
           Descárgalas gratis. Son un primer paso suave, sin compromiso.
         </p>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {guias.map((g) => (
             <div
               key={g.title}

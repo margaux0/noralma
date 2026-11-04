@@ -1,12 +1,35 @@
-import { ArrowUpRight, Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import doctoraliaLogo from "@/assets/doctoralia-logo.png.asset.json";
 
 type Opinion = { name: string; text: string };
 
 export function DoctoraliaDestacada({ opiniones, profileUrl }: { opiniones: Opinion[]; profileUrl: string }) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [paused, setPaused] = useState(false);
+  const [interacting, setInteracting] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(preference.matches);
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!api || paused || interacting || reducedMotion) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) api.scrollNext();
+    }, 4500);
+    return () => window.clearInterval(timer);
+  }, [api, paused, interacting, reducedMotion]);
+
   return (
-    <section aria-labelledby="doctoralia-heading" className="border-b border-doctoralia/20 bg-doctoralia-surface text-doctoralia-ink">
+    <section aria-labelledby="doctoralia-heading" className="bg-doctoralia-surface text-doctoralia-ink">
       <div className="mx-auto max-w-6xl px-6 py-7 md:py-9">
         <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-5">
           <div>
@@ -30,17 +53,30 @@ export function DoctoraliaDestacada({ opiniones, profileUrl }: { opiniones: Opin
             </Button>
           </div>
         </div>
-        <div className="mt-6 grid gap-3 md:grid-cols-3">
-          {opiniones.slice(0, 3).map((opinion, index) => (
-            <a key={opinion.name} href={profileUrl} target="_blank" rel="noreferrer" className={`group flex flex-col rounded-lg border border-doctoralia/20 bg-card px-5 py-4 transition-colors hover:border-doctoralia focus-visible:outline focus-visible:outline-doctoralia ${index > 0 ? "hidden md:flex" : ""}`}>
+        <Carousel opts={{ loop: true, align: "start", duration: reducedMotion ? 0 : 35 }} setApi={setApi} aria-label="Opiniones de pacientes" className="mt-6"
+          onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}
+          onFocusCapture={() => setInteracting(true)} onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false);
+          }}>
+          <CarouselContent data-review-track className="-ml-3">
+          {opiniones.map((opinion) => (
+            <CarouselItem key={opinion.name} className="pl-3 md:basis-1/3">
+            <a href={profileUrl} target="_blank" rel="noreferrer" className="group flex h-36 flex-col rounded-lg border border-doctoralia/20 bg-card px-5 py-4 transition-colors hover:border-doctoralia focus-visible:outline focus-visible:outline-doctoralia">
               <blockquote className="line-clamp-3 text-sm leading-relaxed">“{opinion.text}”</blockquote>
-              <div className="mt-3 flex items-center justify-between gap-3 text-sm">
+              <div className="mt-auto flex items-center justify-between gap-3 pt-3 text-sm">
                 <span className="font-semibold">{opinion.name}</span>
                 <ArrowUpRight className="size-4 shrink-0 text-doctoralia transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </div>
             </a>
+            </CarouselItem>
           ))}
-        </div>
+          </CarouselContent>
+          <div className="mt-3 flex justify-end gap-1">
+            <Button variant="ghost" size="icon" onClick={() => api?.scrollPrev()} aria-label="Reseña anterior" title="Reseña anterior"><ArrowLeft /></Button>
+            <Button variant="ghost" size="icon" onClick={() => setPaused(!paused)} aria-label={paused ? "Reanudar reseñas" : "Pausar reseñas"} title={paused ? "Reanudar reseñas" : "Pausar reseñas"} aria-pressed={paused} disabled={reducedMotion}>{paused || reducedMotion ? <Play /> : <Pause />}</Button>
+            <Button variant="ghost" size="icon" onClick={() => api?.scrollNext()} aria-label="Siguiente reseña" title="Siguiente reseña"><ArrowRight /></Button>
+          </div>
+        </Carousel>
       </div>
     </section>
   );
