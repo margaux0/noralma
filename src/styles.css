@@ -115,3 +115,43 @@
 .rise {
   animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
+
+/* Carrusel continuo de reseñas: se desliza sin parar, como un vídeo. */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation-name: marquee-x;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee__track {
+    animation: none;
+  }
+
+  .marquee__clone {
+    display: none;
+  }
+}

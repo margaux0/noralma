@@ -1,3 +1,4 @@
-- [x] Añadir «Aprendiendo a quererme» con su portada y enlace a Google Drive.
-- [x] Hacer que las reseñas destacadas pasen automáticamente y quitar la línea inferior.
-- [x] Añadir un contorno visible a Reservar sesión, Guías gratuitas y Reseñas en inicio.
+# Roadmap
+
+- [x] Reseñas de Doctoralia con movimiento continuo (marquee) en inicio
+- [x] Menú superior visible en formato teléfono (Inicio, Acerca de mí, Servicios, Blog, Instagram, Contacto)

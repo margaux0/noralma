@@ -13,6 +13,7 @@ import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
+import { Marquee } from "@/components/Marquee";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -340,14 +341,17 @@ function Index() {
           Reseñas reales publicadas en mi perfil de Doctoralia. Gracias de corazón a cada
           persona que se ha tomado el tiempo de escribirlas.
         </p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {resenas.map((r) => (
+        <Marquee
+          className="mt-10"
+          duration={85}
+          reverse
+          items={resenas.map((r) => (
             <a
               key={r.name}
               href={DOCTORALIA_REVIEWS_URL}
               target="_blank"
               rel="noreferrer"
-              className="flex flex-col rounded-2xl bg-background p-6 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
+              className="mr-5 flex w-[19rem] shrink-0 flex-col rounded-2xl bg-background p-6 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1 md:w-[22rem]"
             >
               <p className="font-display text-lg leading-snug text-primary" aria-hidden="true">
                 ★★★★★
@@ -363,7 +367,7 @@ function Index() {
               </div>
             </a>
           ))}
-        </div>
+        />
       </section>
 
       {/* Instagram */}
