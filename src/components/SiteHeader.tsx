@@ -31,7 +31,7 @@ export function SiteHeader() {
           className="font-display text-2xl font-semibold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica y con alma</span>
+          Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica con alma</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-foreground/70 md:flex">
           {navItems.map((item) =>
