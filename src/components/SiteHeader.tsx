@@ -5,7 +5,8 @@ import { WHATSAPP_URL } from "@/lib/contact";
 
 const navItems = [
   { to: "/", label: "Inicio", exact: true },
-  { to: "/acerca-de-mi", label: "Acerca de mí" },
+  { to: "/acerca-de-mi", label: "Sobre mí" },
+  { to: "/terapia-online", label: "Terapia online" },
   { to: "/servicios", label: "Servicios" },
   { to: "/blog", label: "Blog" },
   { to: "/#instagram", label: "Instagram", hash: true },
@@ -33,7 +34,7 @@ export function SiteHeader() {
         >
           Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica con alma</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-medium text-foreground/70 md:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/70 lg:flex">
           {navItems.map((item) =>
             "hash" in item ? (
               <a
@@ -63,7 +64,7 @@ export function SiteHeader() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90 md:inline-flex"
+            className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90 lg:inline-flex"
           >
             Reservar sesión
           </a>
@@ -73,7 +74,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls="menu-movil"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className="inline-flex size-10 items-center justify-center rounded-full text-foreground/70 ring-1 ring-foreground/10 transition-colors hover:bg-foreground/5 hover:text-primary md:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full text-foreground/70 ring-1 ring-foreground/10 transition-colors hover:bg-foreground/5 hover:text-primary lg:hidden"
           >
             {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
           </button>
@@ -83,7 +84,7 @@ export function SiteHeader() {
         <nav
           id="menu-movil"
           aria-label="Menú principal"
-          className="border-t border-foreground/10 bg-background px-6 pb-5 pt-2 md:hidden"
+          className="border-t border-foreground/10 bg-background px-6 pb-5 pt-2 lg:hidden"
         >
           <ul className="flex flex-col gap-0.5 text-base font-medium text-foreground/80">
             {navItems.map((item) =>

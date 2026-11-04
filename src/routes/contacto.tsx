@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -36,6 +36,7 @@ function ContactoPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [formError, setFormError] = useState<string | null>(null);
 
@@ -43,6 +44,10 @@ function ContactoPage() {
     e.preventDefault();
     setFormError(null);
     const parsed = contactSchema.safeParse({ name, email, message });
+    if (!consent) {
+      setFormError("Para enviarlo necesito que aceptes la política de privacidad");
+      return;
+    }
     if (!parsed.success) {
       setFormError(parsed.error.issues[0]?.message ?? "Revisa el formulario");
       return;
@@ -58,6 +63,7 @@ function ContactoPage() {
     setName("");
     setEmail("");
     setMessage("");
+    setConsent(false);
   }
 
   const inputClass =
@@ -145,9 +151,25 @@ function ContactoPage() {
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Cuéntame brevemente qué te gustaría trabajar"
+            placeholder="Cuéntame brevemente qué te gustaría trabajar o cuándo te iría bien hablar"
             className={inputClass}
           />
+          <p className="mt-2 text-xs leading-relaxed text-foreground/55">
+            No hace falta que compartas aquí detalles de salud: ya hablaremos con calma en sesión.
+          </p>
+          <label className="mt-5 flex items-start gap-3 text-sm text-foreground/75">
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="mt-1 size-4 accent-primary"
+            />
+            <span>
+              He leído y acepto la{" "}
+              <Link to="/privacidad" className="text-primary underline">política de privacidad</Link>. Usaré
+              tus datos solo para responderte.
+            </span>
+          </label>
           {formError && <p className="mt-3 text-sm text-destructive">{formError}</p>}
           <button
             type="submit"
