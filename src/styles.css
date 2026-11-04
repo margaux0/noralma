@@ -42,6 +42,10 @@
   --color-sand: var(--sand);
   --color-honey: var(--honey);
   --color-sage: var(--sage);
+  --color-doctoralia: var(--doctoralia);
+  --color-doctoralia-foreground: var(--doctoralia-foreground);
+  --color-doctoralia-surface: var(--doctoralia-surface);
+  --color-doctoralia-ink: var(--doctoralia-ink);
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
 }
@@ -72,6 +76,10 @@
   --honey: oklch(0.72 0.09 75);             /* dorado miel #C9A66B */
   --sage: oklch(0.478 0.036 138);           /* verde salvia #5B6650 */
   --sage-light: oklch(0.72 0.03 135);       /* #A8B09B */
+  --doctoralia: oklch(0.63 0.117 174);      /* turquesa del logo oficial */
+  --doctoralia-foreground: oklch(1 0 0);
+  --doctoralia-surface: oklch(0.974 0.016 174);
+  --doctoralia-ink: oklch(0.269 0.005 194);
 }
 
 @layer base {
