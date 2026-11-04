@@ -13,6 +13,7 @@ import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
+import { Marquee } from "@/components/Marquee";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
