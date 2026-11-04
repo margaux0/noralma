@@ -18,6 +18,7 @@ import { Route as DemenciaYAlzheimerRouteImport } from './routes/demencia-y-alzh
 import { Route as DiabetesRouteImport } from './routes/diabetes'
 import { Route as EscribirRouteImport } from './routes/escribir'
 import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as TerapiaOnlineRouteImport } from './routes/terapia-online'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const ServiciosRoute = ServiciosRouteImport.update({
   path: '/servicios',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TerapiaOnlineRoute = TerapiaOnlineRouteImport.update({
+  id: '/terapia-online',
+  path: '/terapia-online',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
+  '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
+  '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
   '/servicios': typeof ServiciosRoute
+  '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/diabetes'
     | '/escribir'
     | '/servicios'
+    | '/terapia-online'
     | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/diabetes'
     | '/escribir'
     | '/servicios'
+    | '/terapia-online'
     | '/blog/$slug'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/diabetes'
     | '/escribir'
     | '/servicios'
+    | '/terapia-online'
     | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   DiabetesRoute: typeof DiabetesRoute
   EscribirRoute: typeof EscribirRoute
   ServiciosRoute: typeof ServiciosRoute
+  TerapiaOnlineRoute: typeof TerapiaOnlineRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -224,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiciosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terapia-online': {
+      id: '/terapia-online'
+      path: '/terapia-online'
+      fullPath: '/terapia-online'
+      preLoaderRoute: typeof TerapiaOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -254,6 +274,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiabetesRoute: DiabetesRoute,
   EscribirRoute: EscribirRoute,
   ServiciosRoute: ServiciosRoute,
+  TerapiaOnlineRoute: TerapiaOnlineRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
