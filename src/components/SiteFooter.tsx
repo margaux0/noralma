@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center">
         <div>
           <Link to="/" className="font-display text-xl font-semibold">
-            Noralma<span className="text-primary">.</span>
+            Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica y con alma</span>
           </Link>
           <p className="mt-1 max-w-[42ch] text-sm leading-relaxed text-foreground/60 text-pretty">
             Psicología con alma para acompañarte en tu camino.
