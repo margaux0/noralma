@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 const navItems = [
+  { to: "/", label: "Inicio", exact: true },
   { to: "/acerca-de-mi", label: "Acerca de mí" },
   { to: "/servicios", label: "Servicios" },
   { to: "/blog", label: "Blog" },
@@ -32,6 +33,9 @@ export function SiteHeader() {
                 to={item.to}
                 className="transition-colors hover:text-primary"
                 activeProps={{ className: "text-primary" }}
+                {...("exact" in item && item.exact
+                  ? { activeOptions: { exact: true } }
+                  : {})}
               >
                 {item.label}
               </Link>
