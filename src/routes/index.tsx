@@ -15,6 +15,7 @@ import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
 import { Marquee } from "@/components/Marquee";
 import { Button } from "@/components/ui/button";
+import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,7 +72,7 @@ const guias = [
 const DOCTORALIA_REVIEWS_URL =
   "https://www.doctoralia.es/nora-gallardo-cano/psicologo/vilanova-i-la-geltru#profile-reviews";
 
-const resenas = [
+const resenasGuardadas = [
   {
     name: "Mabe",
     date: "22 de octubre de 2026",
@@ -130,10 +131,18 @@ const instagramPosts = [
 function Index() {
   const { data: posts } = useQuery({ queryKey: ["blog-posts"], queryFn: fetchPosts });
   const latestPosts = (posts ?? []).slice(0, 3);
+  const { data: doctoralia } = useQuery({
+    queryKey: ["doctoralia"],
+    queryFn: () => getDoctoraliaOpiniones(),
+    staleTime: 60 * 60 * 1000,
+  });
+  const resenas = doctoralia?.opiniones ?? resenasGuardadas;
+  const totalResenas = doctoralia?.count ?? resenasGuardadas.length;
+  const notaMedia = doctoralia?.rating ?? 5;
 
   return (
     <div>
-      <DoctoraliaDestacada opiniones={resenas} profileUrl={DOCTORALIA_REVIEWS_URL} />
+      <DoctoraliaDestacada opiniones={resenas} profileUrl={DOCTORALIA_REVIEWS_URL} rating={notaMedia} count={totalResenas} />
       {/* Hero */}
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div className="rise">
@@ -347,7 +356,7 @@ function Index() {
           reverse
           items={resenas.map((r) => (
             <a
-              key={r.name}
+              key={r.name + r.date}
               href={DOCTORALIA_REVIEWS_URL}
               target="_blank"
               rel="noreferrer"
