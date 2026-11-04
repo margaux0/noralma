@@ -20,7 +20,7 @@ import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Noralma · Nora, Psicóloga Sanitaria" },
+      { title: "Noralma · Psicóloga general sanitaria online · Nora Gallardo" },
       {
         name: "description",
         content:
@@ -33,10 +33,32 @@ export const Route = createFileRoute("/")({
           "A construir una relación contigo misma desde la que puedas entenderte, aceptarte y vivir de una forma que tenga sentido para ti.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://noralma.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://noralma.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Psychologist",
+          name: "Noralma · Nora Gallardo Cano, Psicóloga General Sanitaria",
+          url: "https://noralma.lovable.app/",
+          telephone: "+34611525410",
+          email: "noracano4@gmail.com",
+          priceRange: "60 €",
+          areaServed: "ES",
+          address: { "@type": "PostalAddress", addressLocality: "Vilanova i la Geltrú", addressRegion: "Cataluña", addressCountry: "ES" },
+          sameAs: [
+            "https://www.instagram.com/noralma.psicologia",
+            "https://www.linkedin.com/in/nora-gallardo-cano-1a6548294/",
+            "https://www.doctoralia.es/perfil/nora-gallardo-cano",
+          ],
+          availableService: { "@type": "MedicalTherapy", name: "Terapia psicológica online" },
+        }),
+      },
+    ],
   }),
   component: Index,
 });
@@ -156,6 +178,11 @@ function Index() {
             A construir una relación contigo misma desde la que puedas entenderte, aceptarte
             y vivir de una forma que tenga sentido para ti.
           </p>
+          <p className="mt-4 max-w-[48ch] text-base leading-relaxed text-foreground/65 text-pretty">
+            La terapia es un espacio para comprenderte, escucharte, aceptar tu experiencia y
+            construir una vida más coherente con tus necesidades y valores. Online o en
+            Vilanova i la Geltrú.
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold shadow-none">
             <a
@@ -163,14 +190,17 @@ function Index() {
               target="_blank"
               rel="noreferrer"
             >
-              Reservar sesión
+              Reserva tu sesión
             </a>
+            </Button>
+            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
+            <a href="/servicios#forma-de-trabajar">Conoce cómo trabajo</a>
             </Button>
             <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
             <a
               href="#guias"
             >
-              Guías gratuitas
+              Descubre los recursos gratuitos
             </a>
             </Button>
             <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">

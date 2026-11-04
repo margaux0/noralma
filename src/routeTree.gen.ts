@@ -12,11 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AcercaDeMiRouteImport } from './routes/acerca-de-mi'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DemenciaYAlzheimerRouteImport } from './routes/demencia-y-alzheimer'
 import { Route as DiabetesRouteImport } from './routes/diabetes'
 import { Route as EscribirRouteImport } from './routes/escribir'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as TerapiaOnlineRouteImport } from './routes/terapia-online'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -36,6 +39,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoLegalRoute = AvisoLegalRouteImport.update({
+  id: '/aviso-legal',
+  path: '/aviso-legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -44,6 +52,11 @@ const BlogRoute = BlogRouteImport.update({
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemenciaYAlzheimerRoute = DemenciaYAlzheimerRouteImport.update({
@@ -59,6 +72,11 @@ const DiabetesRoute = DiabetesRouteImport.update({
 const EscribirRoute = EscribirRouteImport.update({
   id: '/escribir',
   path: '/escribir',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiciosRoute = ServiciosRouteImport.update({
@@ -81,11 +99,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/acerca-de-mi': typeof AcercaDeMiRoute
   '/auth': typeof AuthRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/cookies': typeof CookiesRoute
   '/demencia-y-alzheimer': typeof DemenciaYAlzheimerRoute
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
+  '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -94,11 +115,14 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/acerca-de-mi': typeof AcercaDeMiRoute
   '/auth': typeof AuthRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/cookies': typeof CookiesRoute
   '/demencia-y-alzheimer': typeof DemenciaYAlzheimerRoute
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
+  '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -108,11 +132,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/acerca-de-mi': typeof AcercaDeMiRoute
   '/auth': typeof AuthRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/blog': typeof BlogRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/cookies': typeof CookiesRoute
   '/demencia-y-alzheimer': typeof DemenciaYAlzheimerRoute
   '/diabetes': typeof DiabetesRoute
   '/escribir': typeof EscribirRoute
+  '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -123,11 +150,14 @@ export interface FileRouteTypes {
     | '/'
     | '/acerca-de-mi'
     | '/auth'
+    | '/aviso-legal'
     | '/blog'
     | '/contacto'
+    | '/cookies'
     | '/demencia-y-alzheimer'
     | '/diabetes'
     | '/escribir'
+    | '/privacidad'
     | '/servicios'
     | '/terapia-online'
     | '/blog/$slug'
@@ -136,11 +166,14 @@ export interface FileRouteTypes {
     | '/'
     | '/acerca-de-mi'
     | '/auth'
+    | '/aviso-legal'
     | '/blog'
     | '/contacto'
+    | '/cookies'
     | '/demencia-y-alzheimer'
     | '/diabetes'
     | '/escribir'
+    | '/privacidad'
     | '/servicios'
     | '/terapia-online'
     | '/blog/$slug'
@@ -149,11 +182,14 @@ export interface FileRouteTypes {
     | '/'
     | '/acerca-de-mi'
     | '/auth'
+    | '/aviso-legal'
     | '/blog'
     | '/contacto'
+    | '/cookies'
     | '/demencia-y-alzheimer'
     | '/diabetes'
     | '/escribir'
+    | '/privacidad'
     | '/servicios'
     | '/terapia-online'
     | '/blog/$slug'
@@ -163,11 +199,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AcercaDeMiRoute: typeof AcercaDeMiRoute
   AuthRoute: typeof AuthRoute
+  AvisoLegalRoute: typeof AvisoLegalRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactoRoute: typeof ContactoRoute
+  CookiesRoute: typeof CookiesRoute
   DemenciaYAlzheimerRoute: typeof DemenciaYAlzheimerRoute
   DiabetesRoute: typeof DiabetesRoute
   EscribirRoute: typeof EscribirRoute
+  PrivacidadRoute: typeof PrivacidadRoute
   ServiciosRoute: typeof ServiciosRoute
   TerapiaOnlineRoute: typeof TerapiaOnlineRoute
 }
@@ -195,6 +234,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso-legal': {
+      id: '/aviso-legal'
+      path: '/aviso-legal'
+      fullPath: '/aviso-legal'
+      preLoaderRoute: typeof AvisoLegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -207,6 +253,13 @@ declare module '@tanstack/react-router' {
       path: '/contacto'
       fullPath: '/contacto'
       preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demencia-y-alzheimer': {
@@ -228,6 +281,13 @@ declare module '@tanstack/react-router' {
       path: '/escribir'
       fullPath: '/escribir'
       preLoaderRoute: typeof EscribirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servicios': {
@@ -268,11 +328,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AcercaDeMiRoute: AcercaDeMiRoute,
   AuthRoute: AuthRoute,
+  AvisoLegalRoute: AvisoLegalRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactoRoute: ContactoRoute,
+  CookiesRoute: CookiesRoute,
   DemenciaYAlzheimerRoute: DemenciaYAlzheimerRoute,
   DiabetesRoute: DiabetesRoute,
   EscribirRoute: EscribirRoute,
+  PrivacidadRoute: PrivacidadRoute,
   ServiciosRoute: ServiciosRoute,
   TerapiaOnlineRoute: TerapiaOnlineRoute,
 }

@@ -1,15 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { InfoPractica } from "@/components/InfoPractica";
 
 export const Route = createFileRoute("/servicios")({
   head: () => ({
     meta: [
-      { title: "Servicios · Noralma" },
+      { title: "Servicios de psicología y acompañamiento · Noralma" },
       {
         name: "description",
         content:
-          "Acompañamiento psicológico a tu ritmo: sesiones individuales, acompañamiento guiado y recursos gratuitos.",
+          "Acompañamiento psicológico online y en Vilanova i la Geltrú: ansiedad, autoestima, duelo, cambios vitales, diabetes y Alzheimer. Sesiones de 60 minutos, 60 €.",
       },
       { property: "og:title", content: "Servicios · Noralma" },
       {
@@ -25,22 +26,14 @@ export const Route = createFileRoute("/servicios")({
   component: ServiciosPage,
 });
 
-const servicios = [
-  {
-    num: "01",
-    title: "Sesiones individuales",
-    text: "Un espacio de confianza para entender lo que te pasa, a tu ritmo. Trabajamos ansiedad, autoestima, transiciones vitales y todo aquello que necesite ser escuchado.",
-  },
-  {
-    num: "02",
-    title: "Acompañamiento guiado",
-    text: "Un camino de seguimiento para sostener tus avances día a día, con materiales y ejercicios pensados para ti entre sesiones.",
-  },
-  {
-    num: "03",
-    title: "Recursos gratuitos",
-    text: "Guías y cuadernos descargables para empezar cuando todavía no es momento de una sesión: ansiedad, autocuidado y estimulación cognitiva.",
-  },
+const areas = [
+  "Ansiedad y gestión emocional",
+  "Autoestima y autoconocimiento",
+  "Autoexigencia y diálogo interno",
+  "Relaciones personales y vínculos afectivos",
+  "Duelo y procesos de pérdida",
+  "Cambios vitales y momentos de incertidumbre",
+  "Dificultades emocionales relacionadas con enfermedades crónicas",
 ];
 
 function ServiciosPage() {
@@ -52,25 +45,56 @@ function ServiciosPage() {
       <h1 className="mt-4 font-display text-4xl font-medium text-balance md:text-5xl">
         Acompañamiento a tu ritmo
       </h1>
-      <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
-        Estoy definiendo cada formato con mimo. Mientras tanto, aquí tienes una idea de
-        cómo puedo acompañarte. Escríbeme y hablamos de lo que necesitas.
+      <p className="mt-4 max-w-[56ch] text-base leading-relaxed text-foreground/65 text-pretty">
+        Sesiones individuales de 60 minutos, online o presenciales en Vilanova i la Geltrú,
+        para comprenderte, escucharte y construir una vida más coherente con lo que importa
+        para ti.
       </p>
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {servicios.map((s) => (
-          <div
-            key={s.num}
-            className="rounded-2xl bg-background p-7 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
-          >
-            <div className="grid size-11 place-items-center rounded-full bg-honey/25 text-xl text-primary">
-              {s.num}
-            </div>
-            <h2 className="mt-5 font-display text-xl font-medium">{s.title}</h2>
-            <p className="mt-2 text-base leading-relaxed text-foreground/65 text-pretty">
-              {s.text}
-            </p>
-          </div>
-        ))}
+
+      <section id="acompanar" aria-labelledby="areas" className="mt-14 scroll-mt-24">
+        <h2 id="areas" className="font-display text-3xl font-medium md:text-4xl">¿En qué puedo acompañarte?</h2>
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {areas.map((a) => (
+            <li key={a} className="flex items-center gap-4 rounded-2xl bg-card p-6 ring-1 ring-foreground/5">
+              <span className="size-2 shrink-0 rounded-full bg-honey" aria-hidden="true" />
+              <span className="text-base text-foreground/80">{a}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="forma-de-trabajar" aria-labelledby="forma" className="mt-20 grid scroll-mt-24 gap-10 md:grid-cols-2">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">Mi forma de trabajar</p>
+          <h2 id="forma" className="mt-3 font-display text-3xl font-medium text-balance md:text-4xl">
+            Cercanía, escucha y respeto por tu historia
+          </h2>
+          <blockquote className="mt-8 border-l-2 border-honey pl-5 font-display text-xl italic leading-snug text-primary text-pretty">
+            «Quizás no se trata de convertirte en alguien diferente, sino de comprenderte,
+            escucharte y descubrir qué te acerca y qué te aleja de aquello que es importante
+            para ti.»
+          </blockquote>
+        </div>
+        <div className="space-y-4 text-base leading-relaxed text-foreground/70 text-pretty">
+          <p>
+            Entiendo la psicología desde la cercanía, la escucha, la aceptación y el respeto
+            por la historia de cada persona. No hay dos procesos iguales, y la terapia se
+            adapta a ti, no al revés.
+          </p>
+          <p>
+            Trabajo integrando herramientas de la Terapia de Aceptación y Compromiso (ACT):
+            te ayudo a relacionarte de otra manera con tus pensamientos y emociones, a
+            identificar tus valores y a dar pasos coherentes con aquello que de verdad te
+            importa.
+          </p>
+          <a href="/terapia-online" className="inline-block font-semibold text-primary">
+            Cómo es la terapia online →
+          </a>
+        </div>
+      </section>
+
+      <div className="mt-20">
+        <InfoPractica />
       </div>
 
       <section className="mt-20 rounded-3xl bg-card p-8 ring-1 ring-foreground/5 md:p-14">
