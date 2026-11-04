@@ -141,17 +141,3 @@
   will-change: transform;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .marquee__track {
-    animation: none;
-  }
-
-  .marquee__clone {
-    display: none;
-  }
-}

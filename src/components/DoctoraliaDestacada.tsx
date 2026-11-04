@@ -61,7 +61,7 @@ export function DoctoraliaDestacada({
           </a>
         </div>
         <Marquee items={cards} duration={70} paused={paused} className="mt-6" />
-        {!reducedMotion && (
+        {(
           <div className="mt-3 flex justify-end">
             <Button
               variant="ghost"
