@@ -5,6 +5,7 @@ const heroNora = heroNoraAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
 import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
 import amorPropioPortadaAsset from "@/assets/amor-propio-portada.webp.asset.json";
+import aprendiendoQuerermeAsset from "@/assets/aprendiendo-a-quererme.png.asset.json";
 import reelAlzheimerAsset from "@/assets/reel-capturapng.png.asset.json";
 import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
 import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
@@ -56,6 +57,12 @@ const guias = [
     title: "Guía práctica de Amor Propio",
     text: "Pequeñas rutinas para cuidarte sin agobiarte.",
     href: "https://drive.google.com/file/d/1NcGFcwPTquQt3K88Ga_R6JlISr7VEMfo/view?usp=drivesdk",
+  },
+  {
+    img: aprendiendoQuerermeAsset.url,
+    title: "Aprendiendo a quererme",
+    text: "Desde el amor, coherencia, compasión.",
+    href: "https://drive.google.com/file/d/1Enzcr8EV6TTNhce13e8UkfnpKiinOylZ/view?usp=sharing",
   },
 ];
 
@@ -230,7 +237,7 @@ function Index() {
         <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
           Descárgalas gratis. Son un primer paso suave, sin compromiso.
         </p>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {guias.map((g) => (
             <div
               key={g.title}
