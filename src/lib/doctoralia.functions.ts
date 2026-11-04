@@ -19,7 +19,7 @@ export function parseDoctoralia(html: string): DoctoraliaData | null {
   const scripts = html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g);
   for (const m of scripts) {
     try {
-      const json = JSON.parse(m[1]);
+      const json = JSON.parse(m[1] ?? "");
       if (!json?.aggregateRating || !Array.isArray(json.review)) continue;
       const opiniones: Opinion[] = json.review
         .filter((r: any) => r?.reviewBody && r?.author?.name)
