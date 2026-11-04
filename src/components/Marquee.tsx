@@ -47,7 +47,7 @@ export function Marquee({
         }}
       >
         <div className="flex shrink-0">{items}</div>
-        <div className="flex shrink-0" inert aria-hidden="true">
+        <div className="marquee__clone flex shrink-0" inert aria-hidden="true">
           {items}
         </div>
       </div>
