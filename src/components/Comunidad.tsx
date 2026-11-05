@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRight } from "lucide-react";
 import { InstagramIcon, TikTokIcon } from "@/components/SocialIcons";
-import { SOCIAL_FOLLOWERS_UPDATED, SOCIAL_PROFILES, type SocialProfile } from "@/lib/social";
+import { SOCIAL_PROFILES, type SocialProfile } from "@/lib/social";
+import { getSocialFollowers } from "@/lib/social.functions";
 
 const icons = { instagram: InstagramIcon, tiktok: TikTokIcon } as const;
 
@@ -30,9 +32,17 @@ function useCountUp(target: number, start: boolean, duration = 1600) {
   return value;
 }
 
-function ProfileCard({ profile, start }: { profile: SocialProfile; start: boolean }) {
+function ProfileCard({
+  profile,
+  followers,
+  start,
+}: {
+  profile: SocialProfile;
+  followers: number;
+  start: boolean;
+}) {
   const Icon = icons[profile.id];
-  const count = useCountUp(profile.followers, start);
+  const count = useCountUp(followers, start);
 
   return (
     <a
@@ -57,7 +67,7 @@ function ProfileCard({ profile, start }: { profile: SocialProfile; start: boolea
         </span>
       </span>
       <span className="sr-only">
-        {profile.followers.toLocaleString("es-ES")} seguidores en {profile.name}. Abrir perfil.
+        {followers.toLocaleString("es-ES")} seguidores en {profile.name}. Abrir perfil.
       </span>
     </a>
   );
@@ -65,15 +75,20 @@ function ProfileCard({ profile, start }: { profile: SocialProfile; start: boolea
 
 export function Comunidad() {
   const ref = useRef<HTMLDivElement>(null);
-  const [start, setStart] = useState(false);
+  const [seen, setSeen] = useState(false);
+  const { data: enDirecto, isPending } = useQuery({
+    queryKey: ["social-followers"],
+    queryFn: () => getSocialFollowers(),
+    staleTime: 60 * 60 * 1000,
+  });
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || start) return;
+    if (!el || seen) return;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          setStart(true);
+          setSeen(true);
           observer.disconnect();
         }
       },
@@ -81,7 +96,15 @@ export function Comunidad() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [start]);
+  }, [seen]);
+
+  // La cifra en directo manda; si la red no responde, se muestra la guardada.
+  const followersFor = (profile: SocialProfile) =>
+    profile.id === "instagram"
+      ? (enDirecto?.instagram ?? profile.followers)
+      : (enDirecto?.tiktok ?? profile.followers);
+
+  const start = seen && !isPending;
 
   return (
     <section aria-labelledby="comunidad" className="bg-sand/40">
@@ -99,12 +122,17 @@ export function Comunidad() {
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {SOCIAL_PROFILES.map((profile) => (
-            <ProfileCard key={profile.id} profile={profile} start={start} />
+            <ProfileCard
+              key={profile.id}
+              profile={profile}
+              followers={followersFor(profile)}
+              start={start}
+            />
           ))}
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground/80">
-          Cifras reales de cada perfil, comprobadas en {SOCIAL_FOLLOWERS_UPDATED}.
+          Cifras reales leídas de cada perfil y actualizadas automáticamente.
         </p>
       </div>
     </section>

@@ -1,10 +1,10 @@
 import { INSTAGRAM_URL, TIKTOK_URL } from "@/lib/contact";
 
 /**
- * Perfiles sociales de Noralma con sus cifras reales de seguidores.
- * Cifras leídas de los propios perfiles el 5 de noviembre de 2026.
- * No se inventan: si cambia alguna, se actualiza aquí (o se pide a Lovable
- * que vuelva a leerlas de los perfiles).
+ * Perfiles sociales de Noralma.
+ * Las cifras que se ven en la web se leen en directo de cada perfil
+ * (ver src/lib/social.functions.ts). Los números de aquí son la copia
+ * guardada que se muestra si alguna red no responde.
  */
 export type SocialProfile = {
   id: "instagram" | "tiktok";
