@@ -1,58 +1,85 @@
 import { Link } from "@tanstack/react-router";
 import { openCookieSettings } from "@/components/CookieConsent";
-import { COLEGIADA, CONTACT_EMAIL, INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/contact";
+import {
+  COLEGIADA,
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  TIKTOK_URL,
+  WHATSAPP_URL,
+} from "@/lib/contact";
 import { Button } from "@/components/ui/button";
 
-const linkClass = "transition-colors hover:text-primary";
+const linkClass =
+  "inline-flex min-h-11 items-center text-sm text-foreground/70 transition-colors hover:text-primary";
+const labelClass = "text-xs font-semibold uppercase tracking-[0.14em] text-primary";
+const hairline = "h-px w-full bg-primary/25";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-sand/60 ring-1 ring-foreground/5">
-      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-        <div>
-          <Link to="/" className="flex flex-col items-start font-display text-xl font-semibold">
-            Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica con alma</span>
-          </Link>
-          <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-foreground/65 text-pretty">
-            Nora Gallardo Cano · Psicóloga General Sanitaria · Col. {COLEGIADA}. Terapia online y
-            presencial en Vilanova i la Geltrú.
-          </p>
-          <Button asChild className="mt-5 h-11 rounded-md shadow-none"><a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Reserva tu sesión
-          </a></Button>
-        </div>
-        <nav aria-label="Secciones" className="flex flex-col gap-2 text-sm text-foreground/70">
-          <p className="mb-1 font-semibold text-foreground">La web</p>
-          <Link to="/terapia-online" className={linkClass}>Terapia online</Link>
-          <Link to="/servicios" className={linkClass}>Servicios</Link>
-          <Link to="/acerca-de-mi" className={linkClass}>Sobre mí</Link>
-          <Link to="/blog" className={linkClass}>Blog</Link>
-          <Link to="/contacto" className={linkClass}>Contacto</Link>
-        </nav>
-        <div className="flex flex-col gap-2 text-sm text-foreground/70">
-          <p className="mb-1 font-semibold text-foreground">Sígueme</p>
-          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className={linkClass}>Instagram</a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className={linkClass}>LinkedIn</a>
-          <a href="https://www.tiktok.com/@noralma.psico" target="_blank" rel="noreferrer" className={linkClass}>TikTok</a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={linkClass}>WhatsApp</a>
-          <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>{CONTACT_EMAIL}</a>
-        </div>
-        <nav aria-label="Legal" className="flex flex-col gap-2 text-sm text-foreground/70">
-          <p className="mb-1 font-semibold text-foreground">Legal</p>
-          <Link to="/aviso-legal" className={linkClass}>Aviso legal</Link>
-          <Link to="/privacidad" className={linkClass}>Política de privacidad</Link>
-          <Link to="/cookies" className={linkClass}>Política de cookies</Link>
-          <Button variant="link" type="button" onClick={openCookieSettings} className={`h-auto min-h-11 whitespace-normal justify-start px-0 text-left text-foreground/70 ${linkClass}`}>
-            Configuración de cookies
+    <footer className="bg-sand/60">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
+        <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Link to="/" className="font-display text-2xl font-semibold">
+              Noralma
+            </Link>
+            <p className="mt-2 font-display text-lg italic text-primary">Psicología con alma.</p>
+            <p className="mt-3 max-w-[42ch] text-sm leading-relaxed text-foreground/65">
+              Nora Gallardo Cano · Psicóloga General Sanitaria · Col. {COLEGIADA}
+            </p>
+          </div>
+          <Button asChild className="h-11 rounded-md shadow-none">
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+              Reserva tu sesión
+            </a>
           </Button>
-        </nav>
-      </div>
-      <div className="mx-auto max-w-6xl px-6 pb-8 text-xs text-foreground/55">
-        © {new Date().getFullYear()} Noralma · Nora Gallardo Cano, Psicóloga General Sanitaria.
+        </div>
+
+        <div className={`mt-10 ${hairline}`} />
+
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <nav aria-label="Navegación" className="flex flex-col items-start gap-1">
+            <p className={labelClass}>Navegación</p>
+            <Link to="/" className={linkClass}>Inicio</Link>
+            <Link to="/acerca-de-mi" className={linkClass}>Sobre mí</Link>
+            <Link to="/terapia-online" className={linkClass}>Terapia online</Link>
+            <Link to="/servicios" className={linkClass}>Servicios</Link>
+            <Link to="/" hash="recursos" className={linkClass}>Recursos</Link>
+            <Link to="/contacto" className={linkClass}>Contacto</Link>
+          </nav>
+
+          <div className="flex flex-col items-start gap-1">
+            <p className={labelClass}>Contacto</p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>{CONTACT_EMAIL}</a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className={linkClass}>Instagram · @noralma.psicologia</a>
+            <a href={TIKTOK_URL} target="_blank" rel="noreferrer" className={linkClass}>TikTok · @noralma.psicologia</a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className={linkClass}>LinkedIn</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={linkClass}>WhatsApp</a>
+          </div>
+
+          <nav aria-label="Información legal" className="flex flex-col items-start gap-1">
+            <p className={labelClass}>Información legal</p>
+            <Link to="/aviso-legal" className={linkClass}>Aviso legal</Link>
+            <Link to="/privacidad" className={linkClass}>Política de privacidad</Link>
+            <Link to="/cookies" className={linkClass}>Política de cookies</Link>
+            <Button
+              variant="link"
+              type="button"
+              onClick={openCookieSettings}
+              className="h-auto min-h-11 justify-start px-0 text-left text-sm font-normal text-foreground/70 transition-colors hover:text-primary"
+            >
+              Configuración de cookies
+            </Button>
+          </nav>
+        </div>
+
+        <div className={`mt-12 ${hairline}`} />
+
+        <p className="mt-5 text-xs leading-relaxed text-foreground/55">
+          © {new Date().getFullYear()} Noralma · Nora Gallardo Cano, Psicóloga General Sanitaria ·
+          Col. {COLEGIADA}. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   );
