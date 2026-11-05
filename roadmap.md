@@ -8,4 +8,5 @@
 - [ ] Completar NIF, dirección de la consulta y nº de registro sanitario en textos legales — esperando datos de Nora
 - [ ] Sección «Súmate a nuestra comunidad» con Instagram y TikTok, logos oficiales, seguidores reales y contador animado — esperando cifra de seguidores y perfil de TikTok
 - [ ] Pie de página nuevo en bloques (Noralma, Navegación, Contacto, Información legal) con líneas finas verde salvia y copyright
+- [ ] Reseñas de Doctoralia pasando solas bajo el 5/5, sin botón de pausa, como en aliciagonzalezpsicologia.com
 - [x] Fotografía panorámica de bienvenida arriba del inicio, con encuadre propio para móvil
