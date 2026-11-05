@@ -4,7 +4,15 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/escribir")({
   head: () => ({
-    meta: [{ title: "Nueva entrada · Noralma" }, { name: "robots", content: "noindex" }],
+    meta: [
+      { title: "Nueva entrada · Noralma" },
+      { name: "description", content: "Espacio privado para escribir y publicar reflexiones en el blog de Noralma." },
+      { property: "og:title", content: "Nueva entrada · Noralma" },
+      { property: "og:description", content: "Editor privado del blog de Noralma." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex" },
+    ],
   }),
   component: EscribirPage,
 });

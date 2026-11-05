@@ -1,5 +1,6 @@
 # Roadmap
-- [ ] Integrar La carta de Noralma: sección, popup, consentimiento y conexión real con plataforma; verificar confirmación, bienvenida y baja.
+- [x] La carta de Noralma: sección final, popup a los 9 segundos, cierre persistente, consentimiento desmarcado y adaptación móvil/ordenador comprobados.
+- [ ] Abrir suscripciones y verificar lista, doble confirmación, bienvenida y baja — bloqueado: el permiso actual no permite crear la conexión Brevo; falta conectar una cuenta y configurar remitente y plantillas.
 - [x] Adaptación fiel a móvil de toda la web (documento): revisar 320–1440 px y corregir
 - [x] Cabecera única: foto de Nora y Django de fondo con frase y botones encima, sin bloque de bosque separado
 
