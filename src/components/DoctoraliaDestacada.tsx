@@ -5,7 +5,7 @@ type Opinion = { name: string; text: string; date?: string; rating?: number };
 export function DoctoraliaDestacada({ opiniones, profileUrl, rating, count }: {
   opiniones: Opinion[];
   profileUrl: string;
-  rating?: number;
+  rating: number | undefined;
   count: number;
 }) {
   return (
