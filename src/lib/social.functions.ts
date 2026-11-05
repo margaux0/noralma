@@ -22,7 +22,7 @@ export function parseFollowers(raw: string): number | null {
   const abbreviated = s.match(/(mil|k)$/);
   if (abbreviated) {
     multiplier = 1000;
-    s = s.slice(0, abbreviated.index);
+    s = s.slice(0, s.length - abbreviated[0].length);
   }
 
   const commas = (s.match(/,/g) ?? []).length;
