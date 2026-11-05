@@ -1,6 +1,6 @@
 # Roadmap
-- [ ] Adaptación fiel a móvil de toda la web (documento): revisar 320–1440 px y corregir
-- [ ] Cabecera única: foto de Nora y Django de fondo con frase y botones encima, sin bloque de bosque separado
+- [x] Adaptación fiel a móvil de toda la web (documento): revisar 320–1440 px y corregir
+- [x] Cabecera única: foto de Nora y Django de fondo con frase y botones encima, sin bloque de bosque separado
 
 - [x] Titular de la franja del bosque: «Mi propósito es acompañarte a sentirte bien contigo.» en blanco, serif, a la izquierda sobre la vegetación, botones debajo; comprobado en 320, 390, 768, 1280 y 1920 px sin tapar a Nora ni a Django.
 
