@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 export const NEWSLETTER_DELAY_MS = 9000;
-export const NEWSLETTER_PREFERENCE_KEY = "noralma-newsletter-preference";
 export const NEWSLETTER_LIST_NAME = "Newsletter Noralma";
 
 export const newsletterSchema = z.object({
