@@ -141,9 +141,31 @@ function Index() {
 
   return (
     <div className="home-editorial">
-      <div className="home-banner">
-        <img src={bosqueDjango} alt="Nora Gallardo junto a su perro Django en un camino entre árboles" width={1920} height={640} fetchPriority="high" />
-      </div>
+      <section aria-label="Bienvenida a Noralma" className="home-banner">
+        <img className="home-banner-vegetation" src={bosqueDjango} alt="" aria-hidden="true" width={1920} height={640} />
+        <img className="home-banner-photo" src={bosqueDjango} alt="Nora Gallardo junto a su perro Django en un camino entre árboles" width={1920} height={640} fetchPriority="high" />
+        <div className="home-banner-content mx-auto w-full max-w-6xl px-6">
+          <div className="home-banner-copy">
+            <p className="font-display font-medium">La clave está en entender y validar la diversidad de realidades, eso es lo realmente sanador.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu cita <ArrowUpRight /></a></Button>
+              <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><a href="#areas-inicio">¿Qué te ofrezco? <ArrowRight /></a></Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section aria-labelledby="terapia-online-inicio" className="bg-sand/40 text-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-16">
+            <div><p className="home-eyebrow text-sm uppercase text-primary">Terapia psicológica online</p><h2 id="terapia-online-inicio" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Cuidar de tu salud mental, estés donde estés.</h2></div>
+            <div><p className="text-base leading-relaxed text-muted-foreground">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className={`mt-6 ${actionClass}`}><Link to="/terapia-online">Descubre cómo funciona la terapia online <ArrowUpRight /></Link></Button></div>
+          </div>
+          <div className="mt-12 grid gap-7 border-t border-primary/20 pt-8 sm:grid-cols-3">
+            {[{ Icon: Clock3, title: "Flexibilidad", text: "Integra la terapia en tu rutina." }, { Icon: HeartHandshake, title: "Comodidad", text: "Realiza las sesiones desde tu propio espacio." }, { Icon: MapPin, title: "Accesibilidad", text: "Cuida de tu salud mental sin depender de desplazamientos." }].map(({ Icon, title, text }) => <div key={title}><Icon className="size-5 text-primary" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-3 text-sm font-medium uppercase">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}
+          </div>
+        </div>
+      </section>
+
       <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16 md:pt-14">
         <div>
           <p className="home-eyebrow text-sm font-medium text-primary">Noralma · Psicología clínica con alma</p>
@@ -176,20 +198,9 @@ function Index() {
         </div>
       </section>
 
-      <section aria-labelledby="terapia-online-inicio" className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-16">
-            <div><p className="home-eyebrow text-sm text-primary-foreground/80">Terapia psicológica online</p><h2 id="terapia-online-inicio" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Cuidar de tu salud mental, estés donde estés.</h2></div>
-            <div><p className="text-base leading-relaxed text-primary-foreground/85">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className="mt-6 h-auto min-h-11 whitespace-normal border-primary-foreground/50 bg-transparent px-5 py-3 text-primary-foreground shadow-none hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/terapia-online">Descubre cómo funciona la terapia online <ArrowUpRight /></Link></Button></div>
-          </div>
-          <div className="mt-12 grid gap-7 border-t border-primary-foreground/25 pt-8 sm:grid-cols-3">
-            {[{ Icon: Clock3, title: "Flexibilidad", text: "Integra la terapia en tu rutina." }, { Icon: HeartHandshake, title: "Comodidad", text: "Realiza las sesiones desde tu propio espacio." }, { Icon: MapPin, title: "Accesibilidad", text: "Cuida de tu salud mental sin depender de desplazamientos." }].map(({ Icon, title, text }) => <div key={title}><Icon className="size-5 text-primary-foreground/80" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-3 font-display text-xl">{title}</h3><p className="mt-2 text-sm leading-relaxed text-primary-foreground/80">{text}</p></div>)}
-          </div>
-        </div>
-      </section>
 
-      <section aria-labelledby="areas-inicio" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]"><div><p className="home-eyebrow text-sm text-primary">Áreas de acompañamiento</p><h2 id="areas-inicio" className="mt-4 font-display text-3xl font-medium leading-tight md:text-4xl">¿En qué puedo acompañarte?</h2></div><p className="max-w-[43ch] self-end text-base leading-relaxed text-muted-foreground">Cada historia es diferente. El proceso parte de lo que estás viviendo y de lo que necesitas hoy.</p></div>
+      <section id="areas-inicio" aria-labelledby="areas-inicio-titulo" className="mx-auto scroll-mt-28 max-w-6xl px-6 py-16 md:py-24">
+        <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]"><div><p className="home-eyebrow text-sm text-primary">Áreas de acompañamiento</p><h2 id="areas-inicio-titulo" className="mt-4 font-display text-3xl font-medium leading-tight md:text-4xl">¿En qué puedo acompañarte?</h2></div><p className="max-w-[43ch] self-end text-base leading-relaxed text-muted-foreground">Cada historia es diferente. El proceso parte de lo que estás viviendo y de lo que necesitas hoy.</p></div>
         <div className="mt-10 grid gap-x-12 md:grid-cols-2">
           {areasInicio.map((area) => <Link key={area.id} to="/servicios" hash={area.id} className="group border-t border-border py-6 outline-offset-4 focus-visible:outline-primary"><div className="flex items-start justify-between gap-4"><h3 className="max-w-[30ch] font-display text-xl font-medium leading-snug group-hover:text-primary">{area.title}</h3><ArrowUpRight className="mt-1 size-4 shrink-0 text-primary" aria-hidden="true" /></div><p className="mt-3 max-w-[49ch] text-sm leading-relaxed text-muted-foreground">{area.text}</p></Link>)}
         </div>

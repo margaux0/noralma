@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Añadir frase y botones sobre el bosque y mover la terapia online inmediatamente debajo, sin duplicar secciones; enlaces y pantallas de 320, 390, 768 y 1280 px comprobados.
+
 - [x] Rediseñar inicio según documento: presentación, Nora, terapia online, áreas, ACT, recursos y cierre; verificar navegación y pantallas.
 - [x] Sustituir opiniones individuales por valoración breve de Doctoralia después de servicios: puntuación y total reales, enlace único, sin testimonios ni controles.
 - [x] Optimizar toda la web para móviles según documento: primera pantalla, fotos, menú con reserva visible, botones y ausencia de desbordamientos.
