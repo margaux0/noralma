@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { INSTAGRAM_URL, TIKTOK_URL } from "@/lib/contact";
+import { TIKTOK_URL } from "@/lib/contact";
 
 export type SocialFollowers = { instagram?: number; tiktok?: number };
 
@@ -80,24 +80,23 @@ async function read(url: string, parser: (html: string) => number | null): Promi
 
 /**
  * Seguidores reales de los perfiles de Noralma.
- * Se leen de los propios perfiles y se guardan una hora en memoria;
- * si alguna red no responde, esa cifra se omite y la web muestra la guardada.
+ *
+ * TikTok: se lee en directo del perfil y se guarda una hora en memoria.
+ * Instagram: Instagram no permite leer la cifra desde la web (responde 429),
+ *   así que se muestra la cifra guardada en src/lib/social.ts, que Nora pide
+ *   actualizar cuando quiere. parseInstagramFollowers queda listo por si algún
+ *   día se puede leer de forma fiable.
  */
 export const getSocialFollowers = createServerFn({ method: "GET" }).handler(
   async (): Promise<SocialFollowers> => {
     if (cache && Date.now() - cache.at < TTL) return cache.data;
 
-    const [instagram, tiktok] = await Promise.all([
-      read(INSTAGRAM_URL, parseInstagramFollowers),
-      read(TIKTOK_URL, parseTiktokFollowers),
-    ]);
-
+    const tiktok = await read(TIKTOK_URL, parseTiktokFollowers);
     const data: SocialFollowers = {};
-    if (instagram && instagram > 0) data.instagram = instagram;
     if (tiktok && tiktok > 0) data.tiktok = tiktok;
 
-    // Solo se cachean lecturas con alguna cifra: si fallan, se intenta otra vez.
-    if (Object.keys(data).length) cache = { at: Date.now(), data };
+    // Solo se cachean lecturas con cifra: si falla, se intenta otra vez.
+    if (data.tiktok) cache = { at: Date.now(), data };
     return data;
   },
 );
