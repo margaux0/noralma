@@ -9,4 +9,5 @@
 - [ ] Sección «Súmate a nuestra comunidad» con Instagram y TikTok, logos oficiales, seguidores reales y contador animado — esperando cifra de seguidores y perfil de TikTok
 - [ ] Pie de página nuevo en bloques (Noralma, Navegación, Contacto, Información legal) con líneas finas verde salvia y copyright
 - [ ] Reseñas de Doctoralia pasando solas bajo el 5/5, sin botón de pausa, como en aliciagonzalezpsicologia.com
+- [ ] Seguidores de Instagram y TikTok leídos en directo de los perfiles y actualizados solos, con copia guardada si fallan
 - [x] Fotografía panorámica de bienvenida arriba del inicio, con encuadre propio para móvil
