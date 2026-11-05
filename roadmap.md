@@ -1,4 +1,6 @@
 # Roadmap
+- [ ] Mejora integral de noviembre: reorganizar inicio, conservar contenido personal y recursos, restaurar arco móvil, revisar navegación y metadatos y verificar móvil/ordenador.
+- [ ] Publicar opiniones individuales autorizadas — pendiente: autorización para reproducirlas; conservar franja preparada sin testimonios visibles.
 - [x] La carta de Noralma: sección final, popup a los 9 segundos, consentimiento desmarcado y adaptación móvil/ordenador comprobados.
 - [x] Preguntar por cookies y newsletter en cada nueva visita, sin superponer avisos ni repetirlos al navegar entre páginas; comprobado en móvil y ordenador con decisiones guardadas.
 - [ ] Abrir suscripciones y verificar lista, doble confirmación, bienvenida y baja — bloqueado: el permiso actual no permite crear la conexión Brevo; falta conectar una cuenta y configurar remitente y plantillas.
