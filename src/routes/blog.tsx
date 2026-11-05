@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 
@@ -22,8 +22,13 @@ export const Route = createFileRoute("/blog")({
     ],
     links: [{ rel: "canonical", href: "/blog" }],
   }),
-  component: BlogPage,
+  component: BlogRoute,
 });
+
+function BlogRoute() {
+  const isArticle = useRouterState({ select: (state) => state.matches.some((match) => match.routeId === "/blog/$slug") });
+  return isArticle ? <Outlet /> : <BlogPage />;
+}
 
 function BlogPage() {
   const { data: posts, isLoading } = useQuery({
