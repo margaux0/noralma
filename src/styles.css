@@ -157,7 +157,7 @@
 .home-banner-copy a { font-size: 14px; }
 @media (min-width: 768px) {
   .home-banner { height: 420px; min-height: 0; }
-  .home-banner-vegetation { display: none; }
+  .home-banner .home-banner-vegetation { display: none; filter: none; transform: none; }
   .home-banner-photo { inset: 0; height: 100%; object-position: center 40%; -webkit-mask-image: none; mask-image: none; }
   .home-banner::after { background: var(--banner-overlay); }
   .home-banner-content { height: 100%; display: flex; align-items: center; }
