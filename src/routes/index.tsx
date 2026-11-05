@@ -10,27 +10,27 @@ import reelAlzheimerAsset from "@/assets/reel-capturapng.png.asset.json";
 import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
 import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
-import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
-import { Marquee } from "@/components/Marquee";
+import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
+import { selectHomepageReviews } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Noralma · Psicóloga general sanitaria online · Nora Gallardo" },
+      { title: "Psicóloga general sanitaria online en España · Noralma" },
       {
         name: "description",
         content:
-          "Mi propósito es acompañarte a sentirte bien contigo. Noralma es el espacio de Nora, Psicóloga Sanitaria: sesiones, guías gratuitas y un blog para acompañarte en tu camino.",
+          "Nora Gallardo Cano, psicóloga general sanitaria. Terapia psicológica online en España: acompañamiento para ansiedad, autoestima, vínculos y cambios vitales.",
       },
-      { property: "og:title", content: "Noralma · Nora, Psicóloga Sanitaria" },
+      { property: "og:title", content: "Noralma · Psicología sanitaria online con alma" },
       {
         property: "og:description",
         content:
-          "A construir una relación contigo misma desde la que puedas entenderte, aceptarte y vivir de una forma que tenga sentido para ti.",
+          "Un espacio de terapia psicológica online para comprenderte y construir una vida más coherente con lo que necesitas y lo que importa para ti.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://noralma.lovable.app/" },
@@ -150,6 +150,17 @@ const instagramPosts = [
   },
 ];
 
+const areasInicio = [
+  { title: "Ansiedad y gestión emocional", text: "Dar espacio a lo que sientes y comprender cómo se manifiesta la ansiedad en tu día a día.", id: "ansiedad" },
+  { title: "Autoestima y autoconocimiento", text: "Explorar cómo te ves y construir una relación contigo desde la comprensión y el cuidado.", id: "autoestima" },
+  { title: "Autoexigencia y diálogo interno", text: "Escuchar cómo te hablas y revisar las exigencias que pueden alejarte de tus necesidades.", id: "autoexigencia" },
+  { title: "Relaciones y vínculos afectivos", text: "Comprender tus vínculos, tus límites y las maneras en las que te relacionas con los demás.", id: "relaciones" },
+  { title: "Duelo y procesos de pérdida", text: "Encontrar un espacio de escucha para transitar una pérdida, respetando tu propio ritmo.", id: "duelo" },
+  { title: "Cambios vitales y momentos de incertidumbre", text: "Acompañarte cuando algo cambia y necesitas parar, escucharte y encontrar tu dirección.", id: "cambios-vitales" },
+];
+
+const actionClass = "h-auto min-h-11 whitespace-normal rounded-md border border-primary px-5 py-3 text-center leading-snug shadow-none";
+
 function Index() {
   const { data: posts } = useQuery({ queryKey: ["blog-posts"], queryFn: fetchPosts });
   const latestPosts = (posts ?? []).slice(0, 3);
@@ -158,331 +169,89 @@ function Index() {
     queryFn: () => getDoctoraliaOpiniones(),
     staleTime: 60 * 60 * 1000,
   });
-  const resenas = doctoralia?.opiniones ?? resenasGuardadas;
-  const totalResenas = doctoralia?.count ?? resenasGuardadas.length;
-  const notaMedia = doctoralia?.rating ?? 5;
+  const resenas = selectHomepageReviews(doctoralia?.opiniones ?? resenasGuardadas);
 
   return (
-    <div>
-      <DoctoraliaDestacada opiniones={resenas} profileUrl={DOCTORALIA_REVIEWS_URL} rating={notaMedia} count={totalResenas} />
-      {/* Hero */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
-        <div className="rise">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">
-            Nora · Psicóloga Sanitaria
-          </p>
-          <h1 className="mt-5 font-display text-4xl font-medium leading-tight text-balance md:text-6xl">
-            Mi propósito es acompañarte a sentirte bien contigo.
+    <div className="home-editorial">
+      <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16 md:pt-14">
+        <div>
+          <p className="home-eyebrow text-sm font-medium text-primary">Noralma · Psicología clínica con alma</p>
+          <h1 id="presentacion" className="mt-5 font-display text-4xl font-medium leading-[1.13] text-balance lg:text-6xl">
+            Mi propósito es acompañarte a <em className="font-normal text-primary">sentirte bien contigo.</em>
           </h1>
-          <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-foreground/70 text-pretty">
-            A construir una relación contigo misma desde la que puedas entenderte, aceptarte
-            y vivir de una forma que tenga sentido para ti.
+          <p className="mt-6 max-w-[47ch] text-base leading-relaxed text-muted-foreground">
+            Un espacio de acompañamiento psicológico donde poder comprenderte, escucharte y construir una relación contigo desde la que vivir de una forma más coherente con lo que necesitas y lo que es importante para ti.
           </p>
-          <p className="mt-4 max-w-[48ch] text-base leading-relaxed text-foreground/65 text-pretty">
-            La terapia es un espacio para comprenderte, escucharte, aceptar tu experiencia y
-            construir una vida más coherente con tus necesidades y valores. Online o en
-            Vilanova i la Geltrú.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold shadow-none">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Reserva tu sesión
-            </a>
-            </Button>
-            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
-            <a href="/servicios#forma-de-trabajar">Conoce cómo trabajo</a>
-            </Button>
-            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
-            <a
-              href="#guias"
-            >
-              Descubre los recursos gratuitos
-            </a>
-            </Button>
-            <Button asChild variant="outline" className="h-auto rounded-full border-2 border-primary px-6 py-3 font-semibold text-primary shadow-none hover:bg-primary/10">
-            <a
-              href="#resenas"
-            >
-              Reseñas
-            </a>
-            </Button>
+          <p className="mt-5 text-sm font-medium text-foreground">Nora Gallardo Cano · Psicóloga General Sanitaria</p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Button asChild variant="outline" className={actionClass}><Link to="/servicios" hash="forma-de-trabajar">Conoce cómo trabajo <ArrowUpRight /></Link></Button>
+            <Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu sesión <ArrowUpRight /></a></Button>
           </div>
         </div>
-        <div className="rise" style={{ animationDelay: ".15s" }}>
-          <img
-            src={heroNora}
-            alt="Nora, Psicóloga Sanitaria, en su consulta"
-            width={912}
-            height={1104}
-            style={{ objectPosition: "center 72%" }}
-            className="aspect-[4/5] w-full rounded-3xl object-cover ring-1 ring-foreground/5"
-          />
+        <figure className="home-hero-photo m-0">
+          <img src={heroNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, en su consulta" width={912} height={1104} fetchPriority="high" className="h-full w-full object-cover" />
+          <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
+        </figure>
+      </section>
+
+      <DoctoraliaDestacada opiniones={resenas} profileUrl={DOCTORALIA_REVIEWS_URL} rating={doctoralia?.rating} count={doctoralia?.count ?? resenasGuardadas.length} />
+
+      <section aria-labelledby="conoce-nora" className="mx-auto grid max-w-6xl items-center gap-9 px-6 py-16 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-24">
+        <img src={heroNora} alt="Nora en su espacio de acompañamiento psicológico en Vilanova i la Geltrú" width={912} height={1104} loading="lazy" className="home-about-photo w-full object-cover" />
+        <div>
+          <p className="home-eyebrow text-sm font-medium text-primary">Conoce a Nora</p>
+          <h2 id="conoce-nora" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Detrás de Noralma, <em className="font-normal text-primary">estoy yo.</em></h2>
+          <p className="mt-6 max-w-[53ch] text-base leading-relaxed text-muted-foreground">Soy Nora, psicóloga general sanitaria y creadora de Noralma. Entiendo la psicología como un espacio de escucha, comprensión y acompañamiento, donde cada persona pueda explorar su historia, comprender lo que está viviendo y encontrar nuevas maneras de relacionarse consigo misma.</p>
+          <Button asChild variant="outline" className={`mt-7 ${actionClass}`}><Link to="/acerca-de-mi">Conoce más sobre mí <ArrowUpRight /></Link></Button>
         </div>
       </section>
 
-      {/* Propósito */}
-      <section className="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
-        <div className="max-w-2xl">
-          <p className="font-display text-2xl font-medium leading-snug text-foreground text-pretty md:text-3xl">
-            Para mí, gran parte de este proceso tiene que ver con una pregunta que parece
-            sencilla, pero que puede acompañarnos durante toda la vida:{" "}
-            <span className="text-primary">¿Quién soy yo?</span>
-          </p>
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/75 text-pretty">
-            <p>
-              No creo que exista una respuesta definitiva. Nuestra identidad no es algo que
-              encontramos y dejamos quieto: cambia con lo que vivimos, con las personas que
-              conocemos, con nuestras decisiones, nuestras pérdidas y nuestros vínculos.
-            </p>
-            <p>
-              No llegamos a una versión final de quienes somos. Estamos en constante
-              movimiento. Y creo que ahí está una de las partes más bonitas de la vida:
-              poder seguir descubriéndonos, cuestionarnos, cambiar de dirección y
-              permitirnos ser diferentes a quienes fuimos.
-            </p>
-            <p>
-              En terapia, iremos dando espacio a todo ello para preguntarnos:{" "}
-              <span className="font-semibold text-foreground">
-                ¿Esto me acerca a mí o me aleja de mí?
-              </span>
-            </p>
+      <section aria-labelledby="terapia-online-inicio" className="bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-16">
+            <div><p className="home-eyebrow text-sm text-primary-foreground/80">Terapia psicológica online</p><h2 id="terapia-online-inicio" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Cuidar de tu salud mental, estés donde estés.</h2></div>
+            <div><p className="text-base leading-relaxed text-primary-foreground/85">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className="mt-6 h-auto min-h-11 whitespace-normal border-primary-foreground/50 bg-transparent px-5 py-3 text-primary-foreground shadow-none hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/terapia-online">Descubre cómo funciona la terapia online <ArrowUpRight /></Link></Button></div>
           </div>
-          <p className="mt-10 font-display text-xl font-medium leading-snug text-primary text-pretty md:text-2xl">
-            “Estoy aquí. Me estoy escuchando. Y esta vida se parece cada vez un poco más
-            a mí.”
-          </p>
-        </div>
-      </section>
-
-      {/* Servicios */}
-      <section className="bg-secondary ring-1 ring-foreground/5">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <ServiciosDestacados />
-          <div className="mt-10">
-            <Link
-              to="/servicios"
-              className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-            >
-              Ver todos los servicios →
-            </Link>
+          <div className="mt-12 grid gap-7 border-t border-primary-foreground/25 pt-8 sm:grid-cols-3">
+            {[{ Icon: Clock3, title: "Flexibilidad", text: "Integra la terapia en tu rutina." }, { Icon: HeartHandshake, title: "Comodidad", text: "Realiza las sesiones desde tu propio espacio." }, { Icon: MapPin, title: "Accesibilidad", text: "Cuida de tu salud mental sin depender de desplazamientos." }].map(({ Icon, title, text }) => <div key={title}><Icon className="size-5 text-primary-foreground/80" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-3 font-display text-xl">{title}</h3><p className="mt-2 text-sm leading-relaxed text-primary-foreground/80">{text}</p></div>)}
           </div>
         </div>
       </section>
 
-      {/* Guías */}
-      <section id="guias" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 md:py-24">
-        <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
-          Guías para empezar
-        </h2>
-        <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
-          Descárgalas gratis. Son un primer paso suave, sin compromiso.
-        </p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {guias.map((g) => (
-            <div
-              key={g.title}
-              className="flex items-center gap-5 rounded-2xl bg-background p-6 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
-            >
-              <img
-                src={g.img}
-                alt={g.title}
-                width={736}
-                height={912}
-                loading="lazy"
-                className="h-28 w-20 shrink-0 rounded-lg object-cover ring-1 ring-foreground/5"
-              />
-              <div className="min-w-0">
-                <h3 className="font-display text-lg font-medium leading-snug text-balance">
-                  {g.title}
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-foreground/65">{g.text}</p>
-                <a
-                  href={g.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-3 inline-block rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
-                >
-                  Descargar
-                </a>
-              </div>
-            </div>
-          ))}
+      <section aria-labelledby="areas-inicio" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]"><div><p className="home-eyebrow text-sm text-primary">Áreas de acompañamiento</p><h2 id="areas-inicio" className="mt-4 font-display text-3xl font-medium leading-tight md:text-4xl">¿En qué puedo acompañarte?</h2></div><p className="max-w-[43ch] self-end text-base leading-relaxed text-muted-foreground">Cada historia es diferente. El proceso parte de lo que estás viviendo y de lo que necesitas hoy.</p></div>
+        <div className="mt-10 grid gap-x-12 md:grid-cols-2">
+          {areasInicio.map((area) => <Link key={area.id} to="/servicios" hash={area.id} className="group border-t border-border py-6 outline-offset-4 focus-visible:outline-primary"><div className="flex items-start justify-between gap-4"><h3 className="max-w-[30ch] font-display text-xl font-medium leading-snug group-hover:text-primary">{area.title}</h3><ArrowUpRight className="mt-1 size-4 shrink-0 text-primary" aria-hidden="true" /></div><p className="mt-3 max-w-[49ch] text-sm leading-relaxed text-muted-foreground">{area.text}</p></Link>)}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4 border-t border-border pt-6">
+          <Button asChild variant="link" className="h-auto whitespace-normal px-0 text-left"><Link to="/diabetes">Diabetes y bienestar emocional <ArrowUpRight /></Link></Button>
+          <Button asChild variant="link" className="h-auto whitespace-normal px-0 text-left"><Link to="/demencia-y-alzheimer">Demencia y Alzheimer <ArrowUpRight /></Link></Button>
+          <Button asChild variant="link" className="h-auto whitespace-normal px-0"><Link to="/servicios">Ver todas las áreas <ArrowRight /></Link></Button>
         </div>
       </section>
 
-      {/* Blog */}
-      <section className="bg-secondary ring-1 ring-foreground/5">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
-              Desde el blog
-            </h2>
-            <Link
-              to="/blog"
-              className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-            >
-              Ver todo →
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {latestPosts.map((post) => (
-              <Link
-                key={post.id}
-                to="/blog/$slug"
-                params={{ slug: post.slug }}
-                className="rounded-2xl bg-background ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
-              >
-                <img
-                  src={coverFor(post)}
-                  alt={post.title}
-                  width={1024}
-                  height={640}
-                  loading="lazy"
-                  className="h-40 w-full rounded-t-2xl object-cover"
-                />
-                <div className="p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-sage">
-                    {post.category}
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-medium leading-snug text-balance">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/65 text-pretty">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </Link>
-            ))}
+      <section aria-labelledby="esencia-noralma" className="bg-sand/50">
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1.2fr_1fr] md:gap-20 md:py-20">
+          <div><p className="home-eyebrow text-sm text-primary">Mi forma de entender la psicología</p><h2 id="esencia-noralma" className="mt-6 max-w-[20ch] font-display text-4xl font-medium leading-tight text-primary md:text-5xl">¿Esto me acerca a mí <em className="font-normal">o me aleja de mí?</em></h2></div>
+          <div className="space-y-5 text-base leading-relaxed text-muted-foreground"><p>Creo en una psicología que no busca convertirnos en alguien diferente, sino ayudarnos a comprender nuestra experiencia, aceptar aquello que sentimos y reconocer qué es importante para nosotros. Un proceso en el que aprender a relacionarnos de otra manera con nuestros pensamientos y emociones, identificando nuestros valores y construyendo una vida más coherente con ellos.</p><p>Trabajo desde la Terapia de Aceptación y Compromiso (ACT): dar espacio a lo que sientes y caminar hacia aquello que tiene sentido para ti.</p><Button asChild variant="link" className="h-auto whitespace-normal px-0"><Link to="/servicios" hash="forma-de-trabajar">Mi forma de trabajar <ArrowUpRight /></Link></Button></div>
+        </div>
+      </section>
+
+      <section id="recursos" aria-labelledby="recursos-inicio" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-16 md:py-24">
+        <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="home-eyebrow text-sm text-primary">Recursos y contenido</p><h2 id="recursos-inicio" className="mt-4 font-display text-3xl font-medium md:text-4xl">Un pequeño espacio para cuidarte.</h2></div><Button asChild variant="outline" className={actionClass}><a href="#guias">Explora todos los recursos <ArrowUpRight /></a></Button></div>
+        <div id="guias" className="scroll-mt-28 pt-10"><h3 className="font-display text-2xl">Guías para empezar</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">Guías gratuitas, ejercicios de bienestar emocional y recursos de estimulación cognitiva.</p>
+          <div className="mt-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {guias.map((g) => <article key={g.title} className="flex flex-col"><a href={g.href} target="_blank" rel="noreferrer" className="home-guide-cover block bg-card p-5"><img src={g.img} alt={`Portada de ${g.title}`} width={736} height={912} loading="lazy" className="h-full w-full object-contain" /></a><h4 className="mt-5 font-display text-xl leading-snug">{g.title}</h4><p className="mb-4 mt-2 text-sm leading-relaxed text-muted-foreground">{g.text}</p><Button asChild variant="link" className="mt-auto h-auto justify-start self-start px-0"><a href={g.href} target="_blank" rel="noreferrer">Descargar gratis <ArrowUpRight /></a></Button></article>)}
           </div>
         </div>
+        <div className="mt-14 border-t border-border pt-10"><div className="flex items-center justify-between gap-4"><h3 className="font-display text-2xl">Desde el blog</h3><Button asChild variant="link" className="h-auto px-0"><Link to="/blog">Ver todos los artículos <ArrowUpRight /></Link></Button></div>
+          <div className="mt-7 grid gap-8 md:grid-cols-3">{latestPosts.map((post) => <Link key={post.id} to="/blog/$slug" params={{ slug: post.slug }} className="group"><img src={coverFor(post)} alt={post.title} width={1024} height={640} loading="lazy" className="aspect-[8/5] w-full rounded-md object-cover" /><p className="mt-4 text-xs text-primary">{post.category} · {formatDate(post.published_at ?? post.created_at)}</p><h4 className="mt-2 font-display text-xl leading-snug group-hover:text-primary">{post.title}</h4><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p></Link>)}</div>
+        </div>
+        <div id="instagram" className="mt-14 scroll-mt-28 border-t border-border pt-8"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-display text-2xl">En Instagram</h3><Button asChild variant="link" className="h-auto px-0"><a href="https://www.instagram.com/noralma.psicologia" target="_blank" rel="noreferrer">@noralma.psicologia <ArrowUpRight /></a></Button></div><div className="mt-6 grid grid-cols-3 gap-3 md:gap-6">{instagramPosts.map((post) => <a key={post.href} href={post.href} target="_blank" rel="noreferrer" className="group min-w-0"><img src={post.img} alt={post.caption} width={750} height={1000} loading="lazy" className="aspect-[3/4] w-full rounded-md object-cover" /><p className="mt-3 text-xs leading-relaxed text-muted-foreground md:text-sm">{post.caption}</p></a>)}</div></div>
       </section>
 
-      {/* Reseñas Doctoralia */}
-      <section id="resenas" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 md:py-24">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
-            Lo que dicen las personas que acompaño
-          </h2>
-          <a
-            href={DOCTORALIA_REVIEWS_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="shrink-0 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-          >
-            Ver en Doctoralia →
-          </a>
-        </div>
-        <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
-          Reseñas reales publicadas en mi perfil de Doctoralia. Gracias de corazón a cada
-          persona que se ha tomado el tiempo de escribirlas.
-        </p>
-        <Marquee
-          className="mt-10"
-          duration={85}
-          reverse
-          items={resenas.map((r) => (
-            <a
-              key={r.name + r.date}
-              href={DOCTORALIA_REVIEWS_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mr-5 flex w-[19rem] shrink-0 flex-col rounded-2xl bg-background p-6 ring-1 ring-foreground/5 transition-transform hover:-translate-y-1 md:w-[22rem]"
-            >
-              <p className="font-display text-lg leading-snug text-primary" aria-hidden="true">
-                ★★★★★
-              </p>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75 text-pretty line-clamp-6">
-                “{r.text}”
-              </p>
-              <div className="mt-5 border-t border-foreground/10 pt-4">
-                <p className="text-sm font-semibold text-foreground">{r.name}</p>
-                <p className="mt-1 text-xs text-foreground/55">
-                  {r.date} · Opinión verificada en Doctoralia
-                </p>
-              </div>
-            </a>
-          ))}
-        />
-      </section>
-
-      {/* Instagram */}
-      <section id="instagram" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
-            En Instagram
-          </h2>
-          <a
-            href="https://www.instagram.com/noralma.psicologia"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-          >
-            @noralma.psicologia →
-          </a>
-        </div>
-        <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-foreground/65 text-pretty">
-          Lo último que comparto por allí. Sígueme para no perderte nada.
-        </p>
-        <div className="mt-10 grid gap-5 sm:grid-cols-3">
-          {instagramPosts.map((post) => (
-            <a
-              key={post.href}
-              href={post.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group block"
-            >
-              <img
-                src={post.img}
-                alt={post.caption}
-                width={750}
-                height={1000}
-                loading="lazy"
-                className="aspect-[3/4] w-full rounded-xl object-cover ring-1 ring-foreground/5 transition-transform group-hover:-translate-y-1"
-              />
-              <p className="mt-3 text-sm leading-relaxed text-foreground/70">
-                {post.caption}
-              </p>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* Contacto */}
-      <section className="bg-secondary ring-1 ring-foreground/5">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-3xl font-medium text-balance md:text-4xl">
-              Hablemos
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-foreground/65 text-pretty">
-              Cuéntame qué te trae aquí. Te respondo personalmente, sin prisa y con total
-              privacidad.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
-              >
-                Escribir un mensaje
-              </a>
-              <a
-                href="https://wa.me/34611525410"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
-              >
-                TikTok · Instagram · WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
+      <section aria-labelledby="empezar" className="bg-sand/60">
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><p className="home-eyebrow text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Quizás este sea un buen momento para empezar a dedicarte un espacio.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">No necesitas tener todas las respuestas ni saber exactamente por dónde empezar. Podemos hacerlo poco a poco, desde donde estás hoy.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
       </section>
     </div>
   );
