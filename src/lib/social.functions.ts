@@ -19,10 +19,9 @@ export function parseFollowers(raw: string): number | null {
   if (!s) return null;
 
   let multiplier = 1;
-  const abbreviated = s.match(/(mil|k)$/);
-  if (abbreviated) {
+  if (/(mil|k)$/.test(s)) {
     multiplier = 1000;
-    s = s.slice(0, s.length - abbreviated[0].length);
+    s = s.replace(/(mil|k)$/, "");
   }
 
   const commas = (s.match(/,/g) ?? []).length;
