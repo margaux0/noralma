@@ -1,29 +1,29 @@
 import { Link } from "@tanstack/react-router";
 import { openCookieSettings } from "@/components/CookieConsent";
 import { COLEGIADA, CONTACT_EMAIL, INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/contact";
+import { Button } from "@/components/ui/button";
 
 const linkClass = "transition-colors hover:text-primary";
 
 export function SiteFooter() {
   return (
     <footer className="bg-sand/60 ring-1 ring-foreground/5">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <Link to="/" className="font-display text-xl font-semibold">
+          <Link to="/" className="flex flex-col items-start font-display text-xl font-semibold">
             Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica con alma</span>
           </Link>
           <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-foreground/65 text-pretty">
             Nora Gallardo Cano · Psicóloga General Sanitaria · Col. {COLEGIADA}. Terapia online y
             presencial en Vilanova i la Geltrú.
           </p>
-          <a
+          <Button asChild className="mt-5 h-11 rounded-md shadow-none"><a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Reserva tu sesión
-          </a>
+          </a></Button>
         </div>
         <nav aria-label="Secciones" className="flex flex-col gap-2 text-sm text-foreground/70">
           <p className="mb-1 font-semibold text-foreground">La web</p>
@@ -46,9 +46,9 @@ export function SiteFooter() {
           <Link to="/aviso-legal" className={linkClass}>Aviso legal</Link>
           <Link to="/privacidad" className={linkClass}>Política de privacidad</Link>
           <Link to="/cookies" className={linkClass}>Política de cookies</Link>
-          <button type="button" onClick={openCookieSettings} className={`text-left ${linkClass}`}>
+          <Button variant="link" type="button" onClick={openCookieSettings} className={`h-auto min-h-11 whitespace-normal justify-start px-0 text-left text-foreground/70 ${linkClass}`}>
             Configuración de cookies
-          </button>
+          </Button>
         </nav>
       </div>
       <div className="mx-auto max-w-6xl px-6 pb-8 text-xs text-foreground/55">

@@ -14,7 +14,7 @@ export function DoctoraliaDestacada({ profileUrl, rating, count }: {
             {Array.from({ length: 5 }, (_, index) => <Star key={index} className={`size-3.5 ${index < Math.round(rating) ? "fill-current" : ""}`} strokeWidth={1.4} />)}
           </span>
         </div>
-        <a href={profileUrl} target="_blank" rel="noreferrer" className="text-sm underline-offset-4 hover:underline focus-visible:outline-primary">{count} opiniones en Doctoralia</a>
+        <a href={profileUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center text-sm underline-offset-4 hover:underline focus-visible:outline-primary">{count} opiniones en Doctoralia</a>
       </div>
     </section>
   );

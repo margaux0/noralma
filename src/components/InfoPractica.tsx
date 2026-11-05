@@ -1,4 +1,5 @@
 import { PRACTICA, WHATSAPP_URL } from "@/lib/contact";
+import { Button } from "@/components/ui/button";
 
 const filas = [
   { label: "Modalidad", value: PRACTICA.modalidad },
@@ -29,14 +30,13 @@ export function InfoPractica() {
         ))}
       </dl>
       <div className="mt-8 flex flex-wrap items-center gap-4">
-        <a
+        <Button asChild className="h-auto min-h-11 whitespace-normal rounded-md px-6 py-3 shadow-none"><a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noreferrer"
-          className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
         >
           Reserva tu sesión
-        </a>
+        </a></Button>
         <p className="text-sm text-foreground/60">Las reservas se hacen por WhatsApp; te respondo personalmente.</p>
       </div>
     </section>

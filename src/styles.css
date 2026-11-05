@@ -156,9 +156,32 @@
   .home-hero-photo { height: 35rem; }
 }
 @media (max-width: 767px) {
-  .home-hero { gap: 2rem; }
-  .home-hero-photo { height: 19rem; }
-  .home-hero-photo img { border-radius: 6px; }
+  main { overflow-wrap: break-word; }
+  main > div > .grid, main > article { min-width: 0; }
+  main h1 { font-size: 2rem; line-height: 1.16; letter-spacing: 0; }
+  main h2 { font-size: 1.75rem; line-height: 1.2; letter-spacing: 0; }
+  main h3 { letter-spacing: 0; }
+  main .tracking-\[0\.18em\], main .tracking-\[0\.15em\] { letter-spacing: 0; }
+  main > div.px-6, main > article.px-6 { padding-top: 2rem; padding-bottom: 3rem; }
+  main .mt-20 { margin-top: 3rem; }
+  main .p-8 { padding: 1.25rem; }
+  main .p-7 { padding: 1.25rem; }
+  main a.rounded-full { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; max-width: 100%; text-align: center; }
+  .home-editorial a[data-slot], .home-editorial a.inline-flex { min-height: 2.75rem; }
+  .home-editorial > section:not(.home-hero):not(#resenas) > div.py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+  .home-editorial > section.py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+  .home-hero { gap: 1.5rem; padding-top: 1.75rem; padding-bottom: 2rem; }
+  .home-hero h1 { font-size: 2rem; }
+  .home-hero p.mt-6 { margin-top: 1rem; font-size: 0.875rem; line-height: 1.6; }
+  .home-hero p.mt-5 { margin-top: 1rem; font-size: 0.75rem; }
+  .home-hero div.mt-7 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); margin-top: 1.25rem; }
+  .home-hero div.mt-7 a { padding: 0.75rem; min-width: 0; font-size: 0.8125rem; }
+  .home-hero-photo { height: 14rem; }
+  .home-hero-photo img { border-radius: 6px; object-position: center 63%; }
+  .home-about-photo { max-height: 23rem; }
+  .home-editorial #instagram .grid { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
+  .home-editorial #instagram img { max-height: 28rem; object-fit: contain; background: var(--card); }
+  footer a, footer button { min-height: 2.75rem; display: inline-flex; align-items: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
