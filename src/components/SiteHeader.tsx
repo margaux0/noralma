@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { to: "/", label: "Inicio", exact: true },
   { to: "/acerca-de-mi", label: "Sobre mí" },
   { to: "/terapia-online", label: "Terapia online" },
-  { to: "/servicios", label: "Servicios" },
-  { to: "/blog", label: "Blog" },
-  { to: "/#instagram", label: "Instagram", hash: true },
+  { to: "/servicios", label: "Áreas de acompañamiento" },
+  { to: "/#recursos", label: "Recursos", hash: true },
   { to: "/contacto", label: "Contacto" },
 ] as const;
 
@@ -26,20 +26,20 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm ring-1 ring-foreground/5">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between sm:px-6 sm:py-4">
         <Link
           to="/"
-          className="font-display text-2xl font-semibold tracking-tight"
+          className="flex min-w-0 flex-col font-display text-2xl font-semibold sm:shrink-0"
           onClick={() => setOpen(false)}
         >
-          Noralma <span className="font-sans text-sm font-normal text-foreground/70">| psicología clínica con alma</span>
+          Noralma <span className="text-[10px] font-normal text-muted-foreground sm:text-xs">| psicología clínica con alma</span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/70 lg:flex">
+        <nav aria-label="Menú principal" className="hidden items-center gap-4 text-sm font-medium text-foreground/70 xl:flex">
           {navItems.map((item) =>
             "hash" in item ? (
               <a
                 key={item.label}
-                href="/#instagram"
+                href={item.to}
                 className="transition-colors hover:text-primary"
               >
                 {item.label}
@@ -59,39 +59,41 @@ export function SiteHeader() {
             ),
           )}
         </nav>
-        <div className="flex items-center gap-2">
-          <a
+        <div className="flex shrink-0 items-center gap-2">
+          <Button asChild className="h-11 rounded-md px-3 shadow-none sm:px-4"><a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90 lg:inline-flex"
+            aria-label="Reservar sesión"
           >
-            Reservar sesión
-          </a>
-          <button
+            <span className="sm:hidden">Reservar</span><span className="hidden sm:inline">Reservar sesión</span>
+          </a></Button>
+          <Button
+            variant="outline"
+            size="icon"
             type="button"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="menu-movil"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className="inline-flex size-10 items-center justify-center rounded-full text-foreground/70 ring-1 ring-foreground/10 transition-colors hover:bg-foreground/5 hover:text-primary lg:hidden"
+            className="inline-flex size-11 text-foreground/70 shadow-none xl:hidden"
           >
             {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
-          </button>
+          </Button>
         </div>
       </div>
       {open && (
         <nav
           id="menu-movil"
           aria-label="Menú principal"
-          className="border-t border-foreground/10 bg-background px-6 pb-5 pt-2 lg:hidden"
+          className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-foreground/10 bg-background px-4 pb-4 pt-2 sm:px-6 xl:hidden"
         >
           <ul className="flex flex-col gap-0.5 text-base font-medium text-foreground/80">
             {navItems.map((item) =>
               "hash" in item ? (
                 <li key={item.label}>
                   <a
-                    href="/#instagram"
+                    href={item.to}
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-foreground/5 hover:text-primary"
                   >
@@ -115,14 +117,13 @@ export function SiteHeader() {
               ),
             )}
           </ul>
-          <a
+          <Button asChild className="mt-3 h-auto w-full whitespace-normal rounded-md px-5 py-3 shadow-none"><a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-3 block rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
           >
             Reservar sesión
-          </a>
+          </a></Button>
         </nav>
       )}
     </header>

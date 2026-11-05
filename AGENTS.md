@@ -9,7 +9,8 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- The homepage's prominent Doctoralia section reuses the existing review list and profile URL; keep one source of truth for both review presentations.
+- The homepage renders one compact Doctoralia aggregate from the existing public fetch, with a last-verified aggregate fallback; keep data selection separate from presentation to preserve automatic updates without rendering individual testimonials.
+- The blog parent renders Outlet for article matches and the list only for its own URL, so article links display the requested content.
 
 <!--
 Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a

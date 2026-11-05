@@ -44,7 +44,7 @@ function DemenciaAlzheimerPage() {
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <Link
         to="/servicios"
-        className="text-sm font-semibold text-foreground/55 transition-colors hover:text-primary"
+        className="inline-flex min-h-11 items-center py-2 text-sm font-semibold text-foreground/55 transition-colors hover:text-primary"
       >
         ← Volver a Servicios
       </Link>

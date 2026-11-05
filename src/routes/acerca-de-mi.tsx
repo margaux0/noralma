@@ -29,8 +29,8 @@ export const Route = createFileRoute("/acerca-de-mi")({
 function AcercaDeMiPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-      <div className="grid items-start gap-12 md:grid-cols-[1fr_0.8fr]">
-        <div>
+      <div className="grid items-start gap-8 md:grid-cols-[1fr_0.8fr] md:gap-12">
+        <div className="contents md:block">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">
             Acerca de mí
           </p>
@@ -179,7 +179,9 @@ function AcercaDeMiPage() {
         <img
           src={heroAsset.url}
           alt="Nora, Psicóloga Sanitaria"
-          className="w-full rounded-2xl object-cover object-[center_72%] ring-1 ring-foreground/5 aspect-[4/5] md:sticky md:top-28"
+          width={912}
+          height={1104}
+          className="row-start-3 aspect-[4/5] max-h-[26rem] w-full rounded-md object-cover object-[center_65%] ring-1 ring-foreground/5 md:sticky md:top-28 md:row-auto md:max-h-none"
         />
       </div>
     </div>

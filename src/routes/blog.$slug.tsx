@@ -34,10 +34,10 @@ function BlogPostPage() {
   const post = Route.useLoaderData();
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <article className="mx-auto max-w-3xl px-6 py-16 [overflow-wrap:anywhere] md:py-24">
       <Link
         to="/blog"
-        className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+        className="inline-flex min-h-11 items-center py-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
       >
         ← Volver al blog
       </Link>

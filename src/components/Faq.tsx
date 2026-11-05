@@ -48,8 +48,8 @@ export function Faq() {
       <div className="mt-8 divide-y divide-foreground/10 border-y border-foreground/10">
         {faqs.map((f) => (
           <details key={f.q} className="group py-1">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left font-display text-lg font-medium [&::-webkit-details-marker]:hidden">
-              {f.q}
+            <summary className="grid min-h-11 cursor-pointer list-none grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 text-left font-display text-lg font-medium [&::-webkit-details-marker]:hidden">
+              <span className="min-w-0">{f.q}</span>
               <ChevronDown className="size-5 shrink-0 text-primary transition-transform group-open:rotate-180" aria-hidden="true" />
             </summary>
             <p className="max-w-[65ch] pb-5 text-base leading-relaxed text-foreground/70 text-pretty">{f.a}</p>
