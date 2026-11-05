@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Integrar La carta de Noralma: sección, popup, consentimiento y conexión real con plataforma; verificar confirmación, bienvenida y baja.
 - [x] Adaptación fiel a móvil de toda la web (documento): revisar 320–1440 px y corregir
 - [x] Cabecera única: foto de Nora y Django de fondo con frase y botones encima, sin bloque de bosque separado
 
