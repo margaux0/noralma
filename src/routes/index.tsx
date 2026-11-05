@@ -148,7 +148,7 @@ function Index() {
           <div className="home-banner-copy">
             <p className="font-display font-medium text-balance">Mi propósito es acompañarte a sentirte bien contigo.</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu cita <ArrowUpRight /></a></Button>
+              <Button asChild className={`${actionClass} border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90`}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu cita <ArrowUpRight /></a></Button>
               <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><a href="#areas-inicio">¿Qué te ofrezco? <ArrowRight /></a></Button>
             </div>
           </div>
