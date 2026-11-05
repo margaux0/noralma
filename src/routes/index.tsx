@@ -154,18 +154,6 @@ function Index() {
           </div>
         </div>
       </section>
-      <section aria-labelledby="terapia-online-inicio" className="bg-sand/40 text-foreground">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-16">
-            <div><p className="home-eyebrow text-sm uppercase text-primary">Terapia psicológica online</p><h2 id="terapia-online-inicio" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Cuidar de tu salud mental, estés donde estés.</h2></div>
-            <div><p className="text-base leading-relaxed text-muted-foreground">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className={`mt-6 ${actionClass}`}><Link to="/terapia-online">Descubre cómo funciona la terapia online <ArrowUpRight /></Link></Button></div>
-          </div>
-          <div className="mt-12 grid gap-7 border-t border-primary/20 pt-8 sm:grid-cols-3">
-            {[{ Icon: Clock3, title: "Flexibilidad", text: "Integra la terapia en tu rutina." }, { Icon: HeartHandshake, title: "Comodidad", text: "Realiza las sesiones desde tu propio espacio." }, { Icon: MapPin, title: "Accesibilidad", text: "Cuida de tu salud mental sin depender de desplazamientos." }].map(({ Icon, title, text }) => <div key={title}><Icon className="size-5 text-primary" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-3 text-sm font-medium uppercase">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}
-          </div>
-        </div>
-      </section>
-
       <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16 md:pt-14">
         <div>
           <p className="home-eyebrow text-sm font-medium text-primary">Noralma · Psicología clínica con alma</p>
@@ -185,6 +173,18 @@ function Index() {
           <img src={escritorioNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, escribiendo en su escritorio de trabajo" width={1086} height={1448} fetchPriority="high" className="h-full w-full object-cover" />
           <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
         </figure>
+      </section>
+
+      <section aria-labelledby="terapia-online-inicio" className="bg-sand/40 text-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-16">
+            <div><p className="home-eyebrow text-sm uppercase text-primary">Terapia psicológica online</p><h2 id="terapia-online-inicio" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Cuidar de tu salud mental, estés donde estés.</h2></div>
+            <div><p className="text-base leading-relaxed text-muted-foreground">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className={`mt-6 ${actionClass}`}><Link to="/terapia-online">Descubre cómo funciona la terapia online <ArrowUpRight /></Link></Button></div>
+          </div>
+          <div className="mt-12 grid gap-7 border-t border-primary/20 pt-8 sm:grid-cols-3">
+            {[{ Icon: Clock3, title: "Flexibilidad", text: "Integra la terapia en tu rutina." }, { Icon: HeartHandshake, title: "Comodidad", text: "Realiza las sesiones desde tu propio espacio." }, { Icon: MapPin, title: "Accesibilidad", text: "Cuida de tu salud mental sin depender de desplazamientos." }].map(({ Icon, title, text }) => <div key={title}><Icon className="size-5 text-primary" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-3 text-sm font-medium uppercase">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}
+          </div>
+        </div>
       </section>
 
 
