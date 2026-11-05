@@ -146,7 +146,7 @@ function Index() {
         <img className="home-banner-photo" src={bosqueDjango} alt="Nora Gallardo junto a su perro Django en un camino entre árboles" width={1920} height={640} fetchPriority="high" />
         <div className="home-banner-content mx-auto w-full max-w-6xl px-6">
           <div className="home-banner-copy">
-            <p className="font-display font-medium">La clave está en entender y validar la diversidad de realidades, eso es lo realmente sanador.</p>
+            <p className="font-display font-medium text-balance">Mi propósito es acompañarte a sentirte bien contigo.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu cita <ArrowUpRight /></a></Button>
               <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><a href="#areas-inicio">¿Qué te ofrezco? <ArrowRight /></a></Button>

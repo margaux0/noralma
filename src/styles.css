@@ -81,6 +81,7 @@
   --doctoralia-surface: oklch(0.974 0.016 174);
   --doctoralia-ink: oklch(0.269 0.005 194);
   --banner-shade: oklch(0.22 0.025 138);
+  --banner-ink: oklch(1 0 0);                /* blanco cálido sobre el bosque */
   --banner-overlay: linear-gradient(90deg, color-mix(in oklab, var(--banner-shade) 65%, transparent), color-mix(in oklab, var(--banner-shade) 25%, transparent) 43%, transparent 62%);
 }
 
