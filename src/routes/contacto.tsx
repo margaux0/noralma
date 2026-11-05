@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -109,12 +110,12 @@ function ContactoPage() {
           <p className="mt-2 text-base leading-relaxed text-foreground/65">
             Gracias por escribir. Te responderé personalmente lo antes posible.
           </p>
-          <button
+          <Button
             onClick={() => setStatus("idle")}
             className="mt-6 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-foreground/80 ring-1 ring-foreground/5 transition-colors hover:bg-sand/70"
           >
             Enviar otro mensaje
-          </button>
+          </Button>
         </div>
       ) : (
         <form
@@ -162,7 +163,7 @@ function ContactoPage() {
               type="checkbox"
               checked={consent}
               onChange={(e) => setConsent(e.target.checked)}
-              className="mt-1 size-4 accent-primary"
+              className="mt-1 size-5 shrink-0 accent-primary"
             />
             <span>
               He leído y acepto la{" "}
@@ -171,13 +172,13 @@ function ContactoPage() {
             </span>
           </label>
           {formError && <p className="mt-3 text-sm text-destructive">{formError}</p>}
-          <button
+          <Button
             type="submit"
             disabled={status === "sending"}
-            className="mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90 disabled:opacity-60"
+            className="mt-6 h-auto min-h-11 w-full rounded-md px-6 py-3 shadow-none disabled:opacity-60"
           >
             {status === "sending" ? "Enviando…" : "Enviar mensaje"}
-          </button>
+          </Button>
         </form>
       )}
     </div>

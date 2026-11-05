@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 const KEY = "noralma-cookie-consent";
 const EVENT = "noralma:cookie-settings";
@@ -47,7 +48,7 @@ export function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div role="dialog" aria-label="Preferencias de cookies" className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-xl rounded-2xl bg-card p-6 shadow-lg ring-1 ring-foreground/10">
+    <div role="dialog" aria-label="Preferencias de cookies" className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-h-[calc(100dvh-6rem)] max-w-xl overflow-y-auto rounded-lg bg-card p-5 shadow-lg ring-1 ring-foreground/10 sm:p-6">
       <p className="font-display text-lg font-medium">Tu privacidad importa</p>
       <p className="mt-2 text-sm leading-relaxed text-foreground/70">
         Uso solo las cookies necesarias para que la web funcione. Las opcionales nunca se
@@ -65,22 +66,22 @@ export function CookieConsent() {
           </label>
         </div>
       )}
-      <div className="mt-5 flex flex-wrap gap-2">
-        <button type="button" onClick={() => save(false)} className="rounded-full px-5 py-2.5 text-sm font-semibold text-primary ring-2 ring-primary transition-colors hover:bg-primary/10">
+      <div className="mt-5 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+        <Button variant="outline" type="button" onClick={() => save(false)} className="h-auto min-h-11 whitespace-normal border-primary px-4 py-2.5 text-primary shadow-none">
           Rechazar
-        </button>
+        </Button>
         {settings ? (
-          <button type="button" onClick={() => save(analytics)} className="rounded-full px-5 py-2.5 text-sm font-semibold text-primary ring-2 ring-primary transition-colors hover:bg-primary/10">
+          <Button variant="outline" type="button" onClick={() => save(analytics)} className="h-auto min-h-11 whitespace-normal border-primary px-4 py-2.5 text-primary shadow-none">
             Guardar selección
-          </button>
+          </Button>
         ) : (
-          <button type="button" onClick={() => setSettings(true)} className="rounded-full px-5 py-2.5 text-sm font-semibold text-primary ring-2 ring-primary transition-colors hover:bg-primary/10">
+          <Button variant="outline" type="button" onClick={() => setSettings(true)} className="h-auto min-h-11 whitespace-normal border-primary px-4 py-2.5 text-primary shadow-none">
             Configurar
-          </button>
+          </Button>
         )}
-        <button type="button" onClick={() => save(true)} className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+        <Button type="button" onClick={() => save(true)} className="col-span-2 h-auto min-h-11 px-4 py-2.5 shadow-none">
           Aceptar
-        </button>
+        </Button>
       </div>
     </div>
   );
