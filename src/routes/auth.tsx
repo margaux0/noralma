@@ -6,6 +6,11 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Entrar · Noralma" },
+      { name: "description", content: "Acceso privado de Nora para publicar en el blog de Noralma." },
+      { property: "og:title", content: "Entrar · Noralma" },
+      { property: "og:description", content: "Acceso privado al blog de Noralma." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
     ],
   }),

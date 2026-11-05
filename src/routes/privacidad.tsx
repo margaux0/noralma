@@ -28,6 +28,20 @@ export const Route = createFileRoute("/privacidad")({
         </li>
       </ul>
       <h2>Base legal</h2>
+      <h2>La carta de Noralma</h2>
+      <p>
+        Las suscripciones a La carta de Noralma todavía no están abiertas y este formulario
+        no guarda ni envía tu correo. Cuando se active, su finalidad será enviarte reflexiones,
+        herramientas y recursos de psicología y bienestar emocional, solo con tu consentimiento
+        expreso y después de confirmar tu dirección. No se solicitarán datos de salud ni se
+        incorporará tu dirección a otras campañas comerciales.
+      </p>
+      <p>
+        La plataforma de correo y sus condiciones se identificarán aquí antes de abrir las
+        suscripciones. Podrás retirar tu consentimiento y darte de baja desde cada correo o
+        escribiendo a <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </p>
+      <h2>Consentimiento y prestación del servicio</h2>
       <p>
         Tu consentimiento al enviar el formulario o escribirme, y la prestación del servicio
         profesional que solicitas (art. 6.1.a y 6.1.b del RGPD; art. 9.2.h para los datos de

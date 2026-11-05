@@ -8,6 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Keep newsletter collection disabled until the email platform, double opt-in, welcome and unsubscribe are verified; the section and popup share one form to prevent divergent consent rules.
 
 - The homepage renders one compact Doctoralia aggregate from the existing public fetch, with a last-verified aggregate fallback; keep data selection separate from presentation to preserve automatic updates without rendering individual testimonials.
 - The blog parent renders Outlet for article matches and the list only for its own URL, so article links display the requested content.
