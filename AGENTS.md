@@ -9,7 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- The homepage's prominent Doctoralia section reuses the existing review list and profile URL; keep one source of truth for both review presentations.
+- The homepage renders Doctoralia once, using the existing fetched reviews and original fallback list and profile URL; keep review data separate from its static presentation to preserve automatic updates.
 
 <!--
 Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a
