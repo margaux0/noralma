@@ -5,7 +5,8 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EspiralMarca } from "@/components/EspiralMarca";
-import { NEWSLETTER_DELAY_MS, NEWSLETTER_PREFERENCE_KEY, NEWSLETTER_READY, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
+import { COOKIE_VISIBILITY_EVENT } from "@/components/CookieConsent";
+import { NEWSLETTER_DELAY_MS, NEWSLETTER_READY, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
 
 function NewsletterForm({ popup = false }: { popup?: boolean }) {
   const id = useId();
@@ -61,23 +62,27 @@ export function NewsletterSection() {
 
 export function NewsletterPopup() {
   const [open, setOpen] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const [cookiesVisible, setCookiesVisible] = useState(true);
+  const [dismissed, setDismissed] = useState(false);
   useEffect(() => {
-    let preference: string | null;
-    try { preference = localStorage.getItem(NEWSLETTER_PREFERENCE_KEY); }
-    catch { return; } // Without storage we cannot honour the no-repeat choice.
     const timer = window.setTimeout(() => {
-      if (shouldInviteToNewsletter(preference, NEWSLETTER_DELAY_MS)) setOpen(true);
+      setElapsed(NEWSLETTER_DELAY_MS);
     }, NEWSLETTER_DELAY_MS);
-    const sync = (event: StorageEvent) => {
-      if (event.key === NEWSLETTER_PREFERENCE_KEY && event.newValue !== null) setOpen(false);
+    const sync = (event: Event) => {
+      setCookiesVisible((event as CustomEvent<boolean>).detail);
     };
-    window.addEventListener("storage", sync);
-    return () => { window.clearTimeout(timer); window.removeEventListener("storage", sync); };
+    window.addEventListener(COOKIE_VISIBILITY_EVENT, sync);
+    return () => { window.clearTimeout(timer); window.removeEventListener(COOKIE_VISIBILITY_EVENT, sync); };
   }, []);
+
+  useEffect(() => {
+    setOpen(!dismissed && shouldInviteToNewsletter(elapsed, cookiesVisible));
+  }, [elapsed, cookiesVisible, dismissed]);
 
   function close() {
     setOpen(false);
-    try { localStorage.setItem(NEWSLETTER_PREFERENCE_KEY, "dismissed"); } catch { /* Storage can be unavailable. */ }
+    setDismissed(true);
   }
 
   return (

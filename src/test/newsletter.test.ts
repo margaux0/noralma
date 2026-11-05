@@ -4,14 +4,14 @@ import { NEWSLETTER_DELAY_MS, newsletterSchema, shouldInviteToNewsletter } from 
 describe("La carta de Noralma", () => {
   it("espera nueve segundos antes de invitar", () => {
     expect(NEWSLETTER_DELAY_MS).toBe(9000);
-    expect(shouldInviteToNewsletter(null, 8999)).toBe(false);
-    expect(shouldInviteToNewsletter(null, 9000)).toBe(true);
+    expect(shouldInviteToNewsletter(8999, false)).toBe(false);
+    expect(shouldInviteToNewsletter(9000, false)).toBe(true);
   });
-  it("no repite una invitación cerrada", () => {
-    expect(shouldInviteToNewsletter("dismissed", 9000)).toBe(false);
+  it("espera a que se cierre la pregunta de cookies", () => {
+    expect(shouldInviteToNewsletter(9000, true)).toBe(false);
   });
-  it("no invita a quien ya ha solicitado la suscripción", () => {
-    expect(shouldInviteToNewsletter("subscribed", 9000)).toBe(false);
+  it("invita en una nueva visita sin depender de decisiones anteriores", () => {
+    expect(shouldInviteToNewsletter(10000, false)).toBe(true);
   });
   it("exige consentimiento expreso", () => {
     expect(newsletterSchema.safeParse({ email: "nora@example.org", consent: false }).success).toBe(false);

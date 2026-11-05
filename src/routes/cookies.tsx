@@ -23,9 +23,9 @@ export const Route = createFileRoute("/cookies")({
         </li>
       </ul>
       <p>
-        También se guarda en este navegador tu decisión de cerrar la invitación a La carta
-        de Noralma para no volver a mostrarla. No contiene tu correo ni se utiliza para
-        seguimiento publicitario; puedes eliminarla borrando los datos de este sitio.
+        La pregunta sobre cookies vuelve a aparecer en cada nueva visita. La invitación a
+        La carta de Noralma también vuelve a mostrarse, sin guardar tu decisión de cerrarla
+        entre visitas ni utilizarla para seguimiento publicitario.
       </p>
       <p>
         Al pulsar enlaces a Instagram, WhatsApp, LinkedIn o Doctoralia sales de esta web, y

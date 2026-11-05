@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const KEY = "noralma-cookie-consent";
 const EVENT = "noralma:cookie-settings";
+export const COOKIE_VISIBILITY_EVENT = "noralma:cookie-visibility";
 
 export type CookieConsentValue = { necessary: true; analytics: boolean; date: string };
 
@@ -28,8 +29,8 @@ export function CookieConsent() {
 
   useEffect(() => {
     const saved = getCookieConsent();
-    if (!saved) setVisible(true);
-    else setAnalytics(saved.analytics);
+    setVisible(true);
+    if (saved) setAnalytics(saved.analytics);
     const open = () => {
       setAnalytics(getCookieConsent()?.analytics ?? false);
       setSettings(true);
@@ -38,6 +39,10 @@ export function CookieConsent() {
     window.addEventListener(EVENT, open);
     return () => window.removeEventListener(EVENT, open);
   }, []);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent(COOKIE_VISIBILITY_EVENT, { detail: visible }));
+  }, [visible]);
 
   function save(value: boolean) {
     localStorage.setItem(KEY, JSON.stringify({ necessary: true, analytics: value, date: new Date().toISOString() }));
