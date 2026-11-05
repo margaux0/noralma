@@ -6,3 +6,6 @@
 - [x] Menú superior visible en formato teléfono (Inicio, Acerca de mí, Servicios, Blog, Instagram, Contacto)
 - [x] Mejora integral según documento de Nora (terapia online, áreas, forma de trabajar, info práctica, FAQ, legal, cookies, SEO, LinkedIn)
 - [ ] Completar NIF, dirección de la consulta y nº de registro sanitario en textos legales — esperando datos de Nora
+- [ ] Sección «Súmate a nuestra comunidad» con Instagram y TikTok, logos oficiales, seguidores reales y contador animado — esperando cifra de seguidores y perfil de TikTok
+- [ ] Pie de página nuevo en bloques (Noralma, Navegación, Contacto, Información legal) con líneas finas verde salvia y copyright
+- [x] Fotografía panorámica de bienvenida arriba del inicio, con encuadre propio para móvil
