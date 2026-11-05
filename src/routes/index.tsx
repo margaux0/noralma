@@ -17,6 +17,7 @@ import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
 import { Comunidad } from "@/components/Comunidad";
+import { NewsletterSection } from "@/components/Newsletter";
 import { EspiralMarca } from "@/components/EspiralMarca";
 import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -243,6 +244,7 @@ function Index() {
       <section aria-labelledby="empezar" className="bg-sand/60">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><EspiralMarca className="mx-auto size-14" /><p className="home-eyebrow mt-5 text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Quizás este sea un buen momento para empezar a dedicarte un espacio.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">No necesitas tener todas las respuestas ni saber exactamente por dónde empezar. Podemos hacerlo poco a poco, desde donde estás hoy.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
       </section>
+      <NewsletterSection />
     </div>
   );
 }
