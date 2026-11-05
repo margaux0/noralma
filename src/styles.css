@@ -141,3 +141,26 @@
   will-change: transform;
 }
 
+/* Homepage editorial compositions; shared palette and typography are unchanged. */
+.home-editorial { letter-spacing: 0; }
+.home-eyebrow { letter-spacing: 0; }
+.home-hero-photo { height: 25rem; margin-bottom: 1.5rem; }
+.home-hero-photo img { border-radius: 45% 45% 6px 6px; object-position: center 72%; }
+.home-about-photo { aspect-ratio: 1 / 1; border-radius: 6px; object-position: center 68%; }
+.home-guide-cover { height: 16rem; border-radius: 6px; }
+@media (min-width: 768px) {
+  .home-hero-photo { height: 32rem; }
+  .home-about-photo { aspect-ratio: 4 / 5; max-height: 28rem; }
+}
+@media (min-width: 1024px) {
+  .home-hero-photo { height: 35rem; }
+}
+@media (max-width: 767px) {
+  .home-hero { gap: 2rem; }
+  .home-hero-photo { height: 19rem; }
+  .home-hero-photo img { border-radius: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+}
+

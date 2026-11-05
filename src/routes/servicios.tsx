@@ -54,8 +54,8 @@ function ServiciosPage() {
       <section id="acompanar" aria-labelledby="areas" className="mt-14 scroll-mt-24">
         <h2 id="areas" className="font-display text-3xl font-medium md:text-4xl">¿En qué puedo acompañarte?</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {areas.map((a) => (
-            <li key={a} className="flex items-center gap-4 rounded-2xl bg-card p-6 ring-1 ring-foreground/5">
+          {areas.map((a, index) => (
+            <li id={["ansiedad", "autoestima", "autoexigencia", "relaciones", "duelo", "cambios-vitales", "enfermedades-cronicas"][index]} key={a} className="flex scroll-mt-28 items-center gap-4 rounded-2xl bg-card p-6 ring-1 ring-foreground/5">
               <span className="size-2 shrink-0 rounded-full bg-honey" aria-hidden="true" />
               <span className="text-base text-foreground/80">{a}</span>
             </li>
