@@ -4,7 +4,7 @@ import { parseDoctoralia } from "@/lib/doctoralia.functions";
 
 describe("Homepage Doctoralia summary", () => {
   it("does not publish publicly available testimonials without authorization", () => {
-    const source = { opiniones: [{ name: "Persona", text: "Texto original", rating: 5 }] };
+    const source = { opiniones: [{ name: "Persona", date: "", text: "Texto original", rating: 5 }] };
     expect(authorizedDoctoraliaOpiniones(source)).toEqual([]);
     expect(authorizedDoctoraliaOpiniones(source, true)).toEqual(source.opiniones);
   });
