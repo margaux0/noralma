@@ -30,6 +30,3 @@ export const SOCIAL_PROFILES: SocialProfile[] = [
     followers: 3144,
   },
 ];
-
-/** Fecha en que se comprobaron las cifras (para el pie de la sección). */
-export const SOCIAL_FOLLOWERS_UPDATED = "noviembre de 2026";
