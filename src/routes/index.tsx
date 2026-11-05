@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
+import escritorioNoraAsset from "@/assets/escritorio-nora.webp.asset.json";
 const heroNora = heroNoraAsset.url;
+const escritorioNora = escritorioNoraAsset.url;
 import bosqueDjangoAsset from "@/assets/retrato-bosque-django.webp.asset.json";
 const bosqueDjango = bosqueDjangoAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
@@ -158,7 +160,7 @@ function Index() {
           </div>
         </div>
         <figure className="home-hero-photo m-0">
-          <img src={heroNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, en su consulta" width={912} height={1104} fetchPriority="high" className="h-full w-full object-cover" />
+          <img src={escritorioNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, escribiendo en su escritorio de trabajo" width={1086} height={1448} fetchPriority="high" className="h-full w-full object-cover" />
           <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
         </figure>
       </section>
