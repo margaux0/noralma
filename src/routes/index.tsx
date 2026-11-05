@@ -14,6 +14,7 @@ import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
+import { Comunidad } from "@/components/Comunidad";
 import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
@@ -217,6 +218,8 @@ function Index() {
         </div>
         <div id="instagram" className="mt-14 scroll-mt-28 border-t border-border pt-8"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-display text-2xl">En Instagram</h3><Button asChild variant="link" className="h-auto px-0"><a href="https://www.instagram.com/noralma.psicologia" target="_blank" rel="noreferrer">@noralma.psicologia <ArrowUpRight /></a></Button></div><div className="mt-6 grid grid-cols-3 gap-3 md:gap-6">{instagramPosts.map((post) => <a key={post.href} href={post.href} target="_blank" rel="noreferrer" className="group min-w-0"><img src={post.img} alt={post.caption} width={750} height={1000} loading="lazy" className="aspect-[3/4] w-full rounded-md object-cover" /><p className="mt-3 text-xs leading-relaxed text-muted-foreground md:text-sm">{post.caption}</p></a>)}</div></div>
       </section>
+
+      <Comunidad />
 
       <section aria-labelledby="empezar" className="bg-sand/60">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><p className="home-eyebrow text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Quizás este sea un buen momento para empezar a dedicarte un espacio.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">No necesitas tener todas las respuestas ni saber exactamente por dónde empezar. Podemos hacerlo poco a poco, desde donde estás hoy.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
