@@ -9,6 +9,7 @@ import {
   WHATSAPP_URL,
 } from "@/lib/contact";
 import { Button } from "@/components/ui/button";
+import { EspiralMarca } from "@/components/EspiralMarca";
 
 const linkClass =
   "inline-flex min-h-11 items-center text-sm text-foreground/70 transition-colors hover:text-primary";
@@ -21,9 +22,12 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
         <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
           <div>
-            <Link to="/" className="font-display text-2xl font-semibold">
-              Noralma
-            </Link>
+            <div className="flex items-center gap-3">
+              <EspiralMarca className="size-10 shrink-0" />
+              <Link to="/" className="font-display text-2xl font-semibold">
+                Noralma
+              </Link>
+            </div>
             <p className="mt-2 font-display text-lg italic text-primary">Psicología con alma.</p>
             <p className="mt-3 max-w-[42ch] text-sm leading-relaxed text-foreground/65">
               Nora Gallardo Cano · Psicóloga General Sanitaria · Col. {COLEGIADA}
