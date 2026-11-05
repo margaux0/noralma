@@ -1,4 +1,6 @@
-/** Show at most three source reviews without altering their author, text or rating. */
-export function selectHomepageReviews<T>(opiniones: readonly T[]): T[] {
-  return opiniones.slice(0, 3);
+/** Last verified Doctoralia aggregate; used only while the live source is unavailable. */
+export const DOCTORALIA_VERIFIED_SUMMARY = { rating: 5, count: 7 };
+
+export function doctoraliaSummary(source: { rating: number; count: number } | null | undefined) {
+  return source ? { rating: source.rating, count: source.count } : DOCTORALIA_VERIFIED_SUMMARY;
 }

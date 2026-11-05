@@ -1,18 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { selectHomepageReviews } from "@/lib/homepage-reviews";
+import { doctoraliaSummary } from "@/lib/homepage-reviews";
 import { parseDoctoralia } from "@/lib/doctoralia.functions";
 
-describe("Homepage Doctoralia selection", () => {
-  it("shows only three opinions when more are available", () => {
-    expect(selectHomepageReviews([1, 2, 3, 4, 5])).toEqual([1, 2, 3]);
+describe("Homepage Doctoralia summary", () => {
+  it("uses the verified current score of 5 and count of 7 when unavailable", () => {
+    expect(doctoraliaSummary(null)).toEqual({ rating: 5, count: 7 });
   });
-  it("preserves original authors, comments and source ratings", () => {
-    const source = [{ name: "N.P.M", text: "Mi experiencia original.", rating: 4 }];
-    expect(selectHomepageReviews(source)[0]).toBe(source[0]);
-    expect(selectHomepageReviews(source)).toEqual([{ name: "N.P.M", text: "Mi experiencia original.", rating: 4 }]);
-  });
-  it("does not invent reviews when the source is empty", () => {
-    expect(selectHomepageReviews([])).toEqual([]);
+  it("keeps a changed score and count exactly as supplied by Doctoralia", () => {
+    expect(doctoraliaSummary({ rating: 4.8, count: 8 })).toEqual({ rating: 4.8, count: 8 });
   });
   it("retains the individual Doctoralia rating instead of substituting the aggregate", () => {
     const source = { aggregateRating: { ratingValue: 5, reviewCount: 7 }, review: [
