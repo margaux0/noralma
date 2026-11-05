@@ -10,5 +10,5 @@
 - [x] Pie de página nuevo en bloques (Noralma, Navegación, Contacto, Información legal) con líneas finas verde salvia y copyright
 - [x] Reseñas de Doctoralia pasando solas bajo el 5/5, sin botón de pausa
 - [x] Favicon y símbolo de marca: espiral botánica como favicon (ico, 16, 32, 48, apple-touch) y elemento gráfico secundario en pie e inicio
-- [ ] Seguidores de Instagram: decidir cómo mantenerlos al día (TikTok ya se actualiza solo) — esperando decisión de Nora
+- [x] Seguidores: TikTok se lee solo en la web; Instagram se actualiza cuando Nora lo pide (5.803 a 5/11/2026)
 - [ ] Completar NIF, dirección de la consulta y nº de registro sanitario en textos legales — esperando datos de Nora
