@@ -1,8 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { doctoraliaSummary } from "@/lib/homepage-reviews";
+import { doctoraliaSummary, authorizedDoctoraliaOpiniones } from "@/lib/homepage-reviews";
 import { parseDoctoralia } from "@/lib/doctoralia.functions";
 
 describe("Homepage Doctoralia summary", () => {
+  it("does not publish publicly available testimonials without authorization", () => {
+    const source = { opiniones: [{ name: "Persona", text: "Texto original", rating: 5 }] };
+    expect(authorizedDoctoraliaOpiniones(source)).toEqual([]);
+    expect(authorizedDoctoraliaOpiniones(source, true)).toEqual(source.opiniones);
+  });
   it("uses the verified current score of 5 and count of 7 when unavailable", () => {
     expect(doctoraliaSummary(null)).toEqual({ rating: 5, count: 7 });
   });

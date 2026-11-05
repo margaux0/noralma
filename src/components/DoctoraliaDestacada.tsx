@@ -48,7 +48,7 @@ export function DoctoraliaDestacada({
 }) {
   return (
     <section id="resenas" aria-label="Opiniones en Doctoralia" className="scroll-mt-28 bg-sand/25">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 pt-8 text-primary">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-8 text-primary">
         <div className="flex items-center gap-3">
           <span className="font-display text-2xl font-medium" aria-label={`Valoración: ${rating} de 5`}>
             {rating}/5
@@ -65,14 +65,14 @@ export function DoctoraliaDestacada({
         </a>
       </div>
 
-      <div className="pt-4 pb-10">
+      {opiniones.length > 0 && <div className="pb-10">
         <Marquee
           duration={85}
           items={opiniones.map((opinion) => (
             <TarjetaOpinion key={opinion.name + opinion.date} opinion={opinion} />
           ))}
         />
-      </div>
+      </div>}
     </section>
   );
 }
