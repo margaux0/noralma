@@ -98,11 +98,10 @@ export function Comunidad() {
     return () => observer.disconnect();
   }, [seen]);
 
-  // La cifra en directo manda; si la red no responde, se muestra la guardada.
+  // TikTok se lee en directo; Instagram usa la cifra guardada (Instagram no
+  // deja leerla desde la web). Si la lectura falla, se muestra la guardada.
   const followersFor = (profile: SocialProfile) =>
-    profile.id === "instagram"
-      ? (enDirecto?.instagram ?? profile.followers)
-      : (enDirecto?.tiktok ?? profile.followers);
+    profile.id === "tiktok" ? (enDirecto?.tiktok ?? profile.followers) : profile.followers;
 
   const start = seen && !isPending;
 
@@ -132,7 +131,7 @@ export function Comunidad() {
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground/80">
-          Cifras reales leídas de cada perfil y actualizadas automáticamente.
+          Cifras reales de cada perfil, actualizadas automáticamente.
         </p>
       </div>
     </section>
