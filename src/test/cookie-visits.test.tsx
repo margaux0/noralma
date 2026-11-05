@@ -14,7 +14,7 @@ describe("Cookies en cada visita", () => {
     localStorage.setItem("noralma-cookie-consent", JSON.stringify({ necessary: true, analytics: false, date: "2026-11-05" }));
     const first = render(<CookieConsent />);
     expect(screen.getByRole("dialog", { name: "Preferencias de cookies" })).toBeVisible();
-    fireEvent.click(screen.getByRole("button", { name: "Rechazar", exact: true }));
+    fireEvent.click(screen.getByRole("button", { name: /^Rechazar$/ }));
     expect(screen.queryByRole("dialog")).toBeNull();
     expect(JSON.parse(localStorage.getItem("noralma-cookie-consent") ?? "{}").analytics).toBe(false);
     first.unmount();

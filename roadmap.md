@@ -1,6 +1,6 @@
 # Roadmap
 - [x] La carta de Noralma: sección final, popup a los 9 segundos, consentimiento desmarcado y adaptación móvil/ordenador comprobados.
-- [ ] Preguntar por cookies y newsletter en cada nueva visita, sin superponer avisos ni repetirlos al navegar entre páginas; comprobar con decisiones guardadas.
+- [x] Preguntar por cookies y newsletter en cada nueva visita, sin superponer avisos ni repetirlos al navegar entre páginas; comprobado en móvil y ordenador con decisiones guardadas.
 - [ ] Abrir suscripciones y verificar lista, doble confirmación, bienvenida y baja — bloqueado: el permiso actual no permite crear la conexión Brevo; falta conectar una cuenta y configurar remitente y plantillas.
 - [x] Adaptación fiel a móvil de toda la web (documento): revisar 320–1440 px y corregir
 - [x] Cabecera única: foto de Nora y Django de fondo con frase y botones encima, sin bloque de bosque separado
