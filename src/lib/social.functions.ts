@@ -34,7 +34,9 @@ export function parseFollowers(raw: string): number | null {
   } else if (commas || dots) {
     const sep = commas ? "," : ".";
     const groups = s.split(sep);
-    const isThousands = groups.length === 2 && groups[1].length === 3 && !abbreviated;
+    const tail = groups[1] ?? "";
+    // "5.803" o "5,803" agrupan millares; "5,8" es un decimal.
+    const isThousands = groups.length === 2 && tail.length === 3 && multiplier === 1;
     s = isThousands ? groups.join("") : groups.join(".");
   }
 
