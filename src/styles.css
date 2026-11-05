@@ -150,7 +150,7 @@
 }
 .home-eyebrow { letter-spacing: 0; }
 .home-hero-photo { height: 25rem; margin-bottom: 1.5rem; }
-.home-hero-photo img { border-radius: 45% 45% 6px 6px; object-position: center 72%; }
+.home-hero-photo img { border-radius: 45% 45% 6px 6px; object-position: center 46%; }
 .home-about-photo { aspect-ratio: 1 / 1; border-radius: 6px; object-position: center 68%; }
 .home-guide-cover { height: 16rem; border-radius: 6px; }
 @media (min-width: 768px) {
@@ -182,7 +182,7 @@
   .home-hero div.mt-7 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); margin-top: 1.25rem; }
   .home-hero div.mt-7 a { padding: 0.75rem; min-width: 0; font-size: 0.8125rem; }
   .home-hero-photo { height: 14rem; }
-  .home-hero-photo img { border-radius: 6px; object-position: center 63%; }
+  .home-hero-photo img { border-radius: 6px; object-position: center 44%; }
   .home-about-photo { max-height: 23rem; }
   .home-editorial #instagram .grid { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
   .home-editorial #instagram img { max-height: 28rem; object-fit: contain; background: var(--card); }
