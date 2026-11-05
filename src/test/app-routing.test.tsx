@@ -1,8 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { RouterProvider } from "@tanstack/react-router";
 
 import { routeTree } from "@/routeTree.gen";
 
