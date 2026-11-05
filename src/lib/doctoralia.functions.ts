@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 
-export type Opinion = { name: string; date: string; text: string };
+export type Opinion = { name: string; date: string; text: string; rating?: number };
 export type DoctoraliaData = { rating: number; count: number; opiniones: Opinion[] };
 
 const PROFILE_URL = "https://www.doctoralia.es/perfil/nora-gallardo-cano";
@@ -27,6 +27,9 @@ export function parseDoctoralia(html: string): DoctoraliaData | null {
           name: String(r.author.name),
           date: r.datePublished ? formatter.format(new Date(r.datePublished)) : "",
           text: String(r.reviewBody).replace(/\s+/g, " ").trim(),
+          ...(Number(r.reviewRating?.ratingValue) >= 1 && Number(r.reviewRating?.ratingValue) <= 5
+            ? { rating: Number(r.reviewRating.ratingValue) }
+            : {}),
         }));
       if (!opiniones.length) continue;
       return {
