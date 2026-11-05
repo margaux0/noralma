@@ -18,7 +18,7 @@ import { Comunidad } from "@/components/Comunidad";
 import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
-import { doctoraliaSummary } from "@/lib/homepage-reviews";
+import { doctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -197,7 +197,12 @@ function Index() {
         </div>
       </section>
 
-      <DoctoraliaDestacada profileUrl={DOCTORALIA_REVIEWS_URL} rating={valoracion.rating} count={valoracion.count} />
+      <DoctoraliaDestacada
+        profileUrl={DOCTORALIA_REVIEWS_URL}
+        rating={valoracion.rating}
+        count={valoracion.count}
+        opiniones={doctoraliaOpiniones(doctoralia)}
+      />
 
       <section aria-labelledby="esencia-noralma" className="bg-sand/50">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1.2fr_1fr] md:gap-20 md:py-20">
