@@ -11,6 +11,7 @@
 
 - The homepage renders one compact Doctoralia aggregate from the existing public fetch, with a last-verified aggregate fallback; keep data selection separate from presentation to preserve automatic updates without rendering individual testimonials.
 - The blog parent renders Outlet for article matches and the list only for its own URL, so article links display the requested content.
+- Keep the homepage online-therapy section directly after the forest banner as a single section; its offer CTA scrolls to the homepage areas anchor to avoid duplicated content.
 
 <!--
 Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a
