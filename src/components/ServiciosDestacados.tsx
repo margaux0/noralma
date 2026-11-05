@@ -30,7 +30,7 @@ const especialidades: Especialidad[] = [
     intro:
       "Acompaño a personas que viven con diabetes, trabajando el impacto emocional que puede tener convivir con una enfermedad crónica.",
     extra: (
-      <p className="mt-8 rounded-xl bg-secondary px-5 py-4 text-sm font-semibold text-foreground/75">
+      <p className="mt-8 rounded-md bg-secondary px-5 py-4 text-sm font-semibold text-foreground/75">
         En colaboración con la Associació de Diabetis de Catalunya (ADC)
       </p>
     ),
@@ -58,7 +58,7 @@ export function ServiciosDestacados() {
       <div className="mt-14 grid gap-8 lg:grid-cols-2">
         {especialidades.map((e) => {
           const cls =
-            "flex flex-col rounded-2xl bg-background p-8 ring-1 ring-foreground/5 md:p-10";
+            "flex flex-col rounded-md border border-primary/15 bg-card p-6 md:p-8";
           return (
             <Link
               key={e.title}

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { coverFor, fetchPost, formatDate } from "@/lib/blog";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { SITE_URL, WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
@@ -21,10 +21,10 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: loaderData.title },
         { property: "og:description", content: loaderData.excerpt },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/blog/${params.slug}` },
+        { property: "og:url", content: `${SITE_URL}/blog/${params.slug}` },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [{ rel: "canonical", href: `/blog/${params.slug}` }],
+      links: [{ rel: "canonical", href: `${SITE_URL}/blog/${params.slug}` }],
     };
   },
   component: BlogPostPage,

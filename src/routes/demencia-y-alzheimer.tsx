@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/contact";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/contact";
 
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/demencia-y-alzheimer")({
           "Ofrezco acompañamiento psicológico tanto a personas que viven con un diagnóstico de demencia o Alzheimer como a sus familiares y cuidadores.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/demencia-y-alzheimer" },
+      { property: "og:url", content: `${SITE_URL}/demencia-y-alzheimer` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/demencia-y-alzheimer" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/demencia-y-alzheimer` }],
   }),
   component: DemenciaAlzheimerPage,
 });

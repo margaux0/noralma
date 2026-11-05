@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/contact";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/contact";
 
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/diabetes")({
           "Acompaño a personas que viven con diabetes, trabajando el impacto emocional que puede tener convivir con una enfermedad crónica.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/diabetes" },
+      { property: "og:url", content: `${SITE_URL}/diabetes` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/diabetes" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/diabetes` }],
   }),
   component: DiabetesPage,
 });

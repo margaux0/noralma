@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/contact";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAsset from "@/assets/hero-nora.png.asset.json";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -18,10 +19,10 @@ export const Route = createFileRoute("/acerca-de-mi")({
           "Soy Nora Gallardo, Psicóloga General Sanitaria. Un espacio para volver a escucharte.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/acerca-de-mi" },
+      { property: "og:url", content: `${SITE_URL}/acerca-de-mi` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/acerca-de-mi" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/acerca-de-mi` }],
   }),
   component: AcercaDeMiPage,
 });

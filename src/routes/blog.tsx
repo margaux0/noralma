@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/contact";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
@@ -17,10 +18,10 @@ export const Route = createFileRoute("/blog")({
         content: "Reflexiones y recursos de psicología, en un lenguaje cercano.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: `${SITE_URL}/blog` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
   }),
   component: BlogRoute,
 });

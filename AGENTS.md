@@ -11,9 +11,9 @@
 - Keep newsletter collection disabled until the email platform, double opt-in, welcome and unsubscribe are verified; the section and popup share one form to prevent divergent consent rules.
 - Coordinate newsletter display with cookie-dialog visibility through a browser event; keep invitation dismissal in mounted React state so page navigation does not restart prompts.
 
-- The homepage renders one compact Doctoralia aggregate from the existing public fetch, with a last-verified aggregate fallback; keep data selection separate from presentation to preserve automatic updates without rendering individual testimonials.
+- The homepage renders one live Doctoralia aggregate with a last-verified fallback; gate the prepared testimonial strip on explicit republication authorization because public availability is not consent.
 - The blog parent renders Outlet for article matches and the list only for its own URL, so article links display the requested content.
-- Keep the homepage online-therapy section directly after the forest banner as a single section; its offer CTA scrolls to the homepage areas anchor to avoid duplicated content.
+- Keep one homepage presentation between the forest banner and online therapy; reuse shared area data and specialty cards to prevent divergent content across homepage and services.
 
 <!--
 Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a

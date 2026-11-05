@@ -35,7 +35,7 @@ function NewsletterForm({ popup = false }: { popup?: boolean }) {
         <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required className="mt-1 size-5 shrink-0 accent-primary" />
         <span>Quiero recibir La carta de Noralma y acepto la <Link to="/privacidad" className="text-primary underline underline-offset-4">política de privacidad</Link>.</span>
       </label>
-      <Button type="submit" disabled={!NEWSLETTER_READY} className="h-auto min-h-12 w-full whitespace-normal px-5 py-3 shadow-none">{popup ? "Quiero recibirla" : "Quiero formar parte"}</Button>
+      <Button type="submit" disabled={!NEWSLETTER_READY} className="h-auto min-h-12 w-full whitespace-normal px-5 py-3 shadow-none">Quiero recibir la carta</Button>
       <p id={`${id}-availability`} className="text-sm leading-relaxed text-muted-foreground">Las suscripciones todavía no están abiertas.</p>
       {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
       <p className="text-xs leading-relaxed text-muted-foreground">Responsable: Nora Gallardo Cano. Usaremos tu correo solo para enviarte La carta de Noralma, con tu consentimiento. No incluyas información de salud.</p>
@@ -50,9 +50,9 @@ export function NewsletterSection() {
       <div className="mx-auto grid max-w-6xl gap-9 px-6 py-16 md:grid-cols-[1.1fr_1fr] md:gap-20 md:py-20">
         <div>
           <EspiralMarca className="size-14" />
-          <h2 id="newsletter-title" className="mt-5 font-display text-3xl font-medium text-primary md:text-4xl">Un espacio para ti.</h2>
-          <p className="mt-4 font-display text-xl">La carta de Noralma</p>
-          <p className="mt-5 max-w-[48ch] text-base leading-relaxed text-muted-foreground">De vez en cuando, me gustaría hacerte llegar algo más que palabras: reflexiones, ejercicios, herramientas y pequeñas pausas para acompañarte a comprenderte y cuidar de tu bienestar emocional.</p>
+          <h2 id="newsletter-title" className="mt-5 font-display text-3xl font-medium text-primary md:text-4xl">La carta de Noralma</h2>
+          <p className="mt-4 font-display text-xl">Un pequeño espacio para ti</p>
+          <p className="mt-5 max-w-[48ch] text-base leading-relaxed text-muted-foreground">Reflexiones, herramientas y pequeños recursos para comprenderte y acompañarte en tu día a día.</p>
         </div>
         <div className="self-center"><NewsletterForm /></div>
       </div>
