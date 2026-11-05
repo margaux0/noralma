@@ -81,6 +81,7 @@
   --doctoralia-surface: oklch(0.974 0.016 174);
   --doctoralia-ink: oklch(0.269 0.005 194);
   --banner-shade: oklch(0.22 0.025 138);
+  --banner-ink: oklch(1 0 0);                /* blanco cálido sobre el bosque */
   --banner-overlay: linear-gradient(90deg, color-mix(in oklab, var(--banner-shade) 65%, transparent), color-mix(in oklab, var(--banner-shade) 25%, transparent) 43%, transparent 62%);
 }
 
@@ -151,8 +152,8 @@
 .home-banner-photo { bottom: 0; height: 260px; object-position: 92% center; }
 .home-banner::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(to bottom, color-mix(in oklab, var(--banner-shade) 58%, transparent), color-mix(in oklab, var(--banner-shade) 45%, transparent) 48%, transparent 65%); pointer-events: none; }
 .home-banner-content { position: relative; z-index: 2; padding-top: 28px; padding-bottom: 28px; }
-.home-banner-copy { max-width: 34rem; }
-.home-banner-copy > p { font-size: 28px; line-height: 1.22; text-wrap: pretty; }
+.home-banner-copy { max-width: 34rem; color: var(--banner-ink); }
+.home-banner-copy > p { font-size: 30px; line-height: 1.18; text-wrap: balance; text-shadow: 0 1px 26px color-mix(in oklab, var(--banner-shade) 55%, transparent); }
 .home-banner-copy a { font-size: 14px; }
 @media (min-width: 768px) {
   .home-banner { height: 420px; }
@@ -161,14 +162,19 @@
   .home-banner::after { background: var(--banner-overlay); }
   .home-banner-content { height: 100%; display: flex; align-items: center; }
   .home-banner-copy { width: 45%; }
-  .home-banner-copy > p { font-size: 30px; }
+  .home-banner-copy > p { font-size: 34px; }
 }
 @media (min-width: 1024px) {
   .home-banner { height: 400px; }
-  .home-banner-copy > p { font-size: 36px; }
+  .home-banner-copy > p { font-size: 46px; }
+}
+@media (min-width: 1280px) {
+  .home-banner-copy { max-width: 38rem; }
+  .home-banner-copy > p { font-size: 54px; }
 }
 @media (min-width: 1920px) {
   .home-banner { height: 480px; }
+  .home-banner-copy > p { font-size: 60px; }
   .home-banner-photo { object-fit: contain; object-position: right center; }
   .home-banner-vegetation { display: block; height: 100%; }
 }

@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Titular de la franja del bosque: «Mi propósito es acompañarte a sentirte bien contigo.» en blanco, serif, a la izquierda sobre la vegetación, botones debajo; comprobado en 320, 390, 768, 1280 y 1920 px sin tapar a Nora ni a Django.
+
 - [x] Añadir frase y botones sobre el bosque y mover la terapia online inmediatamente debajo, sin duplicar secciones; enlaces y pantallas de 320, 390, 768 y 1280 px comprobados.
 
 - [x] Rediseñar inicio según documento: presentación, Nora, terapia online, áreas, ACT, recursos y cierre; verificar navegación y pantallas.
