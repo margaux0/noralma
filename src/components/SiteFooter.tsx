@@ -50,6 +50,7 @@ export function SiteFooter() {
             <Link to="/terapia-online" className={linkClass}>Terapia online</Link>
             <Link to="/servicios" className={linkClass}>Servicios</Link>
             <Link to="/" hash="recursos" className={linkClass}>Recursos</Link>
+            <Link to="/blog" className={linkClass}>Blog</Link>
             <Link to="/contacto" className={linkClass}>Contacto</Link>
           </nav>
 

@@ -1,6 +1,9 @@
+import { SITE_URL } from "@/lib/contact";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { accompanimentAreas } from "@/lib/areas";
+import { Button } from "@/components/ui/button";
 import { InfoPractica } from "@/components/InfoPractica";
 
 export const Route = createFileRoute("/servicios")({
@@ -18,23 +21,13 @@ export const Route = createFileRoute("/servicios")({
         content: "Acompañamiento psicológico a tu ritmo, sin prisa y sin juicios.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/servicios" },
+      { property: "og:url", content: `${SITE_URL}/servicios` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/servicios" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/servicios` }],
   }),
   component: ServiciosPage,
 });
-
-const areas = [
-  "Ansiedad y gestión emocional",
-  "Autoestima y autoconocimiento",
-  "Autoexigencia y diálogo interno",
-  "Relaciones personales y vínculos afectivos",
-  "Duelo y procesos de pérdida",
-  "Cambios vitales y momentos de incertidumbre",
-  "Dificultades emocionales relacionadas con enfermedades crónicas",
-];
 
 function ServiciosPage() {
   return (
@@ -54,10 +47,12 @@ function ServiciosPage() {
       <section id="acompanar" aria-labelledby="areas" className="mt-14 scroll-mt-24">
         <h2 id="areas" className="font-display text-3xl font-medium md:text-4xl">¿En qué puedo acompañarte?</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {areas.map((a, index) => (
-            <li id={["ansiedad", "autoestima", "autoexigencia", "relaciones", "duelo", "cambios-vitales", "enfermedades-cronicas"][index]} key={a} className="flex scroll-mt-28 items-center gap-4 rounded-2xl bg-card p-6 ring-1 ring-foreground/5">
-              <span className="size-2 shrink-0 rounded-full bg-honey" aria-hidden="true" />
-              <span className="text-base text-foreground/80">{a}</span>
+          {accompanimentAreas.map(({ title, text, id, Icon }) => (
+            <li id={id} key={id} className="scroll-mt-28 rounded-md border border-primary/15 bg-card p-6">
+              <Icon className="size-6 text-primary" strokeWidth={1.3} aria-hidden="true" />
+              <h3 className="mt-4 font-display text-xl leading-snug">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              <Button asChild variant="link" className="mt-4 h-auto min-h-11 whitespace-normal px-0"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Hablemos sobre lo que necesitas →</a></Button>
             </li>
           ))}
         </ul>
@@ -97,7 +92,7 @@ function ServiciosPage() {
         <InfoPractica />
       </div>
 
-      <section className="mt-20 rounded-3xl bg-card p-8 ring-1 ring-foreground/5 md:p-14">
+      <section className="mt-20 border-t border-primary/20 pt-12">
         <ServiciosDestacados />
       </section>
 

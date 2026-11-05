@@ -10,6 +10,7 @@ const navItems = [
   { to: "/terapia-online", label: "Terapia online" },
   { to: "/servicios", label: "Áreas de acompañamiento" },
   { to: "/#recursos", label: "Recursos", hash: true },
+  { to: "/blog", label: "Blog" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
 

@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/contact";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
@@ -19,10 +20,10 @@ export const Route = createFileRoute("/contacto")({
         content: "Cuéntame qué te trae aquí. Te respondo personalmente.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contacto" },
+      { property: "og:url", content: `${SITE_URL}/contacto` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/contacto" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contacto` }],
   }),
   component: ContactoPage,
 });

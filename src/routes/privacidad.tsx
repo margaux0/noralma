@@ -27,7 +27,6 @@ export const Route = createFileRoute("/privacidad")({
           con total confidencialidad, sujetos al secreto profesional y a la normativa sanitaria.
         </li>
       </ul>
-      <h2>Base legal</h2>
       <h2>La carta de Noralma</h2>
       <p>
         Las suscripciones a La carta de Noralma todavía no están abiertas y este formulario

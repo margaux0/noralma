@@ -18,11 +18,13 @@ import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
 import { Comunidad } from "@/components/Comunidad";
 import { NewsletterSection } from "@/components/Newsletter";
+import { ServiciosDestacados } from "@/components/ServiciosDestacados";
+import { accompanimentAreas } from "@/lib/areas";
 import { EspiralMarca } from "@/components/EspiralMarca";
 import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
-import { doctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
+import { authorizedDoctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -119,15 +121,6 @@ const instagramPosts = [
   },
 ];
 
-const areasInicio = [
-  { title: "Ansiedad y gestión emocional", text: "Dar espacio a lo que sientes y comprender cómo se manifiesta la ansiedad en tu día a día.", id: "ansiedad" },
-  { title: "Autoestima y autoconocimiento", text: "Explorar cómo te ves y construir una relación contigo desde la comprensión y el cuidado.", id: "autoestima" },
-  { title: "Autoexigencia y diálogo interno", text: "Escuchar cómo te hablas y revisar las exigencias que pueden alejarte de tus necesidades.", id: "autoexigencia" },
-  { title: "Relaciones y vínculos afectivos", text: "Comprender tus vínculos, tus límites y las maneras en las que te relacionas con los demás.", id: "relaciones" },
-  { title: "Duelo y procesos de pérdida", text: "Encontrar un espacio de escucha para transitar una pérdida, respetando tu propio ritmo.", id: "duelo" },
-  { title: "Cambios vitales y momentos de incertidumbre", text: "Acompañarte cuando algo cambia y necesitas parar, escucharte y encontrar tu dirección.", id: "cambios-vitales" },
-];
-
 const actionClass = "h-auto min-h-11 whitespace-normal rounded-md border border-primary px-5 py-3 text-center leading-snug shadow-none";
 
 function Index() {
@@ -147,10 +140,11 @@ function Index() {
         <img className="home-banner-photo" src={bosqueDjango} alt="Nora Gallardo junto a su perro Django en un camino entre árboles" width={1920} height={640} fetchPriority="high" />
         <div className="home-banner-content mx-auto w-full max-w-6xl px-6">
           <div className="home-banner-copy">
-            <p className="font-display font-medium text-balance">Una psicología con más amor y menos exigencia.</p>
+            <h1 className="font-display font-medium text-balance">Mi propósito es acompañarte a sentirte bien contigo.</h1>
+            <p>Un espacio de acompañamiento psicológico para comprender lo que sientes, escucharte sin juicios y construir una relación más amable contigo.</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild className={`${actionClass} border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90`}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu cita <ArrowUpRight /></a></Button>
-              <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><a href="#areas-inicio">¿Qué te ofrezco? <ArrowRight /></a></Button>
+              <Button asChild className={`${actionClass} border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90`}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button>
+              <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><Link to="/servicios" hash="forma-de-trabajar">Conoce cómo trabajo <ArrowRight /></Link></Button>
             </div>
           </div>
         </div>
@@ -158,15 +152,15 @@ function Index() {
       <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16 md:pt-14">
         <div>
           <p className="home-eyebrow text-sm font-medium text-primary">Noralma · Psicología clínica con alma</p>
-          <h1 id="presentacion" className="mt-5 font-display text-4xl font-medium leading-[1.13] text-balance lg:text-6xl">
-            Mi propósito es acompañarte a <em className="font-normal text-primary">sentirte bien contigo.</em>
-          </h1>
+          <h2 id="presentacion" className="mt-5 font-display text-4xl font-medium leading-[1.13] text-balance lg:text-6xl">
+            Soy Nora, <em className="font-normal text-primary">la persona detrás de Noralma.</em>
+          </h2>
           <p className="mt-6 max-w-[47ch] text-base leading-relaxed text-muted-foreground">
-            Un espacio de acompañamiento psicológico donde poder comprenderte, escucharte y construir una relación contigo desde la que vivir de una forma más coherente con lo que necesitas y lo que es importante para ti.
+            Soy Nora Gallardo Cano, Psicóloga General Sanitaria. Entiendo la psicología como un espacio de escucha, comprensión y acompañamiento, donde explorar tu historia, comprender lo que estás viviendo y construir una relación más amable contigo.
           </p>
           <p className="mt-5 text-sm font-medium text-foreground">Nora Gallardo Cano · Psicóloga General Sanitaria</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Button asChild variant="outline" className={actionClass}><Link to="/servicios" hash="forma-de-trabajar">Conoce cómo trabajo <ArrowUpRight /></Link></Button>
+            <Button asChild variant="outline" className={actionClass}><Link to="/acerca-de-mi">Conoce más sobre mí <ArrowUpRight /></Link></Button>
             <Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu sesión <ArrowUpRight /></a></Button>
           </div>
         </div>
@@ -189,21 +183,10 @@ function Index() {
       </section>
 
 
-      <section aria-labelledby="conoce-nora" className="mx-auto grid max-w-6xl items-center gap-9 px-6 py-16 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-24">
-        <img src={heroNora} alt="Nora en su espacio de acompañamiento psicológico en Vilanova i la Geltrú" width={912} height={1104} loading="lazy" className="home-about-photo w-full object-cover" />
-        <div>
-          <p className="home-eyebrow text-sm font-medium text-primary">Conoce a Nora</p>
-          <h2 id="conoce-nora" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Detrás de Noralma, <em className="font-normal text-primary">estoy yo.</em></h2>
-          <p className="mt-6 max-w-[53ch] text-base leading-relaxed text-muted-foreground">Soy Nora, psicóloga general sanitaria y creadora de Noralma. Entiendo la psicología como un espacio de escucha, comprensión y acompañamiento, donde cada persona pueda explorar su historia, comprender lo que está viviendo y encontrar nuevas maneras de relacionarse consigo misma.</p>
-          <Button asChild variant="outline" className={`mt-7 ${actionClass}`}><Link to="/acerca-de-mi">Conoce más sobre mí <ArrowUpRight /></Link></Button>
-        </div>
-      </section>
-
-
       <section id="areas-inicio" aria-labelledby="areas-inicio-titulo" className="mx-auto scroll-mt-28 max-w-6xl px-6 py-16 md:py-24">
         <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]"><div><p className="home-eyebrow text-sm text-primary">Áreas de acompañamiento</p><h2 id="areas-inicio-titulo" className="mt-4 font-display text-3xl font-medium leading-tight md:text-4xl">¿En qué puedo acompañarte?</h2></div><p className="max-w-[43ch] self-end text-base leading-relaxed text-muted-foreground">Cada historia es diferente. El proceso parte de lo que estás viviendo y de lo que necesitas hoy.</p></div>
-        <div className="mt-10 grid gap-x-12 md:grid-cols-2">
-          {areasInicio.map((area) => <Link key={area.id} to="/servicios" hash={area.id} className="group border-t border-border py-6 outline-offset-4 focus-visible:outline-primary"><div className="flex items-start justify-between gap-4"><h3 className="max-w-[30ch] font-display text-xl font-medium leading-snug group-hover:text-primary">{area.title}</h3><ArrowUpRight className="mt-1 size-4 shrink-0 text-primary" aria-hidden="true" /></div><p className="mt-3 max-w-[49ch] text-sm leading-relaxed text-muted-foreground">{area.text}</p></Link>)}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {accompanimentAreas.map(({ Icon, ...area }) => <Link key={area.id} to="/servicios" hash={area.id} className="group flex flex-col rounded-md border border-primary/15 bg-card p-6 outline-offset-4 transition-colors hover:border-primary/40 focus-visible:outline-primary"><Icon className="size-6 text-primary" strokeWidth={1.3} aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-medium leading-snug group-hover:text-primary">{area.title}</h3><p className="mb-5 mt-3 text-sm leading-relaxed text-muted-foreground">{area.text}</p><span className="mt-auto flex min-h-11 items-center gap-2 text-sm font-medium text-primary">Conoce más <ArrowUpRight className="size-4" aria-hidden="true" /></span></Link>)}
         </div>
         <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4 border-t border-border pt-6">
           <Button asChild variant="link" className="h-auto whitespace-normal px-0 text-left"><Link to="/diabetes">Diabetes y bienestar emocional <ArrowUpRight /></Link></Button>
@@ -212,18 +195,23 @@ function Index() {
         </div>
       </section>
 
-      <DoctoraliaDestacada
-        profileUrl={DOCTORALIA_REVIEWS_URL}
-        rating={valoracion.rating}
-        count={valoracion.count}
-        opiniones={doctoraliaOpiniones(doctoralia)}
-      />
-
       <section aria-labelledby="esencia-noralma" className="bg-sand/50">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1.2fr_1fr] md:gap-20 md:py-20">
           <div><EspiralMarca className="size-10" /><p className="home-eyebrow mt-5 text-sm text-primary">Mi forma de entender la psicología</p><h2 id="esencia-noralma" className="mt-6 max-w-[20ch] font-display text-4xl font-medium leading-tight text-primary md:text-5xl">¿Esto me acerca a mí <em className="font-normal">o me aleja de mí?</em></h2></div>
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground"><p>Creo en una psicología que no busca convertirnos en alguien diferente, sino ayudarnos a comprender nuestra experiencia, aceptar aquello que sentimos y reconocer qué es importante para nosotros. Un proceso en el que aprender a relacionarnos de otra manera con nuestros pensamientos y emociones, identificando nuestros valores y construyendo una vida más coherente con ellos.</p><p>Trabajo desde la Terapia de Aceptación y Compromiso (ACT): dar espacio a lo que sientes y caminar hacia aquello que tiene sentido para ti.</p><Button asChild variant="link" className="h-auto whitespace-normal px-0"><Link to="/servicios" hash="forma-de-trabajar">Mi forma de trabajar <ArrowUpRight /></Link></Button></div>
         </div>
+      </section>
+
+      <DoctoraliaDestacada
+        profileUrl={DOCTORALIA_REVIEWS_URL}
+        rating={valoracion.rating}
+        count={valoracion.count}
+        opiniones={authorizedDoctoraliaOpiniones(doctoralia)}
+      />
+
+      <section aria-label="Alzheimer, demencia y diabetes" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <ServiciosDestacados />
+        <div className="mt-8 flex flex-wrap gap-4 border-t border-primary/20 pt-6"><Button asChild variant="outline" className={actionClass}><a href="https://www.instagram.com/reel/DanIsj9satp/" target="_blank" rel="noreferrer">Una conversación con mi padre <ArrowUpRight /></a></Button><Button asChild variant="link"><a href="#guias">Recursos de estimulación cognitiva <ArrowRight /></a></Button></div>
       </section>
 
       <section id="recursos" aria-labelledby="recursos-inicio" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-16 md:py-24">
@@ -240,11 +228,11 @@ function Index() {
       </section>
 
       <Comunidad />
+      <NewsletterSection />
 
       <section aria-labelledby="empezar" className="bg-sand/60">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><EspiralMarca className="mx-auto size-14" /><p className="home-eyebrow mt-5 text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Quizás este sea un buen momento para empezar a dedicarte un espacio.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">No necesitas tener todas las respuestas ni saber exactamente por dónde empezar. Podemos hacerlo poco a poco, desde donde estás hoy.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><EspiralMarca className="mx-auto size-14" /><p className="home-eyebrow mt-5 text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">A veces, empezar a cuidarte comienza con una conversación.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">Si sientes que necesitas un espacio para ti, estaré encantada de acompañarte.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
       </section>
-      <NewsletterSection />
     </div>
   );
 }
