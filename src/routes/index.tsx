@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 const heroNora = heroNoraAsset.url;
+import bosqueDjangoAsset from "@/assets/retrato-bosque-django.webp.asset.json";
+const bosqueDjango = bosqueDjangoAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
 import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
 import amorPropioPortadaAsset from "@/assets/amor-propio-portada.webp.asset.json";
@@ -12,10 +14,11 @@ import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
+import { Comunidad } from "@/components/Comunidad";
 import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
-import { doctoraliaSummary } from "@/lib/homepage-reviews";
+import { doctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -135,6 +138,9 @@ function Index() {
 
   return (
     <div className="home-editorial">
+      <div className="home-banner">
+        <img src={bosqueDjango} alt="Nora Gallardo junto a su perro Django en un camino entre árboles" width={1920} height={640} fetchPriority="high" />
+      </div>
       <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16 md:pt-14">
         <div>
           <p className="home-eyebrow text-sm font-medium text-primary">Noralma · Psicología clínica con alma</p>
@@ -191,7 +197,12 @@ function Index() {
         </div>
       </section>
 
-      <DoctoraliaDestacada profileUrl={DOCTORALIA_REVIEWS_URL} rating={valoracion.rating} count={valoracion.count} />
+      <DoctoraliaDestacada
+        profileUrl={DOCTORALIA_REVIEWS_URL}
+        rating={valoracion.rating}
+        count={valoracion.count}
+        opiniones={doctoraliaOpiniones(doctoralia)}
+      />
 
       <section aria-labelledby="esencia-noralma" className="bg-sand/50">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1.2fr_1fr] md:gap-20 md:py-20">
@@ -212,6 +223,8 @@ function Index() {
         </div>
         <div id="instagram" className="mt-14 scroll-mt-28 border-t border-border pt-8"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-display text-2xl">En Instagram</h3><Button asChild variant="link" className="h-auto px-0"><a href="https://www.instagram.com/noralma.psicologia" target="_blank" rel="noreferrer">@noralma.psicologia <ArrowUpRight /></a></Button></div><div className="mt-6 grid grid-cols-3 gap-3 md:gap-6">{instagramPosts.map((post) => <a key={post.href} href={post.href} target="_blank" rel="noreferrer" className="group min-w-0"><img src={post.img} alt={post.caption} width={750} height={1000} loading="lazy" className="aspect-[3/4] w-full rounded-md object-cover" /><p className="mt-3 text-xs leading-relaxed text-muted-foreground md:text-sm">{post.caption}</p></a>)}</div></div>
       </section>
+
+      <Comunidad />
 
       <section aria-labelledby="empezar" className="bg-sand/60">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><p className="home-eyebrow text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Quizás este sea un buen momento para empezar a dedicarte un espacio.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">No necesitas tener todas las respuestas ni saber exactamente por dónde empezar. Podemos hacerlo poco a poco, desde donde estás hoy.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
