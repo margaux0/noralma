@@ -51,7 +51,7 @@ function BlogPage() {
               key={post.id}
               to="/blog/$slug"
               params={{ slug: post.slug }}
-              className="rounded-2xl bg-background ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
+              className="min-w-0 rounded-2xl bg-background [overflow-wrap:anywhere] ring-1 ring-foreground/5 transition-transform hover:-translate-y-1"
             >
               <img
                 src={coverFor(post)}
@@ -59,7 +59,7 @@ function BlogPage() {
                 width={1024}
                 height={640}
                 loading="lazy"
-                className="h-44 w-full rounded-t-2xl object-cover"
+                className="aspect-[8/5] h-auto w-full rounded-t-2xl object-cover"
               />
               <div className="p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-sage">

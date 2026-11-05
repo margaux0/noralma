@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, legalHead } from "@/components/LegalPage";
 import { openCookieSettings } from "@/components/CookieConsent";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/cookies")({
   head: () => legalHead("/cookies", "Política de cookies", "Qué cookies usa la web de Noralma y cómo configurarlas."),
@@ -27,9 +28,9 @@ export const Route = createFileRoute("/cookies")({
       </p>
       <h2>Cambiar tu elección</h2>
       <p>
-        <button type="button" onClick={openCookieSettings} className="font-semibold text-primary underline">
+        <Button variant="link" type="button" onClick={openCookieSettings} className="h-auto min-h-11 whitespace-normal px-0 font-semibold text-primary underline">
           Abrir configuración de cookies
-        </button>
+        </Button>
       </p>
     </LegalPage>
   ),

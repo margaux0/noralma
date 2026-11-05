@@ -87,7 +87,7 @@ function ServiciosPage() {
             identificar tus valores y a dar pasos coherentes con aquello que de verdad te
             importa.
           </p>
-          <a href="/terapia-online" className="inline-block font-semibold text-primary">
+          <a href="/terapia-online" className="inline-flex min-h-11 items-center font-semibold text-primary">
             Cómo es la terapia online →
           </a>
         </div>
