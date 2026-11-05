@@ -9,8 +9,8 @@ export const newsletterSchema = z.object({
   consent: z.literal(true, { errorMap: () => ({ message: "Necesitamos tu consentimiento para enviarte La carta de Noralma." }) }),
 });
 
-export function shouldInviteToNewsletter(preference: string | null, elapsedMs: number) {
-  return preference === null && elapsedMs >= NEWSLETTER_DELAY_MS;
+export function shouldInviteToNewsletter(elapsedMs: number, cookiesVisible: boolean) {
+  return !cookiesVisible && elapsedMs >= NEWSLETTER_DELAY_MS;
 }
 
 // Brevo is not connected yet. Keep collection off until double opt-in,
