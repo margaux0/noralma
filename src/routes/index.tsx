@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 const heroNora = heroNoraAsset.url;
+import bosqueDjangoAsset from "@/assets/retrato-bosque-django.webp.asset.json";
+const bosqueDjango = bosqueDjangoAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
 import ansiedadPortadaAsset from "@/assets/ansiedad-portada.jpeg.asset.json";
 import amorPropioPortadaAsset from "@/assets/amor-propio-portada.webp.asset.json";
