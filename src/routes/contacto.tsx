@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contacto")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Contacto · Noralma" },

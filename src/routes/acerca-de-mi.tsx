@@ -4,6 +4,7 @@ import heroAsset from "@/assets/hero-nora.png.asset.json";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/acerca-de-mi")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Acerca de mí · Noralma" },

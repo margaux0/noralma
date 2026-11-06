@@ -27,6 +27,7 @@ import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
 import { authorizedDoctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Psicóloga general sanitaria online en España · Noralma" },

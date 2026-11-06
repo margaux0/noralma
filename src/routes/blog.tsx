@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Blog · Noralma" },

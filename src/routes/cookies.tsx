@@ -4,6 +4,7 @@ import { openCookieSettings } from "@/components/CookieConsent";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/cookies")({
+  staticData: { sitemap: true },
   head: () => legalHead("/cookies", "Política de cookies", "Qué cookies usa la web de Noralma y cómo configurarlas."),
   component: () => (
     <LegalPage title="Política de cookies">

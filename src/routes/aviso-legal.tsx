@@ -3,6 +3,7 @@ import { LegalPage, Pendiente, legalHead } from "@/components/LegalPage";
 import { COLEGIADA, CONTACT_EMAIL } from "@/lib/contact";
 
 export const Route = createFileRoute("/aviso-legal")({
+  staticData: { sitemap: true },
   head: () => legalHead("/aviso-legal", "Aviso legal", "Datos de la titular y condiciones de uso de la web de Noralma."),
   component: () => (
     <LegalPage title="Aviso legal">
