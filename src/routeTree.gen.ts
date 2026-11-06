@@ -21,6 +21,7 @@ import { Route as DiabetesRouteImport } from './routes/diabetes'
 import { Route as EscribirRouteImport } from './routes/escribir'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TerapiaOnlineRouteImport } from './routes/terapia-online'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -84,6 +85,11 @@ const ServiciosRoute = ServiciosRouteImport.update({
   path: '/servicios',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TerapiaOnlineRoute = TerapiaOnlineRouteImport.update({
   id: '/terapia-online',
   path: '/terapia-online',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/escribir': typeof EscribirRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/escribir': typeof EscribirRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/escribir': typeof EscribirRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terapia-online': typeof TerapiaOnlineRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/escribir'
     | '/privacidad'
     | '/servicios'
+    | '/sitemap.xml'
     | '/terapia-online'
     | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/escribir'
     | '/privacidad'
     | '/servicios'
+    | '/sitemap.xml'
     | '/terapia-online'
     | '/blog/$slug'
   id:
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/escribir'
     | '/privacidad'
     | '/servicios'
+    | '/sitemap.xml'
     | '/terapia-online'
     | '/blog/$slug'
   fileRoutesById: FileRoutesById
@@ -208,6 +220,7 @@ export interface RootRouteChildren {
   EscribirRoute: typeof EscribirRoute
   PrivacidadRoute: typeof PrivacidadRoute
   ServiciosRoute: typeof ServiciosRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TerapiaOnlineRoute: typeof TerapiaOnlineRoute
 }
 
@@ -297,6 +310,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiciosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terapia-online': {
       id: '/terapia-online'
       path: '/terapia-online'
@@ -337,6 +357,7 @@ const rootRouteChildren: RootRouteChildren = {
   EscribirRoute: EscribirRoute,
   PrivacidadRoute: PrivacidadRoute,
   ServiciosRoute: ServiciosRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TerapiaOnlineRoute: TerapiaOnlineRoute,
 }
 export const routeTree = rootRouteImport

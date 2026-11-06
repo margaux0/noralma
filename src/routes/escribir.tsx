@@ -3,6 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/escribir")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "Nueva entrada · Noralma" },

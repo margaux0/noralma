@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/demencia-y-alzheimer")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Demencia y Alzheimer · Noralma" },

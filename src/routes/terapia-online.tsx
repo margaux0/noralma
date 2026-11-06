@@ -9,6 +9,7 @@ const description =
   "Terapia psicológica online con Nora Gallardo, Psicóloga General Sanitaria. Sesiones de 60 minutos desde donde estés, con la misma cercanía y confidencialidad.";
 
 export const Route = createFileRoute("/terapia-online")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

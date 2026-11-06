@@ -4,7 +4,7 @@ export const TIKTOK_URL = "https://www.tiktok.com/@noralma.psicologia";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/nora-gallardo-cano-1a6548294/";
 export const CONTACT_EMAIL = "noracano4@gmail.com";
 export const COLEGIADA = "34583";
-export const SITE_URL = "https://noralma.lovable.app";
+export const SITE_URL = "https://noralmapsicologia.com";
 
 /** Datos prácticos de las sesiones: una sola fuente para toda la web. */
 export const PRACTICA = {

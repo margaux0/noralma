@@ -27,6 +27,7 @@ import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
 import { authorizedDoctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Psicóloga general sanitaria online en España · Noralma" },
@@ -42,10 +43,10 @@ export const Route = createFileRoute("/")({
           "Un espacio de terapia psicológica online para comprenderte y construir una vida más coherente con lo que necesitas y lo que importa para ti.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://noralma.lovable.app/" },
+      { property: "og:url", content: "https://noralmapsicologia.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://noralma.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://noralmapsicologia.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -53,7 +54,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Psychologist",
           name: "Noralma · Nora Gallardo Cano, Psicóloga General Sanitaria",
-          url: "https://noralma.lovable.app/",
+          url: "https://noralmapsicologia.com/",
           telephone: "+34611525410",
           email: "noracano4@gmail.com",
           priceRange: "60 €",

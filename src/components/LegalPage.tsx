@@ -20,7 +20,7 @@ export function LegalPage({ title, children }: { title: string; children: ReactN
 }
 
 export function legalHead(path: string, title: string, description: string) {
-  const url = `https://noralma.lovable.app${path}`;
+  const url = `https://noralmapsicologia.com${path}`;
   return {
     meta: [
       { title: `${title} · Noralma` },

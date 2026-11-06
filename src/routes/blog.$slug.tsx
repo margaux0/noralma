@@ -3,6 +3,7 @@ import { coverFor, fetchPost, formatDate } from "@/lib/blog";
 import { SITE_URL, WHATSAPP_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/blog/$slug")({
+  staticData: { sitemap: true },
   loader: async ({ params }) => {
     const post = await fetchPost(params.slug);
     if (!post) throw notFound();

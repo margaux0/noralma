@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { InfoPractica } from "@/components/InfoPractica";
 
 export const Route = createFileRoute("/servicios")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Servicios de psicología y acompañamiento · Noralma" },

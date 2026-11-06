@@ -3,6 +3,7 @@ import { LegalPage, Pendiente, legalHead } from "@/components/LegalPage";
 import { CONTACT_EMAIL } from "@/lib/contact";
 
 export const Route = createFileRoute("/privacidad")({
+  staticData: { sitemap: true },
   head: () => legalHead("/privacidad", "Política de privacidad", "Cómo trata Noralma tus datos personales y cuáles son tus derechos."),
   component: () => (
     <LegalPage title="Política de privacidad">
