@@ -12,6 +12,5 @@ export function shouldInviteToNewsletter(elapsedMs: number, cookiesVisible: bool
   return !cookiesVisible && elapsedMs >= NEWSLETTER_DELAY_MS;
 }
 
-// Brevo is not connected yet. Keep collection off until double opt-in,
-// welcome automation and unsubscribe have been verified with the owner.
-export const NEWSLETTER_READY = false;
+// Subscriptions are stored and the owner is notified; owner chose to open collection.
+export const NEWSLETTER_READY = true;
