@@ -2,10 +2,9 @@ import { describe, expect, it } from "vitest";
 import { NEWSLETTER_DELAY_MS, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
 
 describe("La carta de Noralma", () => {
-  it("espera nueve segundos antes de invitar", () => {
-    expect(NEWSLETTER_DELAY_MS).toBe(9000);
-    expect(shouldInviteToNewsletter(8999, false)).toBe(false);
-    expect(shouldInviteToNewsletter(9000, false)).toBe(true);
+  it("invita en cuanto se entra, sin espera", () => {
+    expect(NEWSLETTER_DELAY_MS).toBe(0);
+    expect(shouldInviteToNewsletter(0, false)).toBe(true);
   });
   it("espera a que se cierre la pregunta de cookies", () => {
     expect(shouldInviteToNewsletter(9000, true)).toBe(false);
