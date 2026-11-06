@@ -2,7 +2,8 @@ import { SITE_URL } from "@/lib/contact";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { submitContact } from "@/lib/notifications.functions";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contacto")({
@@ -42,6 +43,8 @@ function ContactoPage() {
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [formError, setFormError] = useState<string | null>(null);
+  const [website, setWebsite] = useState("");
+  const sendContact = useServerFn(submitContact);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -56,8 +59,13 @@ function ContactoPage() {
       return;
     }
     setStatus("sending");
-    const { error } = await supabase.from("contact_messages").insert(parsed.data);
-    if (error) {
+    let ok = false;
+    try {
+      ok = (await sendContact({ data: { ...parsed.data, website } })).ok;
+    } catch {
+      ok = false;
+    }
+    if (!ok) {
       setStatus("error");
       setFormError("No pude enviar tu mensaje. Inténtalo de nuevo en un momento.");
       return;
@@ -110,7 +118,7 @@ function ContactoPage() {
         <div className="flex flex-col items-start justify-center rounded-2xl bg-background p-8 ring-1 ring-foreground/5">
           <h2 className="font-display text-2xl font-medium">Mensaje enviado 🤍</h2>
           <p className="mt-2 text-base leading-relaxed text-foreground/65">
-            Gracias por escribir. Te responderé personalmente lo antes posible.
+            ¡Gracias por escribir! He recibido tu mensaje y me pondré en contacto contigo lo antes posible.
           </p>
           <Button
             onClick={() => setStatus("idle")}
@@ -173,6 +181,7 @@ function ContactoPage() {
               tus datos solo para responderte.
             </span>
           </label>
+          <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
           {formError && <p className="mt-3 text-sm text-destructive">{formError}</p>}
           <Button
             type="submit"

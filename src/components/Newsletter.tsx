@@ -6,37 +6,54 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EspiralMarca } from "@/components/EspiralMarca";
 import { COOKIE_VISIBILITY_EVENT } from "@/components/CookieConsent";
-import { NEWSLETTER_DELAY_MS, NEWSLETTER_READY, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
+import { useServerFn } from "@tanstack/react-start";
+import { NEWSLETTER_DELAY_MS, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
+import { subscribeNewsletter } from "@/lib/notifications.functions";
 
 function NewsletterForm({ popup = false }: { popup?: boolean }) {
   const id = useId();
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
+  const [website, setWebsite] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+  const subscribe = useServerFn(subscribeNewsletter);
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError("");
     const result = newsletterSchema.safeParse({ email, consent });
     if (!result.success) {
       setError(result.error.issues[0]?.message ?? "Revisa los datos del formulario.");
       return;
     }
-    // Never pretend to have stored or subscribed an address.
-    setError("Las suscripciones todavía no están abiertas. Tu correo no se ha guardado.");
+    setStatus("sending");
+    try {
+      const res = await subscribe({ data: { email: result.data.email, website } });
+      if (!res.ok) throw new Error();
+      setStatus("done");
+    } catch {
+      setStatus("idle");
+      setError("No se pudo completar la suscripción. Inténtalo de nuevo en un momento.");
+    }
+  }
+
+  if (status === "done") {
+    return <p role="status" className="font-display text-xl leading-relaxed text-primary">¡Qué alegría tenerte por aquí! Tu suscripción se ha realizado correctamente.</p>;
   }
 
   return (
     <form onSubmit={submit} className="space-y-4" aria-label={popup ? "Suscripción desde la invitación" : "Suscripción a La carta de Noralma"}>
       <div>
         <label htmlFor={`${id}-email`} className="mb-2 block text-sm font-medium">Correo electrónico</label>
-        <Input id={`${id}-email`} type="email" autoComplete="email" placeholder="Tu correo electrónico" maxLength={255} required value={email} onChange={(event) => setEmail(event.target.value)} className="h-12 bg-card shadow-none" aria-describedby={`${id}-availability`} />
+        <Input id={`${id}-email`} type="email" autoComplete="email" placeholder="Tu correo electrónico" maxLength={255} required value={email} onChange={(event) => setEmail(event.target.value)} className="h-12 bg-card shadow-none" />
       </div>
       <label className="flex min-h-11 items-start gap-3 text-sm leading-relaxed text-muted-foreground">
         <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required className="mt-1 size-5 shrink-0 accent-primary" />
         <span>Quiero recibir La carta de Noralma y acepto la <Link to="/privacidad" className="text-primary underline underline-offset-4">política de privacidad</Link>.</span>
       </label>
-      <Button type="submit" disabled={!NEWSLETTER_READY} className="h-auto min-h-12 w-full whitespace-normal px-5 py-3 shadow-none">Quiero recibir la carta</Button>
-      <p id={`${id}-availability`} className="text-sm leading-relaxed text-muted-foreground">Las suscripciones todavía no están abiertas.</p>
+      <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
+      <Button type="submit" disabled={status === "sending"} className="h-auto min-h-12 w-full whitespace-normal px-5 py-3 shadow-none">{status === "sending" ? "Enviando…" : "Quiero recibir la carta"}</Button>
       {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
       <p className="text-xs leading-relaxed text-muted-foreground">Responsable: Nora Gallardo Cano. Usaremos tu correo solo para enviarte La carta de Noralma, con tu consentimiento. No incluyas información de salud.</p>
       <p className="text-xs leading-relaxed text-muted-foreground">{popup ? "Sin ruido ni exigencias. Puedes darte de baja cuando quieras." : "Recibirás únicamente comunicaciones de Noralma. Sin saturar tu bandeja de entrada y con la posibilidad de darte de baja cuando quieras."}</p>
