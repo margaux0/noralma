@@ -8,9 +8,20 @@ function fecha() {
 }
 
 async function notify(fields: Record<string, string>) {
+  try {
+    return await send(fields);
+  } catch (e) {
+    // The submission is already stored; a relay outage must not fail the form.
+    console.error("FormSubmit unreachable", e);
+    return { ok: false, body: "" };
+  }
+}
+
+async function send(fields: Record<string, string>) {
   // Free relay (FormSubmit). The first message triggers an activation email to the owner.
   const res = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
     method: "POST",
+    signal: AbortSignal.timeout(8000),
     headers: { "Content-Type": "application/json", Accept: "application/json", Referer: "https://noralmapsicologia.com/" },
     body: JSON.stringify({ _template: "table", _captcha: "false", ...fields }),
   });
