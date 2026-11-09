@@ -16,6 +16,7 @@ import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { CookieConsent } from "../components/CookieConsent";
 import { NewsletterPopup } from "../components/Newsletter";
+import { WhatsAppFloat } from "../components/WhatsAppFloat";
 
 function NotFoundComponent() {
   return (
@@ -145,6 +146,7 @@ function RootComponent() {
         <SiteFooter />
         <CookieConsent />
         <NewsletterPopup />
+        <WhatsAppFloat />
       </div>
     </QueryClientProvider>
   );
