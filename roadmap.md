@@ -26,4 +26,4 @@
 - [x] Seguidores: TikTok se lee solo en la web; Instagram se actualiza cuando Nora lo pide (5.803 a 5/11/2026)
 - [ ] Completar NIF, dirección de la consulta y nº de registro sanitario en textos legales — esperando datos de Nora
 - [ ] Botón flotante de WhatsApp «¿Hablamos?» en todas las páginas: aparece a los 2 s, enlace directo con mensaje escrito, tamaño reducido en móvil; comprobado en 1280 y 390 px y al navegar. Falta publicar para que llegue a la dirección pública.
-- [ ] Que el icono de la pestaña (favicon actual) sea también el que salga junto al nombre en Google: revisar acceso público, etiquetas HTML y requisitos técnicos de Google sin rediseñar nada
+- [ ] Icono de Google: favicon actual (espiral botánica) revisado y correcto — servido en la web pública con 16/32/48 y apple-touch 180, robots permite Googlebot y sitemap en vivo; añadida etiqueta que anuncia el icono de 48×48 (mínimo de Google). Pendiente: publicar y que Google rastree el sitio (hoy su servicio de iconos no tiene nada del dominio).
