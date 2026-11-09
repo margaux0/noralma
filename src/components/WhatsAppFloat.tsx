@@ -16,6 +16,7 @@ function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
 export function WhatsAppFloat() {
   const [ready, setReady] = useState(false);
   const [cookiesVisible, setCookiesVisible] = useState(false);
+  const [wide, setWide] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setReady(true), APPEAR_AFTER_MS);
@@ -28,9 +29,17 @@ export function WhatsAppFloat() {
     };
   }, []);
 
-  // Mientras la pregunta de cookies está abierta no se muestra: en el teléfono
-  // ocuparían el mismo sitio y se taparían entre sí.
-  if (!ready || cookiesVisible) return null;
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const syncWide = () => setWide(mq.matches);
+    syncWide();
+    mq.addEventListener("change", syncWide);
+    return () => mq.removeEventListener("change", syncWide);
+  }, []);
+
+  // En el teléfono la pregunta de cookies ocupa esa misma esquina, así que ahí el
+  // botón espera a que se responda. En el ordenador la esquina queda libre.
+  if (!ready || (cookiesVisible && !wide)) return null;
 
   return (
     <a

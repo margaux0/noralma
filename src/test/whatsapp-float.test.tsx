@@ -33,7 +33,7 @@ describe("Botón flotante de WhatsApp", () => {
     expect(boton).toHaveAttribute("target", "_blank");
   });
 
-  it("se esconde mientras la pregunta de cookies está abierta", () => {
+  it("en el móvil se esconde mientras la pregunta de cookies está abierta", () => {
     vi.useFakeTimers();
     render(<WhatsAppFloat />);
     mostrarBoton();
@@ -52,5 +52,27 @@ describe("Botón flotante de WhatsApp", () => {
       );
     });
     expect(screen.getByRole("link", { name: /¿Hablamos\?/ })).toBeVisible();
+  });
+
+  it("en el ordenador aparece a los 2 segundos aunque las cookies sigan abiertas", () => {
+    vi.stubGlobal("matchMedia", (query: string) => ({
+      matches: query.includes("1024"),
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    }));
+    vi.useFakeTimers();
+    render(<WhatsAppFloat />);
+
+    expect(screen.queryByRole("link", { name: /¿Hablamos\?/ })).toBeNull();
+
+    mostrarBoton();
+
+    expect(screen.getByRole("link", { name: /¿Hablamos\?/ })).toBeVisible();
+    vi.unstubAllGlobals();
   });
 });
