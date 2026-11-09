@@ -16,6 +16,7 @@ import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { CookieConsent } from "../components/CookieConsent";
 import { NewsletterPopup } from "../components/Newsletter";
+import { WhatsAppFloat } from "../components/WhatsAppFloat";
 
 function NotFoundComponent() {
   return (
@@ -101,6 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
       { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/apple-touch-icon.png" },
@@ -145,6 +147,7 @@ function RootComponent() {
         <SiteFooter />
         <CookieConsent />
         <NewsletterPopup />
+        <WhatsAppFloat />
       </div>
     </QueryClientProvider>
   );

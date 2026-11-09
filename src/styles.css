@@ -119,6 +119,23 @@
   animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* Botón flotante de WhatsApp: entrada suave y sombra muy discreta. */
+@keyframes wa-float-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.wa-float {
+  animation: wa-float-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  box-shadow: 0 10px 26px -14px color-mix(in oklab, var(--foreground) 40%, transparent);
+}
+
 /* Carrusel continuo de reseñas: se desliza sin parar, como un vídeo. */
 @keyframes marquee-x {
   from {
@@ -226,6 +243,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
+  .wa-float { animation: none; }
   .marquee__track { animation: none; }
   .marquee { overflow-x: auto; }
   .marquee__clone { display: none; }
