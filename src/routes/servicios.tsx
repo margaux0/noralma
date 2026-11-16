@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/contact";
+import { mainPageSchemaScript } from "@/lib/structured-data";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/servicios")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/servicios` }],
+    scripts: [mainPageSchemaScript("/servicios")],
   }),
   component: ServiciosPage,
 });

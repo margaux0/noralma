@@ -4,6 +4,7 @@ import { OnlineAreas } from "@/components/OnlineAreas";
 import { Button } from "@/components/ui/button";
 import { Faq, faqs } from "@/components/Faq";
 import { SITE_URL, ONLINE_WHATSAPP_URL, PRACTICA } from "@/lib/contact";
+import { mainPageSchemaScript } from "@/lib/structured-data";
 
 const title = "Psicóloga online ACT · Nora Gallardo Cano | Noralma";
 const description =
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/terapia-online")({
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/terapia-online` }],
     scripts: [
+      mainPageSchemaScript("/terapia-online"),
       {
         type: "application/ld+json",
         children: JSON.stringify({

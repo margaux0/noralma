@@ -16,6 +16,7 @@
 - Keep one homepage presentation between the forest banner and online therapy; reuse shared area data and specialty cards to prevent divergent content across homepage and services.
 - Share acquisition areas between homepage and online therapy while preserving existing Services anchors and full area content, so campaign copy does not remove established destinations.
 - Gate newsletter invitations, forms and server writes with one readiness flag, so disabling collection cannot be bypassed by calling the public function.
+- Generate principal-page JSON-LD from shared entity IDs for the professional, MedicalBusiness and online service; use only confirmed public facts and keep page-specific scripts on leaf routes to avoid divergent or duplicated entities.
 
 <!--
 Specialty areas (diabetes, Alzheimer) are summary cards on /servicios that link to a

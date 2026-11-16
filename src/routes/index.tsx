@@ -13,6 +13,7 @@ import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
 import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
 import { ONLINE_WHATSAPP_URL } from "@/lib/contact";
+import { mainPageSchemaScript } from "@/lib/structured-data";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
 import { Comunidad } from "@/components/Comunidad";
 import { NewsletterSection } from "@/components/Newsletter";
@@ -47,28 +48,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: bosqueDjango },
     ],
     links: [{ rel: "canonical", href: "https://noralmapsicologia.com/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Psychologist",
-          name: "Noralma · Nora Gallardo Cano, Psicóloga General Sanitaria",
-          url: "https://noralmapsicologia.com/",
-          telephone: "+34611525410",
-          email: "noracano4@gmail.com",
-          priceRange: "60 €",
-          areaServed: "ES",
-          address: { "@type": "PostalAddress", addressLocality: "Vilanova i la Geltrú", addressRegion: "Cataluña", addressCountry: "ES" },
-          sameAs: [
-            "https://www.instagram.com/noralma.psicologia",
-            "https://www.linkedin.com/in/nora-gallardo-cano-1a6548294/",
-            "https://www.doctoralia.es/perfil/nora-gallardo-cano",
-          ],
-          availableService: { "@type": "MedicalTherapy", name: "Terapia psicológica online" },
-        }),
-      },
-    ],
+    scripts: [mainPageSchemaScript("/")],
   }),
   component: Index,
 });
