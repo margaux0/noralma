@@ -13,7 +13,7 @@ export function useScrollReveal(rootSelector = ".home-editorial") {
     root.querySelectorAll<HTMLElement>("[data-reveal-stagger]").forEach((group) => {
       Array.from(group.children).forEach((child, i) => {
         const el = child as HTMLElement;
-        el.dataset.reveal ??= "up";
+        el.dataset["reveal"] ??= "up";
         el.style.setProperty("--reveal-delay", `${i * 80}ms`);
       });
     });
@@ -35,7 +35,7 @@ export function useScrollReveal(rootSelector = ".home-editorial") {
         el.classList.remove("reveal-pending");
         io.unobserve(el);
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    }, { rootMargin: "0px 0px -5% 0px", threshold: 0.01 });
     pending.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, [rootSelector]);
