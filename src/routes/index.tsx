@@ -150,10 +150,6 @@ function Index() {
             <Button asChild className={actionClass}><a href={ONLINE_WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión <ArrowUpRight /></a></Button>
           </div>
         </div>
-        <figure className="home-hero-photo m-0">
-          <img src={escritorioNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, escribiendo en su escritorio de trabajo" width={1086} height={1448} loading="lazy" className="h-full w-full object-cover" />
-          <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
-        </figure>
       </section>
 
       <section aria-labelledby="identificacion" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
