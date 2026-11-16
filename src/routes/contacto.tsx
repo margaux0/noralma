@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/contact";
+import { mainPageSchemaScript } from "@/lib/structured-data";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/contacto")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/contacto` }],
+    scripts: [mainPageSchemaScript("/contacto")],
   }),
   component: ContactoPage,
 });

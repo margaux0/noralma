@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/contact";
+import { mainPageSchemaScript } from "@/lib/structured-data";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAsset from "@/assets/hero-nora.png.asset.json";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/acerca-de-mi")({
       { name: "twitter:image", content: heroAsset.url },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/acerca-de-mi` }],
+    scripts: [mainPageSchemaScript("/acerca-de-mi")],
   }),
   component: AcercaDeMiPage,
 });
