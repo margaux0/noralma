@@ -2,18 +2,19 @@ import { SITE_URL } from "@/lib/contact";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAsset from "@/assets/hero-nora.png.asset.json";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/acerca-de-mi")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "Acerca de mí · Noralma" },
+      { title: "Nora Gallardo Cano · Psicóloga General Sanitaria ACT | Noralma" },
       {
         name: "description",
         content:
           "Soy Nora Gallardo, Psicóloga General Sanitaria. Noralma es un espacio para volver a escucharte, a tu ritmo y sin juicios.",
       },
-      { property: "og:title", content: "Acerca de mí · Noralma" },
+      { property: "og:title", content: "Nora Gallardo Cano · Psicóloga General Sanitaria ACT | Noralma" },
       {
         property: "og:description",
         content:
@@ -22,6 +23,8 @@ export const Route = createFileRoute("/acerca-de-mi")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/acerca-de-mi` },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: heroAsset.url },
+      { name: "twitter:image", content: heroAsset.url },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/acerca-de-mi` }],
   }),
@@ -167,14 +170,14 @@ function AcercaDeMiPage() {
           </p>
 
           <div className="mt-10">
-            <a
+            <Button asChild className="h-auto min-h-11 whitespace-normal rounded-md px-6 py-3 shadow-none"><a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
             >
-              Reservar sesión
-            </a>
+              Solicita tu primera sesión
+            </a></Button>
           </div>
         </div>
 

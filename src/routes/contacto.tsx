@@ -101,7 +101,7 @@ function ContactoPage() {
             rel="noreferrer"
             className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
           >
-            Escribir por WhatsApp
+            ¿Hablamos?
           </a>
           <a
             href="https://www.instagram.com/noralma.psicologia"

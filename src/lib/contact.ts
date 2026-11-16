@@ -1,4 +1,6 @@
 export const WHATSAPP_URL = "https://wa.me/34611525410";
+export const ONLINE_WHATSAPP_MESSAGE = "Hola, Nora. He visitado tu web y me gustaría recibir información sobre las sesiones de terapia online y la disponibilidad de primeras citas. Gracias";
+export const ONLINE_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent(ONLINE_WHATSAPP_MESSAGE)}`;
 /** Chat directo con mensaje ya escrito, para el botón flotante de toda la web. */
 export const WHATSAPP_INFO_URL =
   "https://wa.me/34611525410?text=Hola%2C%20Nora.%20He%20visitado%20tu%20web%20de%20NORALMA%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tus%20servicios%20de%20psicolog%C3%ADa.";

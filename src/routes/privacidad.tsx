@@ -30,8 +30,10 @@ export const Route = createFileRoute("/privacidad")({
       </ul>
       <h2>La carta de Noralma</h2>
       <p>
-        Las suscripciones a La carta de Noralma todavía no están abiertas y este formulario
-        no guarda ni envía tu correo. Cuando se active, su finalidad será enviarte reflexiones,
+        Las nuevas suscripciones a La carta de Noralma están cerradas y no se muestra un
+        formulario de alta. Si facilitaste tu correo anteriormente, puedes solicitar su
+        eliminación escribiendo al correo de contacto. Antes de reabrir las altas se revisarán
+        los consentimientos existentes. Cuando se active, su finalidad será enviarte reflexiones,
         herramientas y recursos de psicología y bienestar emocional, solo con tu consentimiento
         expreso y después de confirmar tu dirección. No se solicitarán datos de salud ni se
         incorporará tu dirección a otras campañas comerciales.

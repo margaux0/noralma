@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { EspiralMarca } from "@/components/EspiralMarca";
 import { COOKIE_VISIBILITY_EVENT } from "@/components/CookieConsent";
 import { useServerFn } from "@tanstack/react-start";
-import { NEWSLETTER_DELAY_MS, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
+import { NEWSLETTER_DELAY_MS, NEWSLETTER_READY, newsletterSchema, shouldInviteToNewsletter } from "@/lib/newsletter";
 import { subscribeNewsletter } from "@/lib/notifications.functions";
 
 function NewsletterForm({ popup = false }: { popup?: boolean }) {
@@ -18,6 +18,8 @@ function NewsletterForm({ popup = false }: { popup?: boolean }) {
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const subscribe = useServerFn(subscribeNewsletter);
+
+  if (!NEWSLETTER_READY) return null;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -71,7 +73,7 @@ export function NewsletterSection() {
           <p className="mt-4 font-display text-xl">Un pequeño espacio para ti</p>
           <p className="mt-5 max-w-[48ch] text-base leading-relaxed text-muted-foreground">Reflexiones, herramientas y pequeños recursos para comprenderte y acompañarte en tu día a día.</p>
         </div>
-        <div className="self-center"><NewsletterForm /></div>
+        <div className="self-center">{NEWSLETTER_READY ? <NewsletterForm /> : <p className="max-w-[40ch] text-base leading-relaxed text-muted-foreground">Estoy preparando este espacio para compartir contigo pequeñas cartas, sin ruido ni exigencias. Todavía no está abierto a suscripciones.</p>}</div>
       </div>
     </section>
   );

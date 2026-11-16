@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { NEWSLETTER_READY } from "@/lib/newsletter";
 
 const OWNER_EMAIL = "noracano4@gmail.com";
 
@@ -68,6 +69,7 @@ const newsletterInput = z.object({
 export const subscribeNewsletter = createServerFn({ method: "POST" })
   .inputValidator((d) => newsletterInput.parse(d))
   .handler(async ({ data }) => {
+    if (!NEWSLETTER_READY) return { ok: false };
     if (data.website) return { ok: true };
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: row, error } = await supabaseAdmin

@@ -33,9 +33,9 @@ export function SiteFooter() {
               Nora Gallardo Cano · Psicóloga General Sanitaria · Col. {COLEGIADA}
             </p>
           </div>
-          <Button asChild className="h-11 rounded-md shadow-none">
+          <Button asChild className="h-auto min-h-11 whitespace-normal rounded-md px-5 py-3 shadow-none">
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-              Reserva tu sesión
+              Solicita tu primera sesión
             </a>
           </Button>
         </div>

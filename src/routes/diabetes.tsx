@@ -112,7 +112,7 @@ function DiabetesPage() {
             rel="noreferrer"
             className="shrink-0 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
           >
-            Reservar sesión
+            Solicita tu primera sesión
           </a>
         </div>
       </div>

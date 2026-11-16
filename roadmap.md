@@ -1,11 +1,11 @@
 # Roadmap
 - [x] Auditoría estratégica del documento: revisar inicio, terapia online, navegación, FAQ, newsletter y accesibilidad pública del dominio, sitemap y favicon; datos confirmados: 60 € · 60 minutos.
-- [ ] Optimización estratégica: aplicar mejoras de inicio, terapia online, CTA, FAQ y SEO — pendiente de aprobación del plan antes de cambios importantes; newsletter sin entrega, doble confirmación y baja verificadas; información legal incompleta.
+- [x] Optimización estratégica aprobada: inicio y terapia online con áreas compartidas, ACT, CTA y FAQ; 60 € · 60 minutos; newsletter sin altas ni popup, también bloqueada en servidor; metadatos y textos de privacidad revisados; propuesta de medición en MEDICION.md. 26 pruebas pasan; 11 páginas, imágenes, menú y blog comprobados en 320, 390 y 1280 px. Sin publicación automática.
 - [x] Mejora integral de noviembre: inicio reorganizado, contenido personal y cuatro guías conservados, arco móvil restaurado, áreas compartidas, navegación y metadatos revisados; 320–1920 px, fotos, blog, menú y consentimiento comprobados; 20 pruebas pasan.
 - [ ] Publicar opiniones individuales autorizadas — pendiente: autorización para reproducirlas; conservar franja preparada sin testimonios visibles.
 - [ ] Activar y comprobar notificaciones por email del formulario — pendiente: dominio y remitente verificados; esta revisión solo comprobó validación, no entrega por email.
-- [x] La carta de Noralma: sección final, popup a los 9 segundos, consentimiento desmarcado y adaptación móvil/ordenador comprobados.
-- [x] Preguntar por cookies y newsletter en cada nueva visita, sin superponer avisos ni repetirlos al navegar entre páginas; comprobado en móvil y ordenador con decisiones guardadas.
+- [x] La carta de Noralma: presentación final conservada; alta y popup retirados temporalmente por el plan aprobado hasta verificar el servicio completo; contactos existentes conservados.
+- [x] Preguntar por cookies en cada nueva visita; invitaciones de newsletter desactivadas por el plan aprobado, sin seguimiento publicitario añadido.
 - [ ] Abrir suscripciones y verificar lista, doble confirmación, bienvenida y baja — bloqueado: el permiso actual no permite crear la conexión Brevo; falta conectar una cuenta y configurar remitente y plantillas.
 - [x] Adaptación fiel a móvil de toda la web (documento): revisar 320–1440 px y corregir
 - [x] Cabecera única: foto de Nora y Django de fondo con frase y botones encima, sin bloque de bosque separado
