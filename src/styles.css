@@ -248,3 +248,27 @@
   .marquee__clone { display: none; }
 }
 
+
+/* Scroll reveal (home). Hidden only once JS marks an element pending. */
+[data-reveal] {
+  transition: opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].reveal-pending { opacity: 0; transform: translate3d(0, 20px, 0); }
+[data-reveal="left"].reveal-pending { transform: translate3d(-24px, 0, 0); }
+[data-reveal="right"].reveal-pending { transform: translate3d(24px, 0, 0); }
+[data-reveal="title"] { transition-duration: 500ms; }
+[data-reveal="title"].reveal-pending { transform: translate3d(0, 16px, 0); }
+@media (max-width: 767px) {
+  [data-reveal="left"].reveal-pending, [data-reveal="right"].reveal-pending { transform: translate3d(0, 12px, 0); }
+}
+.home-editorial { overflow-x: clip; }
+.home-editorial a, .home-editorial button { transition-property: color, background-color, border-color, box-shadow, transform; transition-duration: 250ms; transition-timing-function: ease-out; }
+.home-editorial a:focus-visible, .home-editorial button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.home-editorial .home-banner a:focus-visible { outline-color: var(--primary-foreground); }
+.home-area-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -16px color-mix(in oklab, var(--primary) 45%, transparent); }
+.home-editorial .home-guide-cover:hover, .home-editorial #instagram a:hover img { box-shadow: 0 10px 24px -16px color-mix(in oklab, var(--primary) 45%, transparent); }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal].reveal-pending { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .home-area-card:hover { transform: none; }
+}
