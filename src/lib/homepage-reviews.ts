@@ -68,7 +68,7 @@ export function doctoraliaOpiniones(
 // Public availability is not permission to republish patient testimonials.
 export function authorizedDoctoraliaOpiniones(
   source: { opiniones: Opinion[] } | null | undefined,
-  authorized: boolean = true,
+  authorized: boolean = false,
 ): Opinion[] {
   return authorized ? doctoraliaOpiniones(source) : [];
 }

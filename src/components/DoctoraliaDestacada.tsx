@@ -77,9 +77,14 @@ function Carrusel({ opiniones }: { opiniones: Opinion[] }) {
     const el = track.current;
     if (!el) return;
     const onScroll = () => {
-      const w = (el.children[0] as HTMLElement | undefined)?.offsetWidth ?? 1;
       const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
-      setActive(atEnd ? opiniones.length - 1 : Math.round(el.scrollLeft / (w + 20)));
+      if (atEnd) return setActive(opiniones.length - 1);
+      let best = 0, dist = Infinity;
+      Array.from(el.children).forEach((c, i) => {
+        const d = Math.abs((c as HTMLElement).offsetLeft - el.offsetLeft - el.scrollLeft);
+        if (d < dist) { dist = d; best = i; }
+      });
+      setActive(best);
     };
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
