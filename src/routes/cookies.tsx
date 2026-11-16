@@ -24,9 +24,8 @@ export const Route = createFileRoute("/cookies")({
         </li>
       </ul>
       <p>
-        La pregunta sobre cookies vuelve a aparecer en cada nueva visita. La invitación a
-        La carta de Noralma también vuelve a mostrarse, sin guardar tu decisión de cerrarla
-        entre visitas ni utilizarla para seguimiento publicitario.
+        La pregunta sobre cookies vuelve a aparecer en cada nueva visita. La carta de
+        Noralma no muestra invitaciones automáticas mientras las suscripciones están cerradas.
       </p>
       <p>
         Al pulsar enlaces a Instagram, WhatsApp, LinkedIn o Doctoralia sales de esta web, y
