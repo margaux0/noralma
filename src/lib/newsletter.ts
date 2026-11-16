@@ -9,8 +9,8 @@ export const newsletterSchema = z.object({
 });
 
 export function shouldInviteToNewsletter(elapsedMs: number, cookiesVisible: boolean) {
-  return !cookiesVisible && elapsedMs >= NEWSLETTER_DELAY_MS;
+  return NEWSLETTER_READY && !cookiesVisible && elapsedMs >= NEWSLETTER_DELAY_MS;
 }
 
-// Subscriptions are stored and the owner is notified; owner chose to open collection.
-export const NEWSLETTER_READY = true;
+// Reopen only after delivery, double opt-in, welcome and unsubscribe are verified.
+export const NEWSLETTER_READY = false;
