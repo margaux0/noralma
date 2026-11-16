@@ -202,16 +202,16 @@
   .home-banner .home-banner-vegetation { display: block; height: 100%; }
 }
 .home-eyebrow { letter-spacing: 0; }
-.home-hero-photo { height: 25rem; margin-bottom: 1.5rem; }
-.home-hero-photo img { border-radius: 45% 45% 6px 6px; object-position: center 46%; }
+.home-hero-photo { aspect-ratio: 1 / 1; width: 100%; max-width: 22rem; margin-bottom: 1.5rem; }
+.home-hero-photo img { border-radius: 12px; object-position: center center; }
 .home-about-photo { aspect-ratio: 1 / 1; border-radius: 6px; object-position: center 68%; }
 .home-guide-cover { height: 16rem; border-radius: 6px; }
 @media (min-width: 768px) {
-  .home-hero-photo { height: 32rem; }
+  .home-hero-photo { max-width: 26rem; }
   .home-about-photo { aspect-ratio: 4 / 5; max-height: 28rem; }
 }
 @media (min-width: 1024px) {
-  .home-hero-photo { height: 35rem; }
+  .home-hero-photo { max-width: 28rem; }
 }
 @media (max-width: 767px) {
   main { overflow-wrap: break-word; }
@@ -234,8 +234,7 @@
   .home-hero p.mt-5 { margin-top: 1rem; font-size: 0.75rem; }
   .home-hero div.mt-7 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); margin-top: 1.25rem; }
   .home-hero div.mt-7 a { padding: 0.75rem; min-width: 0; font-size: 0.8125rem; }
-  .home-hero-photo { height: 26rem; max-width: 25rem; width: 100%; justify-self: center; }
-  .home-hero-photo img { border-radius: 45% 45% 6px 6px; object-position: center 46%; }
+  .home-hero-photo { max-width: 19rem; justify-self: center; }
   .home-about-photo { max-height: 23rem; }
   .home-editorial #instagram .grid { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
   .home-editorial #instagram img { max-height: 28rem; object-fit: contain; background: var(--card); }
