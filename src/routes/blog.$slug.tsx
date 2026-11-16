@@ -24,6 +24,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:type", content: "article" },
         { property: "og:url", content: `${SITE_URL}/blog/${params.slug}` },
         { name: "twitter:card", content: "summary_large_image" },
+        ...(coverFor(loaderData).startsWith("https://") ? [{ property: "og:image", content: coverFor(loaderData) }, { name: "twitter:image", content: coverFor(loaderData) }] : []),
       ],
       links: [{ rel: "canonical", href: `${SITE_URL}/blog/${params.slug}` }],
     };
@@ -73,7 +74,7 @@ function BlogPostPage() {
           rel="noreferrer"
           className="mt-5 inline-block rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
         >
-          Contactar con Nora
+          Solicita tu primera sesión
         </a>
       </div>
     </article>

@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Home, MapPin, CalendarClock, Globe, Leaf, Lock, Smartphone, Wifi, DoorClosed, Clock } from "lucide-react";
-import { InfoPractica } from "@/components/InfoPractica";
+import { OnlineAreas } from "@/components/OnlineAreas";
+import { Button } from "@/components/ui/button";
 import { Faq, faqs } from "@/components/Faq";
-import { SITE_URL, WHATSAPP_URL } from "@/lib/contact";
+import { SITE_URL, ONLINE_WHATSAPP_URL, PRACTICA } from "@/lib/contact";
 
-const title = "Terapia psicológica online · Noralma, psicóloga general sanitaria";
+const title = "Psicóloga online ACT · Nora Gallardo Cano | Noralma";
 const description =
-  "Terapia psicológica online con Nora Gallardo, Psicóloga General Sanitaria. Sesiones de 60 minutos desde donde estés, con la misma cercanía y confidencialidad.";
+  "Terapia psicológica online en España con Nora Gallardo Cano, Psicóloga General Sanitaria. Enfoque ACT para ansiedad, autoestima y autoexigencia. 60 € · 60 minutos.";
 
 export const Route = createFileRoute("/terapia-online")({
   staticData: { sitemap: true },
@@ -55,10 +56,19 @@ const requisitos = [
   { icon: Clock, text: "Un momento para dedicarte a ti." },
 ];
 
-const pasos = [
-  { t: "Me escribes", d: "Por WhatsApp, me cuentas brevemente qué buscas y acordamos un día y una hora." },
-  { t: "Primera sesión", d: "Nos conocemos, exploramos qué te trae y valoramos juntas si la terapia online encaja con lo que necesitas." },
-  { t: "El proceso", d: "Sesiones de 60 minutos con la frecuencia que acordemos. Vamos a tu ritmo y revisamos juntas cómo te sientes con el camino." },
+const primeraSesion = [
+  "Nos conocemos y exploramos el motivo de consulta.",
+  "Hablamos de tu situación y de aquello que te gustaría trabajar.",
+  "Valoramos conjuntamente tus necesidades.",
+  "Exploramos cómo podría ayudarte el proceso terapéutico.",
+];
+
+const datos = [
+  { label: "Psicóloga", value: "Nora Gallardo Cano · Psicóloga General Sanitaria" },
+  { label: "Modalidad", value: "Online" },
+  { label: "Duración", value: PRACTICA.duracion },
+  { label: "Precio", value: `${PRACTICA.precio} por sesión` },
+  { label: "Enfoque", value: "Terapia de Aceptación y Compromiso (ACT)" },
 ];
 
 function TerapiaOnline() {
@@ -66,27 +76,33 @@ function TerapiaOnline() {
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">Terapia psicológica online</p>
       <h1 className="mt-4 max-w-[22ch] font-display text-4xl font-medium leading-tight text-balance md:text-6xl">
-        Cuidarte no debería depender de dónde vives ni de cuánto tiempo tienes
+        Terapia online: un espacio para volver a conectar contigo
       </h1>
       <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-foreground/70 text-pretty">
-        La terapia online te permite tener un espacio para comprenderte y escucharte sin
-        desplazarte, desde un lugar en el que te sientas cómoda. Es la misma escucha, el
-        mismo cuidado y el mismo rigor profesional, a través de una pantalla.
+        La terapia online te permite contar con un espacio de acompañamiento psicológico desde donde te encuentres, con flexibilidad y sin necesidad de desplazamientos.
       </p>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
-      >
-        Reserva tu sesión
-      </a>
+      <p className="mt-4 max-w-[58ch] text-base leading-relaxed text-muted-foreground">Un lugar donde explorar lo que estás viviendo, comprender tus dificultades y trabajar hacia una vida más coherente con tus valores.</p>
+      <p className="mt-5 text-sm font-medium text-primary">Nora Gallardo Cano · Psicóloga General Sanitaria · Enfoque ACT</p>
+      <Button asChild className="mt-8 h-auto min-h-11 whitespace-normal rounded-md px-6 py-3 shadow-none"><a href={ONLINE_WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión</a></Button>
+      <p className="mt-3 text-sm text-muted-foreground">Me escribes por WhatsApp y valoramos la disponibilidad; la solicitud no confirma una cita.</p>
+
+      <section className="mt-20" aria-labelledby="trabajar-online">
+        <h2 id="trabajar-online" className="font-display text-3xl font-medium md:text-4xl">Qué podemos trabajar</h2>
+        <p className="mt-4 max-w-[58ch] text-base leading-relaxed text-muted-foreground">No necesitas encajar en una categoría. Partimos de lo que estás viviendo y de aquello que necesitas explorar.</p>
+        <OnlineAreas />
+      </section>
+
+      <section className="mt-20 border-y border-primary/20 py-10" aria-labelledby="act-online">
+        <p className="text-sm font-medium text-primary">Terapia de Aceptación y Compromiso</p>
+        <h2 id="act-online" className="mt-3 font-display text-3xl font-medium md:text-4xl">Una relación más flexible con lo que sientes</h2>
+        <p className="mt-5 max-w-[65ch] text-base leading-relaxed text-muted-foreground">En terapia no buscamos eliminar todas las emociones difíciles ni convertirnos en una versión perfecta de nosotros mismos. Trabajamos para aprender a relacionarnos con nuestra experiencia interna con mayor flexibilidad y avanzar hacia aquello que realmente nos importa.</p>
+      </section>
 
       <section className="mt-20" aria-labelledby="ventajas">
         <h2 id="ventajas" className="font-display text-3xl font-medium md:text-4xl">Qué te ofrece la terapia online</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ventajas.map(({ icon: Icon, text }) => (
-            <li key={text} className="flex gap-4 rounded-2xl bg-card p-6 ring-1 ring-foreground/5">
+            <li key={text} className="flex gap-4 rounded-md bg-card p-6 ring-1 ring-foreground/5">
               <Icon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
               <span className="text-base leading-relaxed text-foreground/75">{text}</span>
             </li>
@@ -100,7 +116,7 @@ function TerapiaOnline() {
         </p>
       </section>
 
-      <section className="mt-20 rounded-3xl bg-secondary p-8 ring-1 ring-foreground/5 md:p-12" aria-labelledby="necesitas">
+      <section className="mt-20 border-y border-primary/20 py-10" aria-labelledby="necesitas">
         <h2 id="necesitas" className="font-display text-3xl font-medium md:text-4xl">¿Qué necesitas para empezar?</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {requisitos.map(({ icon: Icon, text }) => (
@@ -115,25 +131,28 @@ function TerapiaOnline() {
       </section>
 
       <section className="mt-20" aria-labelledby="como-funciona">
-        <h2 id="como-funciona" className="font-display text-3xl font-medium md:text-4xl">Cómo funciona</h2>
-        <ol className="mt-8 grid gap-5 md:grid-cols-3">
-          {pasos.map((p, i) => (
-            <li key={p.t} className="rounded-2xl bg-card p-7 ring-1 ring-foreground/5">
-              <span className="font-display text-sm text-honey">0{i + 1}</span>
-              <h3 className="mt-3 font-display text-xl font-medium">{p.t}</h3>
-              <p className="mt-2 text-base leading-relaxed text-foreground/70 text-pretty">{p.d}</p>
-            </li>
-          ))}
+        <h2 id="como-funciona" className="font-display text-3xl font-medium md:text-4xl">Cómo será nuestra primera sesión</h2>
+        <p className="mt-5 max-w-[62ch] text-base leading-relaxed text-muted-foreground">Es un espacio para conocernos con calma. Podemos explorar estas cuestiones, adaptándonos a lo que necesites compartir, sin un guion rígido.</p>
+        <ol className="mt-8 grid gap-6 sm:grid-cols-2">
+          {primeraSesion.map((text, i) => <li key={text} className="flex gap-4 border-t border-primary/20 pt-5"><span className="font-display text-xl text-primary" aria-hidden="true">0{i + 1}</span><p className="text-base leading-relaxed text-muted-foreground">{text}</p></li>)}
         </ol>
+        <p className="mt-6 max-w-[62ch] text-sm leading-relaxed text-muted-foreground">Si continuamos, acordamos la frecuencia de las sesiones y revisamos el proceso contigo. No hay un resultado garantizado ni un ritmo que tengas que cumplir.</p>
       </section>
 
-      <div className="mt-20">
-        <InfoPractica />
-      </div>
+      <section className="mt-20 border-y border-primary/20 py-10" aria-labelledby="practica-online">
+        <h2 id="practica-online" className="font-display text-3xl font-medium md:text-4xl">Información práctica</h2>
+        <dl className="mt-6 divide-y divide-border">{datos.map(({ label, value }) => <div key={label} className="grid gap-2 py-4 sm:grid-cols-[10rem_1fr]"><dt className="text-sm font-medium">{label}</dt><dd className="text-base leading-relaxed text-muted-foreground">{value}</dd></div>)}</dl>
+      </section>
 
       <div className="mt-20">
         <Faq />
       </div>
+      <section className="mt-20 border-t border-primary/20 pt-10" aria-labelledby="solicitud-online">
+        <h2 id="solicitud-online" className="font-display text-3xl font-medium md:text-4xl">¿Te gustaría empezar a dedicarte un espacio?</h2>
+        <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-muted-foreground">Puedes escribirme para preguntar por las sesiones y la disponibilidad de primeras citas. No necesitas explicar detalles de salud por WhatsApp.</p>
+        <Button asChild className="mt-6 h-auto min-h-11 whitespace-normal rounded-md px-6 py-3 shadow-none"><a href={ONLINE_WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión</a></Button>
+        <p className="mt-3 text-sm text-muted-foreground">WhatsApp · +34 611 525 410</p>
+      </section>
     </div>
   );
 }

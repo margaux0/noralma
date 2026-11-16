@@ -2,6 +2,8 @@ import { ChevronDown } from "lucide-react";
 import { PRACTICA } from "@/lib/contact";
 
 export const faqs = [
+  { q: "¿Necesito tener un diagnóstico para empezar terapia?", a: "No. Puedes acudir porque algo te preocupa, porque estás atravesando un cambio o porque quieres comprenderte mejor. Valoraremos juntas qué necesitas y si este espacio puede acompañarte." },
+  { q: "¿Y si no sé exactamente qué me ocurre?", a: "No necesitas llegar con una explicación clara. Podemos empezar por lo que notas o por lo que te cuesta, y explorarlo con calma, sin juicios." },
   {
     q: "¿Cómo funciona la terapia psicológica online?",
     a: "Las sesiones se hacen por videollamada, en el día y la hora que acordemos. Tú te conectas desde un lugar tranquilo y con privacidad, y el trabajo terapéutico es el mismo: escucharte, comprender lo que te pasa y buscar juntas formas de relacionarte de otra manera con ello.",
@@ -24,8 +26,8 @@ export const faqs = [
     a: `${PRACTICA.precio} por sesión. Puedes pagar en efectivo, por transferencia o por Bizum.`,
   },
   {
-    q: "¿Cómo puedo reservar?",
-    a: "Escríbeme por WhatsApp desde cualquiera de los botones de «Reserva tu sesión» y buscamos juntas un día y una hora.",
+    q: "¿Cómo puedo solicitar una cita?",
+    a: "Escríbeme por WhatsApp desde «Solicita tu primera sesión». Hablamos de la disponibilidad y acordamos una cita si encaja contigo. Enviar el mensaje no confirma una reserva.",
   },
   { q: "¿Qué ocurre si necesito cancelar o cambiar una sesión?", a: PRACTICA.cancelacion },
   {

@@ -61,13 +61,13 @@ export function SiteHeader() {
           )}
         </nav>
         <div className="flex shrink-0 items-center gap-2">
-          <Button asChild className="h-11 rounded-md px-3 shadow-none sm:px-4"><a
+          <Button asChild className="h-auto min-h-11 max-w-[11rem] whitespace-normal rounded-md px-3 py-2 text-center shadow-none sm:max-w-none sm:px-4"><a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            aria-label="Reservar sesión"
+            aria-label="Solicita tu primera sesión"
           >
-            <span className="sm:hidden">Reservar</span><span className="hidden sm:inline">Reservar sesión</span>
+            <span className="sm:hidden">Solicitar sesión</span><span className="hidden sm:inline">Solicita tu primera sesión</span>
           </a></Button>
           <Button
             variant="outline"
@@ -123,7 +123,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noreferrer"
           >
-            Reservar sesión
+            Solicita tu primera sesión
           </a></Button>
         </nav>
       )}

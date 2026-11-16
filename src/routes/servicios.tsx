@@ -53,7 +53,7 @@ function ServiciosPage() {
               <Icon className="size-6 text-primary" strokeWidth={1.3} aria-hidden="true" />
               <h3 className="mt-4 font-display text-xl leading-snug">{title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-              <Button asChild variant="link" className="mt-4 h-auto min-h-11 whitespace-normal px-0"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Hablemos sobre lo que necesitas →</a></Button>
+              <Button asChild variant="link" className="mt-4 h-auto min-h-11 whitespace-normal px-0"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión →</a></Button>
             </li>
           ))}
         </ul>
@@ -84,7 +84,7 @@ function ServiciosPage() {
             importa.
           </p>
           <a href="/terapia-online" className="inline-flex min-h-11 items-center font-semibold text-primary">
-            Cómo es la terapia online →
+            Conoce la terapia online →
           </a>
         </div>
       </section>
@@ -114,7 +114,7 @@ function ServiciosPage() {
             rel="noreferrer"
             className="shrink-0 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/90"
           >
-            Reservar sesión
+            Solicita tu primera sesión
           </a>
         </div>
       </div>

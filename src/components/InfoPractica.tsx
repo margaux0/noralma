@@ -35,7 +35,7 @@ export function InfoPractica() {
           target="_blank"
           rel="noreferrer"
         >
-          Reserva tu sesión
+          Solicita tu primera sesión
         </a></Button>
         <p className="text-sm text-foreground/60">Las reservas se hacen por WhatsApp; te respondo personalmente.</p>
       </div>
