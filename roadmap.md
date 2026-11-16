@@ -1,4 +1,6 @@
 # Roadmap
+- [x] Auditoría estratégica del documento: revisar inicio, terapia online, navegación, FAQ, newsletter y accesibilidad pública del dominio, sitemap y favicon; datos confirmados: 60 € · 60 minutos.
+- [ ] Optimización estratégica: aplicar mejoras de inicio, terapia online, CTA, FAQ y SEO — pendiente de aprobación del plan antes de cambios importantes; newsletter sin entrega, doble confirmación y baja verificadas; información legal incompleta.
 - [x] Mejora integral de noviembre: inicio reorganizado, contenido personal y cuatro guías conservados, arco móvil restaurado, áreas compartidas, navegación y metadatos revisados; 320–1920 px, fotos, blog, menú y consentimiento comprobados; 20 pruebas pasan.
 - [ ] Publicar opiniones individuales autorizadas — pendiente: autorización para reproducirlas; conservar franja preparada sin testimonios visibles.
 - [ ] Activar y comprobar notificaciones por email del formulario — pendiente: dominio y remitente verificados; esta revisión solo comprobó validación, no entrega por email.
