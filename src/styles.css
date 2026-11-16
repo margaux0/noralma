@@ -276,3 +276,13 @@
   transition: opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms), transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms), border-color 250ms ease-out, box-shadow 250ms ease-out;
 }
 .home-editorial a[data-reveal].is-revealed { transition-delay: 0ms; transition-duration: 250ms; }
+
+/* Carrusel de opiniones */
+.review-track { scrollbar-width: none; }
+.review-track::-webkit-scrollbar { display: none; }
+.review-slide { width: 86%; }
+@media (min-width: 640px) { .review-slide { width: calc((100% - 1.25rem) / 2 - 1.5rem); } }
+@media (min-width: 1024px) { .review-slide { width: calc((100% - 2.5rem) / 3 - 1.25rem); } }
+.review-ctrl { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 9999px; border: 1px solid color-mix(in oklab, var(--primary) 30%, transparent); color: var(--primary); background: var(--card); transition: background-color 250ms, color 250ms; }
+.review-ctrl:hover { background: var(--primary); color: var(--primary-foreground); }
+.review-ctrl:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
