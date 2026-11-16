@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import escritorioNoraAsset from "@/assets/escritorio-nora.webp.asset.json";
-const escritorioNora = escritorioNoraAsset.url;
+import retratoNoraAsset from "@/assets/retrato-nora-lino.jpg.asset.json";
+const retratoNora = retratoNoraAsset.url;
 import bosqueDjangoAsset from "@/assets/retrato-bosque-django.webp.asset.json";
 const bosqueDjango = bosqueDjangoAsset.url;
 import guiaCuadernoAsset from "@/assets/cuaderno-estimulacion-cognitiva.png.asset.json";
@@ -131,10 +131,14 @@ function Index() {
           </div>
         </div>
       </section>
-      <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16 md:pt-14">
+      <section aria-labelledby="presentacion" className="home-hero mx-auto grid max-w-6xl items-center gap-8 px-6 pb-12 pt-10 md:grid-cols-[1fr_1.1fr] md:gap-12 md:pb-16 md:pt-14">
+        <figure className="home-hero-photo m-0">
+          <img src={retratoNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, con blusa de lino clara y la mano sobre el pecho" width={1087} height={1087} loading="lazy" className="h-full w-full object-cover" />
+          <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
+        </figure>
         <div>
           <p className="home-eyebrow text-sm font-medium text-primary">Noralma · Psicología clínica con alma</p>
-          <h2 id="presentacion" className="mt-5 font-display text-4xl font-medium leading-[1.13] text-balance lg:text-6xl">
+          <h2 id="presentacion" className="mt-5 font-display text-3xl font-medium leading-[1.13] text-balance lg:text-4xl">
             Soy Nora, <em className="font-normal text-primary">la persona detrás de Noralma.</em>
           </h2>
           <p className="mt-6 max-w-[47ch] text-base leading-relaxed text-muted-foreground">
@@ -146,10 +150,6 @@ function Index() {
             <Button asChild className={actionClass}><a href={ONLINE_WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión <ArrowUpRight /></a></Button>
           </div>
         </div>
-        <figure className="home-hero-photo m-0">
-          <img src={escritorioNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, escribiendo en su escritorio de trabajo" width={1086} height={1448} loading="lazy" className="h-full w-full object-cover" />
-          <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
-        </figure>
       </section>
 
       <section aria-labelledby="identificacion" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
