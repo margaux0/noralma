@@ -24,7 +24,7 @@ import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { getDoctoraliaOpiniones } from "@/lib/doctoralia.functions";
-import { authorizedDoctoraliaOpiniones, doctoraliaSummary } from "@/lib/homepage-reviews";
+import { authorizedDoctoraliaOpiniones, doctoraliaSummary, DOCTORALIA_REPUBLICATION_AUTHORIZED } from "@/lib/homepage-reviews";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -195,7 +195,7 @@ function Index() {
         profileUrl={DOCTORALIA_REVIEWS_URL}
         rating={valoracion.rating}
         count={valoracion.count}
-        opiniones={authorizedDoctoraliaOpiniones(doctoralia)}
+        opiniones={authorizedDoctoraliaOpiniones(doctoralia, DOCTORALIA_REPUBLICATION_AUTHORIZED)}
       />
 
       <section aria-label="Alzheimer, demencia y diabetes" className="mx-auto max-w-6xl px-6 py-16 md:py-20">

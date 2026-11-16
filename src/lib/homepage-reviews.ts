@@ -6,6 +6,9 @@
 import type { Opinion } from "@/lib/doctoralia.functions";
 
 /** Última valoración verificada del perfil de Doctoralia. */
+/** Nora confirmó el 16/11/2026 que tiene permiso de sus pacientes para republicar. */
+export const DOCTORALIA_REPUBLICATION_AUTHORIZED = true;
+
 export const DOCTORALIA_VERIFIED_SUMMARY = { rating: 5, count: 7 };
 
 /** Copia de seguridad de las 7 opiniones reales publicadas en Doctoralia. */
