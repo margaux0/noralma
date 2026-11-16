@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import heroNoraAsset from "@/assets/hero-nora.png.asset.json";
 import escritorioNoraAsset from "@/assets/escritorio-nora.webp.asset.json";
-const heroNora = heroNoraAsset.url;
 const escritorioNora = escritorioNoraAsset.url;
 import bosqueDjangoAsset from "@/assets/retrato-bosque-django.webp.asset.json";
 const bosqueDjango = bosqueDjangoAsset.url;
@@ -14,12 +12,12 @@ import reelAlzheimerAsset from "@/assets/reel-capturapng.png.asset.json";
 import reelRetoAsset from "@/assets/reel-captura333png.png.asset.json";
 import reelPresentacionAsset from "@/assets/reel-capturagtregtpng.png.asset.json";
 import { coverFor, fetchPosts, formatDate } from "@/lib/blog";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { ONLINE_WHATSAPP_URL } from "@/lib/contact";
 import { DoctoraliaDestacada } from "@/components/DoctoraliaDestacada";
 import { Comunidad } from "@/components/Comunidad";
 import { NewsletterSection } from "@/components/Newsletter";
 import { ServiciosDestacados } from "@/components/ServiciosDestacados";
-import { accompanimentAreas } from "@/lib/areas";
+import { OnlineAreas } from "@/components/OnlineAreas";
 import { EspiralMarca } from "@/components/EspiralMarca";
 import { ArrowUpRight, Clock3, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -45,6 +43,8 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://noralmapsicologia.com/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: bosqueDjango },
+      { name: "twitter:image", content: bosqueDjango },
     ],
     links: [{ rel: "canonical", href: "https://noralmapsicologia.com/" }],
     scripts: [
@@ -142,10 +142,11 @@ function Index() {
         <div className="home-banner-content mx-auto w-full max-w-6xl px-6">
           <div className="home-banner-copy">
             <h1 className="font-display font-medium text-balance">Mi propósito es acompañarte a sentirte bien contigo.</h1>
-            <p>Un espacio de acompañamiento psicológico para comprender lo que sientes, escucharte sin juicios y construir una relación más amable contigo.</p>
+            <p>Soy Nora, Psicóloga General Sanitaria. Te acompaño a comprender lo que estás viviendo, relacionarte de otra manera con tus pensamientos y emociones y construir una vida más coherente contigo.</p>
+            <p className="font-medium">Terapia psicológica online en España · Terapia de Aceptación y Compromiso (ACT)</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild className={`${actionClass} border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90`}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button>
-              <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><Link to="/servicios" hash="forma-de-trabajar">Conoce cómo trabajo <ArrowRight /></Link></Button>
+              <Button asChild className={`${actionClass} border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90`}><Link to="/terapia-online">Conoce la terapia online <ArrowUpRight /></Link></Button>
+              <Button asChild variant="outline" className={`${actionClass} border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary`}><Link to="/acerca-de-mi">Sobre mí <ArrowRight /></Link></Button>
             </div>
           </div>
         </div>
@@ -157,25 +158,32 @@ function Index() {
             Soy Nora, <em className="font-normal text-primary">la persona detrás de Noralma.</em>
           </h2>
           <p className="mt-6 max-w-[47ch] text-base leading-relaxed text-muted-foreground">
-            Soy Nora Gallardo Cano, Psicóloga General Sanitaria. Entiendo la psicología como un espacio de escucha, comprensión y acompañamiento, donde explorar tu historia, comprender lo que estás viviendo y construir una relación más amable contigo.
+            Trabajo desde la Terapia de Aceptación y Compromiso (ACT), con una mirada humana y compasiva. Cada proceso parte de tu historia, de lo que necesitas hoy y de aquello que tiene sentido para ti.
           </p>
           <p className="mt-5 text-sm font-medium text-foreground">Nora Gallardo Cano · Psicóloga General Sanitaria</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Button asChild variant="outline" className={actionClass}><Link to="/acerca-de-mi">Conoce más sobre mí <ArrowUpRight /></Link></Button>
-            <Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu sesión <ArrowUpRight /></a></Button>
+            <Button asChild variant="outline" className={actionClass}><Link to="/acerca-de-mi">Sobre mí <ArrowUpRight /></Link></Button>
+            <Button asChild className={actionClass}><a href={ONLINE_WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión <ArrowUpRight /></a></Button>
           </div>
         </div>
         <figure className="home-hero-photo m-0">
-          <img src={escritorioNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, escribiendo en su escritorio de trabajo" width={1086} height={1448} fetchPriority="high" className="h-full w-full object-cover" />
+          <img src={escritorioNora} alt="Nora Gallardo Cano, psicóloga general sanitaria, escribiendo en su escritorio de trabajo" width={1086} height={1448} loading="lazy" className="h-full w-full object-cover" />
           <figcaption className="mt-3 flex justify-between gap-3 text-xs text-muted-foreground"><span>Un espacio para ti.</span><span>Online · Vilanova i la Geltrú</span></figcaption>
         </figure>
+      </section>
+
+      <section aria-labelledby="identificacion" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+        <div className="grid gap-6 border-t border-primary/20 pt-10 md:grid-cols-2 md:gap-16">
+          <h2 id="identificacion" className="font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Quizás llevas tiempo sintiendo que tienes que poder con todo.</h2>
+          <div className="space-y-5 text-base leading-relaxed text-muted-foreground"><p>A veces vivimos tan pendientes de cumplir expectativas, responder a las necesidades de los demás o intentar hacerlo todo bien que dejamos poco espacio para escucharnos.</p><p>La terapia puede ser un lugar donde detenerte, comprender lo que estás viviendo y explorar otras maneras de relacionarte contigo.</p></div>
+        </div>
       </section>
 
       <section aria-labelledby="terapia-online-inicio" className="bg-sand/40 text-foreground">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <div className="grid gap-8 md:grid-cols-2 md:gap-16">
             <div><p className="home-eyebrow text-sm uppercase text-primary">Terapia psicológica online</p><h2 id="terapia-online-inicio" className="mt-4 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">Cuidar de tu salud mental, estés donde estés.</h2></div>
-            <div><p className="text-base leading-relaxed text-muted-foreground">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className={`mt-6 ${actionClass}`}><Link to="/terapia-online">Descubre cómo funciona la terapia online <ArrowUpRight /></Link></Button></div>
+            <div><p className="text-base leading-relaxed text-muted-foreground">La terapia online nos permite crear un espacio de acompañamiento psicológico sin necesidad de desplazarte. Puedes realizar tus sesiones desde un lugar en el que te sientas cómodo y con privacidad, adaptando el proceso terapéutico a tu ritmo y a tu vida cotidiana.</p><Button asChild variant="outline" className={`mt-6 ${actionClass}`}><Link to="/terapia-online">Conoce la terapia online <ArrowUpRight /></Link></Button></div>
           </div>
           <div className="mt-12 grid gap-7 border-t border-primary/20 pt-8 sm:grid-cols-3">
             {[{ Icon: Clock3, title: "Flexibilidad", text: "Integra la terapia en tu rutina." }, { Icon: HeartHandshake, title: "Comodidad", text: "Realiza las sesiones desde tu propio espacio." }, { Icon: MapPin, title: "Accesibilidad", text: "Cuida de tu salud mental sin depender de desplazamientos." }].map(({ Icon, title, text }) => <div key={title}><Icon className="size-5 text-primary" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-3 text-sm font-medium uppercase">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}
@@ -186,9 +194,7 @@ function Index() {
 
       <section id="areas-inicio" aria-labelledby="areas-inicio-titulo" className="mx-auto scroll-mt-28 max-w-6xl px-6 py-16 md:py-24">
         <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]"><div><p className="home-eyebrow text-sm text-primary">Áreas de acompañamiento</p><h2 id="areas-inicio-titulo" className="mt-4 font-display text-3xl font-medium leading-tight md:text-4xl">¿En qué puedo acompañarte?</h2></div><p className="max-w-[43ch] self-end text-base leading-relaxed text-muted-foreground">Cada historia es diferente. El proceso parte de lo que estás viviendo y de lo que necesitas hoy.</p></div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {accompanimentAreas.map(({ Icon, ...area }) => <Link key={area.id} to="/servicios" hash={area.id} className="group flex flex-col rounded-md border border-primary/15 bg-card p-6 outline-offset-4 transition-colors hover:border-primary/40 focus-visible:outline-primary"><Icon className="size-6 text-primary" strokeWidth={1.3} aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-medium leading-snug group-hover:text-primary">{area.title}</h3><p className="mb-5 mt-3 text-sm leading-relaxed text-muted-foreground">{area.text}</p><span className="mt-auto flex min-h-11 items-center gap-2 text-sm font-medium text-primary">Conoce más <ArrowUpRight className="size-4" aria-hidden="true" /></span></Link>)}
-        </div>
+        <OnlineAreas />
         <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4 border-t border-border pt-6">
           <Button asChild variant="link" className="h-auto whitespace-normal px-0 text-left"><Link to="/diabetes">Diabetes y bienestar emocional <ArrowUpRight /></Link></Button>
           <Button asChild variant="link" className="h-auto whitespace-normal px-0 text-left"><Link to="/demencia-y-alzheimer">Demencia y Alzheimer <ArrowUpRight /></Link></Button>
@@ -199,7 +205,7 @@ function Index() {
       <section aria-labelledby="esencia-noralma" className="bg-sand/50">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1.2fr_1fr] md:gap-20 md:py-20">
           <div><EspiralMarca className="size-10" /><p className="home-eyebrow mt-5 text-sm text-primary">Mi forma de entender la psicología</p><h2 id="esencia-noralma" className="mt-6 max-w-[20ch] font-display text-4xl font-medium leading-tight text-primary md:text-5xl">¿Esto me acerca a mí <em className="font-normal">o me aleja de mí?</em></h2></div>
-          <div className="space-y-5 text-base leading-relaxed text-muted-foreground"><p>Creo en una psicología que no busca convertirnos en alguien diferente, sino ayudarnos a comprender nuestra experiencia, aceptar aquello que sentimos y reconocer qué es importante para nosotros. Un proceso en el que aprender a relacionarnos de otra manera con nuestros pensamientos y emociones, identificando nuestros valores y construyendo una vida más coherente con ellos.</p><p>Trabajo desde la Terapia de Aceptación y Compromiso (ACT): dar espacio a lo que sientes y caminar hacia aquello que tiene sentido para ti.</p><Button asChild variant="link" className="h-auto whitespace-normal px-0"><Link to="/servicios" hash="forma-de-trabajar">Mi forma de trabajar <ArrowUpRight /></Link></Button></div>
+          <div className="space-y-5 text-base leading-relaxed text-muted-foreground"><p>En terapia no buscamos eliminar todas las emociones difíciles ni convertirnos en una versión perfecta de nosotros mismos. Trabajamos para aprender a relacionarnos con nuestra experiencia interna con mayor flexibilidad y avanzar hacia aquello que realmente nos importa.</p><p>Trabajo desde la Terapia de Aceptación y Compromiso (ACT): dar espacio a lo que sientes y caminar hacia aquello que tiene sentido para ti.</p><Button asChild variant="link" className="h-auto whitespace-normal px-0"><Link to="/servicios" hash="forma-de-trabajar">Descubre cómo trabajo <ArrowUpRight /></Link></Button></div>
         </div>
       </section>
 
@@ -232,7 +238,7 @@ function Index() {
       <NewsletterSection />
 
       <section aria-labelledby="empezar" className="bg-sand/60">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><EspiralMarca className="mx-auto size-14" /><p className="home-eyebrow mt-5 text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">A veces, empezar a cuidarte comienza con una conversación.</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">Si sientes que necesitas un espacio para ti, estaré encantada de acompañarte.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Reserva tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20"><EspiralMarca className="mx-auto size-14" /><p className="home-eyebrow mt-5 text-sm text-primary">Hablemos</p><h2 id="empezar" className="mt-5 font-display text-3xl font-medium leading-tight text-balance md:text-4xl">¿Te gustaría empezar a dedicarte un espacio?</h2><p className="mx-auto mt-6 max-w-[51ch] text-base leading-relaxed text-muted-foreground">Si sientes que necesitas un espacio para ti, estaré encantada de acompañarte.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Button asChild className={actionClass}><a href={ONLINE_WHATSAPP_URL} target="_blank" rel="noreferrer">Solicita tu primera sesión <ArrowUpRight /></a></Button><Button asChild variant="outline" className={actionClass}><Link to="/contacto">Contacta conmigo <ArrowUpRight /></Link></Button></div></div>
       </section>
     </div>
   );
